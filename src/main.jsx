@@ -12,6 +12,7 @@ import Profile from './pages/Profile/Profile';
 import Register from './pages/Register/Register';
 import Settings from './pages/Setting/Setting';
 import Form from './pages/Form/Form';
+import Login from './pages/login/Login';
 
 const router = createBrowserRouter([
   {

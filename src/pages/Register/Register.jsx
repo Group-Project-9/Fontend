@@ -126,7 +126,6 @@ const Register = () => {
     <button id="signUp">Sign Up</button>
   </div>
 </>
-  )
-}
+
 
 export default Register;
