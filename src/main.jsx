@@ -1,12 +1,11 @@
 import ReactDOM from 'react-dom/client';
 import {
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
+  BrowserRouter,
   Route,
-  
+  Routes
 } from 'react-router-dom';
 import './index.css'
+import Layout from './Components/layout.jsx'
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/Profile/Profile';
 import Register from './pages/Register/Register';
@@ -14,37 +13,22 @@ import Settings from './pages/Setting/Setting';
 import Form from './pages/Form/Form';
 import Login from './pages/login/Login';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "/profile",
-    element: <Profile />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/setting",
-    element: <Settings />,
-  },
-  {
-    path: "/form",
-    element: <Form />,
-  },    
-]);
-
 // eslint-disable-next-line react-refresh/only-export-components
-function App() {
+export default function App() {
   return (
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/form" element={<Form />} />
+          
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

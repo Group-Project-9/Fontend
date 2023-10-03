@@ -128,8 +128,8 @@ const mockInfo = [
 const Profile = () => {
   return (
     <div>
-      <div className='flex mx-6 px-6 py-3 mt-6 bg-stone-700 rounded-xl'>
-        <div className='profile-image'><img src={pfp} alt="holder image" className='rounded-xl' /></div>
+      <div className='flex px-6 py-3 bg-stone-700 rounded-3xl'>
+        <div className='profile-image'><img src={pfp} alt="holder image" className='rounded-3xl' /></div>
         <div className='profile-name ml-6'>
           <p className="text-base text-neutral-600 dark:text-neutral-200">Name : {mockProfile[0].full_name}</p>
           <p className="text-base text-neutral-600 dark:text-neutral-200">Weight : {mockProfile[0].weight}</p>
@@ -138,8 +138,8 @@ const Profile = () => {
         </div> 
       </div>
       <div className='' >
-        <div className='grid md:grid-cols-3 grid-cols-1 m-3'>
-          {mockInfo.map((item) => (
+        <div className='grid md:grid-cols-3 grid-cols-1 '>
+          {mockInfo.splice(0,9).map((item) => (
             <Card key={item.id}
               activity_id={item.activity_id}
               start_date={item.start_date}
