@@ -7,19 +7,35 @@
     background-color: antiquewhite;
     border-radius: 8px;
     color: black;
+    width: 400px;
     
 }
 
-.Right, label, input {
+h2{
+    color: black;
+    font-weight: 700;
+}
+
+#uploadIMG {
+    background-color: antiquewhite;
+    background-image: url("./images/uploadIMG.com.png");
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.Right, label {
     height: 100%;
     text-align: end;
     background-color:antiquewhite;
     border: none;
-    outline: none !important;
+    outline: none ;
 }
 
 option {
     font-size: 1.1rem;
+    font-weight: 600;
+    color: black;
 }
 
 
@@ -38,4 +54,6 @@ textarea {
     background-color: rgb(189, 187, 183);
     padding: 10px;
 }
-
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}

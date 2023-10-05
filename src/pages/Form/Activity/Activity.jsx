@@ -7,9 +7,9 @@ const Activity = ({ selectOptions, handleChange }) => {
       <select
         value={selectOptions}
         onChange={handleChange}
-        className="Right mr-2 w-[40%]"
+        className="Right mr-2 lg:w-3/5 md:w-1/2 text-black font-bold"
       >
-        <option value="1" disabled defaultValue>
+        <option value="1" hidden disabled defaultValue>
           Select Activity
         </option>
         <option value="running">Running</option>
