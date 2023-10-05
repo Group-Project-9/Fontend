@@ -33,7 +33,7 @@ const User_account = () => {
         <div>80 KG</div>
       </div>
       <div className="flex justify-center items-center mt-10">
-        <a href="/setting/user-account/edit">
+        <a href="/settings/user-account/edit">
         <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 ">
             Edit
           </button>

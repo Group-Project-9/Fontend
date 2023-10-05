@@ -70,14 +70,14 @@ const UserAccountEdit = () => {
       {/*btn-CANCEL-SAVE*/}
       <div className="flex flex-row">
         <div>
-          <a href="/setting/user-account">
+          <a href="/settings/user-account">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mx-2 w-32">
               CANCEL
             </button>
           </a>
         </div>
         <div>
-          <a href="/setting/user-account">
+          <a href="/settings/user-account">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mx-2 w-32">
               SAVE
             </button>

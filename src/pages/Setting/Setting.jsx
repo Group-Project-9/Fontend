@@ -1,5 +1,4 @@
 import React from "react";
-import "./Setting.css";
 
 const Setting = () => {
   return (
@@ -9,7 +8,7 @@ const Setting = () => {
         <div className="flex-col items-center">
           {/* button for setting */}
           <div>
-          <a href="/setting/user-account">
+          <a href="/settings/user-account">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
               User Account
             </button>
@@ -17,7 +16,7 @@ const Setting = () => {
         </div>
 
         <div >
-          <a href="/setting/security-setting">
+          <a href="/settings/security-setting">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
               Security Setting
             </button>
@@ -25,7 +24,7 @@ const Setting = () => {
         </div>
 
         {/* <div>
-          <a href="/setting/theme-change">
+          <a href="/settings/theme-change">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
               Theme Change
             </button>
@@ -33,7 +32,7 @@ const Setting = () => {
         </div> */}
 
         <div >
-          <a href="/setting/help-support">
+          <a href="/settings/help-support">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
               Help & Support
             </button>
@@ -41,7 +40,7 @@ const Setting = () => {
         </div>
 
         <div>
-          <a href="/setting/log-out">
+          <a href="/settings/log-out">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mt-10 w-60">
               Log Out
             </button>
