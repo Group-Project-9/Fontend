@@ -28,7 +28,7 @@ const Home = () => {
           <Link to = "../register">
             <li>Link to Register</li>
           </Link>
-          <Link to = "../setting">
+          <Link to = "../settings">
             <li>Link to Setting</li>
           </Link>
           <Link to = "../form">
