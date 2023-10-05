@@ -12,6 +12,25 @@ import "./form.css";
 const Form = () => {
   const [selectOptions, setSelectOptions] = useState("1");
   const [imagePreview, setImagePreview] = useState(null);
+  const [activity, setActivity] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [hour, setHour] = useState("0");
+  const [minute, setMinute] = useState("0");
+  const [location, setLocation] = useState("");
+  const [distance, setDistance] = useState("0");
+  const [note, setNote] = useState("");
+           
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    console.log("activity:", activity);
+    console.log("dateTime:", date, time);
+    console.log("duration:", hour + " Hour", minute + " Minute" );
+    console.log("location:", location);
+    console.log("distance:", distance + " Kilometers");
+    console.log("note:", note);
+  }
 
   const handleChange = (event) => {
     setSelectOptions(event.target.value);
@@ -35,17 +54,40 @@ const Form = () => {
       <h1 className="text-center mt-10  text-[2rem]"> Create Activity</h1>
       <div className="h-100 flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px] h-full ">
         <div>
-          <form className="flex flex-col gap-3 relative ">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 relative ">
             <Activity
-              selectOptions={selectOptions}
+              setActivity={setActivity}
               handleChange={handleChange}
+              selectOptions={selectOptions}
             />
-            <DateTime />
-            <Duration />
-            <Distance selectOption={selectOptions} />{" "}
-            {/* Use selectOption here */}
-            <Location />
-            <Note />
+            <DateTime 
+              date={date}
+              time={time}  
+              setDate={setDate}
+              setTime={setTime}
+            />
+            <Duration 
+              hour={hour}
+              minute={minute}
+              setHour={setHour}
+              setMinute={setMinute}  
+            />
+            <Distance 
+              distance={distance}
+              setDistance={setDistance}
+              selectOption={selectOptions} />{" "}
+            
+            <Location 
+              location={location}
+              setLocation={setLocation}
+
+            />
+             
+            <Note 
+              note={note}
+              setNote={setNote}
+
+            />
             <BtnSave />
           </form>
         </div>
