@@ -6,12 +6,14 @@ import Distance from "./Activity/Distance";
 import Note from "./Activity/Note";
 import Location from "./Activity/Location";
 import BtnSave from "./Activity/ButtonSave";
+import Axios from 'axios'
 
 import "./form.css";
 
 const Form = () => {
   const [selectOptions, setSelectOptions] = useState("1");
   const [imagePreview, setImagePreview] = useState(null);
+
   const [activity, setActivity] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -20,17 +22,41 @@ const Form = () => {
   const [location, setLocation] = useState("");
   const [distance, setDistance] = useState("0");
   const [note, setNote] = useState("");
-           
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-    console.log("activity:", activity);
-    console.log("dateTime:", date, time);
-    console.log("duration:", hour + " Hour", minute + " Minute" );
-    console.log("location:", location);
-    console.log("distance:", distance + " Kilometers");
-    console.log("note:", note);
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const apiUrl = "https://dwdaewewad.api"; // Replace with your API endpoint URL
+
+    const dataToSend = {
+      activity: activity,
+      date: date,
+      time: time,
+      hour: hour,
+      minute: minute,
+      location: location,
+      distance: distance,
+      note: note,
+      image: imagePreview, // Assuming you want to send the image URL as well
+    };
+
+    try {
+      const response = await Axios.post(apiUrl, dataToSend);
+
+      // Handle the response here if needed
+      console.log("API Response:", response.data);
+      console.log("activity:", activity);
+      console.log("dateTime:", date, time);
+      console.log("duration:", hour + " Hour", minute + " Minute" );
+      console.log("location:", location);
+      console.log("distance:", distance + " Kilometers");
+      console.log("note:", note);
+    } catch (error) {
+      // Handle errors here
+      console.error("API Error:", error);
+    }
+  };
+
 
   const handleChange = (event) => {
     setSelectOptions(event.target.value);
