@@ -6,12 +6,57 @@ import Distance from "./Activity/Distance";
 import Note from "./Activity/Note";
 import Location from "./Activity/Location";
 import BtnSave from "./Activity/ButtonSave";
+import Axios from 'axios'
 
 import "./form.css";
 
 const Form = () => {
   const [selectOptions, setSelectOptions] = useState("1");
   const [imagePreview, setImagePreview] = useState(null);
+
+  const [activity, setActivity] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [hour, setHour] = useState("0");
+  const [minute, setMinute] = useState("0");
+  const [location, setLocation] = useState("");
+  const [distance, setDistance] = useState("0");
+  const [note, setNote] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const apiUrl = "https://dwdaewewad.api"; // Replace with your API endpoint URL
+
+    const dataToSend = {
+      activity: activity,
+      date: date,
+      time: time,
+      hour: hour,
+      minute: minute,
+      location: location,
+      distance: distance,
+      note: note,
+      image: imagePreview, // Assuming you want to send the image URL as well
+    };
+
+    try {
+      const response = await Axios.post(apiUrl, dataToSend);
+
+      // Handle the response here if needed
+      console.log("API Response:", response.data);
+      console.log("activity:", activity);
+      console.log("dateTime:", date, time);
+      console.log("duration:", hour + " Hour", minute + " Minute" );
+      console.log("location:", location);
+      console.log("distance:", distance + " Kilometers");
+      console.log("note:", note);
+    } catch (error) {
+      // Handle errors here
+      console.error("API Error:", error);
+    }
+  };
+
 
   const handleChange = (event) => {
     setSelectOptions(event.target.value);
@@ -35,17 +80,40 @@ const Form = () => {
       <h1 className="text-center mt-10  text-[2rem]"> Create Activity</h1>
       <div className="h-100 flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px] h-full ">
         <div>
-          <form className="flex flex-col gap-3 relative ">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 relative ">
             <Activity
-              selectOptions={selectOptions}
+              setActivity={setActivity}
               handleChange={handleChange}
+              selectOptions={selectOptions}
             />
-            <DateTime />
-            <Duration />
-            <Distance selectOption={selectOptions} />{" "}
-            {/* Use selectOption here */}
-            <Location />
-            <Note />
+            <DateTime 
+              date={date}
+              time={time}  
+              setDate={setDate}
+              setTime={setTime}
+            />
+            <Duration 
+              hour={hour}
+              minute={minute}
+              setHour={setHour}
+              setMinute={setMinute}  
+            />
+            <Distance 
+              distance={distance}
+              setDistance={setDistance}
+              selectOption={selectOptions} />{" "}
+            
+            <Location 
+              location={location}
+              setLocation={setLocation}
+
+            />
+             
+            <Note 
+              note={note}
+              setNote={setNote}
+
+            />
             <BtnSave />
           </form>
         </div>
