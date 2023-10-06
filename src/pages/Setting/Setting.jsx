@@ -2,57 +2,86 @@ import React from "react";
 
 const Setting = () => {
   return (
-    <div>
-      <h1 className="text-5xl mb-10 text-center">Setting</h1>
-      <div className="flex justify-center">
-        <div className="flex-col items-center">
-          {/* button for setting */}
-          <div>
+    // CONTAINER SETTING
+    <div class="flex flex-col justify-center items-center h-screen mx-auto ">
+      {/*FLEX BOX-1, H1 SETTING */}
+      <div>
+        <h1 className="text-5xl mb-10 text-center">SETTING</h1>
+      </div>
+      {/*FLEX BOX-2, all setting button */}
+      <div>
+        {/*button USER ACCOUNT*/}
+        <div>
           <a href="/settings/user-account">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
-              User Account
+              USER ACCOUNT
             </button>
           </a>
         </div>
-
-        <div >
+        {/*button SECURITY SETTING*/}
+        <div>
           <a href="/settings/security-setting">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
-              Security Setting
+              SECURITY SETTING
             </button>
           </a>
         </div>
-
+        {/*button THEME CHANGE*/}
         {/* <div>
           <a href="/settings/theme-change">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
-              Theme Change
+              THEME CHANGE
             </button>
           </a>
         </div> */}
 
-        <div >
+        {/*button HELP & SUPPORT*/}
+        <div>
           <a href="/settings/help-support">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
-              Help & Support
+              HELP & SUPPORT
             </button>
           </a>
         </div>
 
-        <div>
-          <a href="/settings/log-out">
-            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mt-10 w-60">
-              Log Out
-            </button>
+        {/*button LOG OUT*/}
+        <div className="mt-10">
+          {/* The button to open modal */}
+          <a
+            href="#btn_logout"
+            className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-60"
+          >
+            LOG OUT
           </a>
+          {/* Put this part before </body> tag */}
+          <div className="modal" id="btn_logout">
+            <div className="modal-box">
+              {/* <h3 className="font-bold text-lg">Hello!</h3> */}
+              <p className="py-4">ARE YOU SURE YOU WANT TO LOG OUT ?</p>
+              <div className="modal-action">
+                <div>
+                  <a
+                    href="/settings"
+                    className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+                  >
+                    CLOSE
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="/settings/log-out"
+                    className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+                  >
+                    LOG OUT
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-
       </div>
     </div>
   );
 };
 
 export default Setting;
-
-

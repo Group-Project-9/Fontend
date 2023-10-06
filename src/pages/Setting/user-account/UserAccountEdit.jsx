@@ -1,5 +1,5 @@
 import React from "react";
-import ImgAvatar from "../../../assets/avatar-defult.svg";
+import ImgAvatar from "../../../assets/avatar-default.svg";
 
 
 const UserAccountEdit = () => {
@@ -10,6 +10,7 @@ const UserAccountEdit = () => {
       <div>
         <h1 className="text-5xl mb-10 ">EDIT PROFILE</h1>
       </div>
+
       {/*flex-box-2*/}
       {/*Avatar*/}
       <div className="avatar mb-10">
@@ -17,6 +18,7 @@ const UserAccountEdit = () => {
           <img src={ImgAvatar} />
         </div>
       </div>
+ 
       {/*file-input-pic-Avatar*/}
       <div className="mb-5">
         <input
@@ -25,7 +27,7 @@ const UserAccountEdit = () => {
         />
       </div>
       {/*input-input-Placeholder-user*/}
-      <div className="input-Placeholder-user w-56">
+      <div className="input-Placeholder-user w-56 ">
         {/*input-placeholder-USERNAME*/}
         <div className=" mb-5">
           <input
@@ -53,7 +55,7 @@ const UserAccountEdit = () => {
         {/*input-placeholder-Height*/}
         <div className=" mb-5">
           <input
-            type="text"
+            type="number"
             placeholder="Height"
             className="input input-bordered w-full max-w-xs"
           />
@@ -61,14 +63,16 @@ const UserAccountEdit = () => {
         {/*input-placeholder-Weight*/}
         <div className=" mb-5">
           <input
-            type="text"
+            type="number"
             placeholder="Weight"
             className="input input-bordered w-full max-w-xs"
           />
         </div>
       </div>
+      {/* <div className="border-b-2 border-gray-400 w-9/12 mb-5"/> */}
+      
       {/*btn-CANCEL-SAVE*/}
-      <div className="flex flex-row">
+      <div className="flex flex-row mt-5">
         <div>
           <a href="/settings/user-account">
             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mx-2 w-32">
