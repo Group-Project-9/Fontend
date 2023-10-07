@@ -1,60 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from axios;
 import './Profile.css'
 import Card from './card';
 import pfp from './200px.jpg';
 import { mockProfile, mockInfo } from './mockdata';
 
-/* 
-//profile
-app.get("/users/:userId", (req, res) => {
-  const userId = req.params.userId;
-  const name = userDatabase[userId];
-
-  if (!name) {
-    res.status(404).json({
-      error: {
-        message: "User not found",
-      },
-    });
-    return;
-  }
-
-  res.json({
-    data: {
-      id: userId,
-      name,
-      petImageUrl: getPetImageUrl(userId),
-    },
-  });
-}); */
-
-/* 
-//user activity
-app.get("/users/:userId", (req, res) => {
-  const userId = req.params.userId;
-  const name = userDatabase[userId];
-
-  if (!name) {
-    res.status(404).json({
-      error: {
-        message: "User not found",
-      },
-    });
-    return;
-  }
-
-  res.json({
-    data: {
-      id: userId,
-      name,
-      petImageUrl: getPetImageUrl(userId),
-    },
-  });
-}); */
-
-
-
 const Profile = () => {
+  const { _id } = useState({});
+  const [profileData, setProfileData] = useState({});
+
+  useEffect(() => {
+    const getProfile = async () => {
+      const response = await axios.get(
+        //backend url here
+        ''
+      )
+      if (response.status === 200 && response.data) {
+        setProfileData([...response.data]);
+        console.log('profile connect success!')
+      } else {
+        console.log('fail to get profile. error' + response.status)
+      }
+    };
+    getProfile();
+  }, []);
+
+  /* 
+  useEffect(() => {
+  const userId = 123; // should obtain the _Id from React Router ?
+  // Make an API request to the server using Axios
+  axios.get(`/api/users/${userId}`)
+    .then((response) => {
+      setProfileData(response.data.userProfile); // Update state with fetched data
+    })
+    .catch((error) => {
+      console.error('Error fetching profile data:', error);
+    });
+}, []);
+  */
+  
   return (
     <div>
       <div className='flex px-6 py-3 bg-stone-700 rounded-3xl'>
