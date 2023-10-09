@@ -1,114 +1,86 @@
-/* eslint-disable no-unused-vars */
-import './Login.css';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LogoDT from '../../assets/icon-dt.png';
 import LogoMB from '../../assets/icon-mb.png';
+import GoogleIcon from '@mui/icons-material/Google';
 
 const Login = () => {
 
-  const [action,setAction] = useState("Login");
+  const [logo, setLogo] = useState(LogoDT);
 
-  // const [logo, setLogo] = useState(LogoDT);
+  const handleLogoChange = () => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth <= 1279) {
+        setLogo(LogoMB);
+    } else {
+        setLogo(LogoDT);
+    }
+  };
 
-//   const handleLogoChange = () => {
-//     const windowWidth = window.innerWidth;
-//     if (windowWidth <= 1279) {
-//         setLogo(LogoMB);
-//     } else {
-//         setLogo(LogoDT);
-//     }
-// };
-
-// useEffect(() => {
-//     handleLogoChange(); 
-//     window.addEventListener("resize", handleLogoChange);
-//     return () => {
-//         window.removeEventListener("resize", handleLogoChange);
-//     };
-// }, []);
+  useEffect(() => {
+      handleLogoChange(); 
+      window.addEventListener("resize", handleLogoChange);
+      return () => {
+          window.removeEventListener("resize", handleLogoChange);
+      };
+  }, []);
   
   return (
   <div id='login-main' 
-  // className='flex items-center justify-center' 
+    className='h-[100vh] flex flex-col lg:flex-row items-center justify-center sm:justify-around xl:justify-center p-5 bg-black'
   >
-   
-   {/* div logo */}
-  {/* <div 
-    className='w-[50%] flex text-center justify-center'>
-      <img src={logo} alt="logo-webpage" />
-  </div> */}
-
-    {/* div for sing up */}
-    <div>
-      <div className='container'>
-
-        <div className='header'>
-          <div className='text'>{action}</div>
-          <div className='underline'></div>
-          <div className='small-text'>Please enter your username and password!</div>
+    <div 
+      className='w-full md:w-4/5 lg:w-2/4 xl:h-full flex text-center justify-center sm:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% rounded-xl mb-5 sm:mb-0'
+    >
+      <img src={logo} alt="logo-webpage" className='w-3/4'/>
+    </div>
+    <div 
+      className='w-full lg:w-[50%] flex flex-col items-center justify-start'
+    >
+      <h1 className='text-6xl font-bold my-10 hidden xl:block'>Welcome back!</h1>
+      <form 
+        className='w-full flex flex-col items-center justify-center rounded-md shadow-lg'
+      >
+        <div className='w-[80%] md:w-4/5 xl:w-3/5 flex flex-col'>
+          <h1 className='text-3xl font-bold mb-4 uppercase'>Sign In</h1>
+          <p className='text-md font-medium mb-4 text-white  hidden md:block'>Please enter your email & password</p>
         </div>
-
-        <div className='inputs'>
-
-          <div className='input'>
-            <img src='' alt=''/>
-            <input type='text' placeholder='Username'/>
-          </div>
-
-          <div className='input'>
-            <img src='' alt=''/>
-            <input type='email' placeholder='Email'/>
-          </div>
-
-          <div className='input'>
-            <img src='{}' alt=''/>
-            <input type='Password' placeholder='Password'/>
-          </div>
-
-      <div className='forgot-password'><span>Forgot your password?</span></div>
-
-      <div className='submit-container'>
-        <div className='submit'><button>Login</button></div>
+        <input 
+          className='w-[80%] md:w-4/5 xl:w-3/5 border border-gray-400 rounded-md mb-4 p-2 text-md font-medium ps-4' 
+          type="text" 
+          placeholder='Email' 
+        />
+        <input 
+          className='w-[80%] md:w-4/5 xl:w-3/5 border border-gray-400 rounded-md mb-4 p-2 text-md font-medium ps-4' 
+          type="password" 
+          placeholder='Password' 
+        />
+        <div className='w-[80%] md:w-4/5 xl:w-3/5 flex flex-col 2xl:flex-row justify-between items-start 2xl:items-center mb-4'>
+          <label htmlFor="keep-login" className='bg-transparent text-md font-medium text-white '>
+            <input type="checkbox" name="keep-login" id="keep-login" className='me-2 mb-3 2xl:mb-0 '/>
+            Keep me logged in
+          </label>
+          <p className='text-md font-medium text-white'>Dont have an account? 
+            <Link to="/register" className='ms-1 font-bold text-blue-400'>
+              Sign Up
+            </Link>
+          </p>
+        </div>
+        <button 
+          className='w-[80%] md:w-4/5 xl:w-3/5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 md:py-4 my-3 rounded-xl'>
+            Login
+        </button>
+      </form>
+      <div className='w-[80%] md:w-4/5 xl:w-3/5 mt-5 flex justify-center items-center  hidden md:flex'>
+        <div className='h-[2px] w-[20%] md:w-[10vw] xl:w-[8.5vw] 2xl:w-[9.5vw] bg-white'></div>
+        <p className='text-sm xl:text-md font-medium xl:font-bold mx-4'>Or countinue with</p>
+        <div className='h-[2px] w-[20%] md:w-[10vw] xl:w-[8.5vw] 2xl:w-[9.5vw] bg-white'></div>
       </div>
-
-
-        </div>
+      <div className='h-auto mt-5 py-3 px-4 border-2 border-white rounded-xl hover:bg-sky-500 cursor-pointer'>
+        <GoogleIcon />
+      </div>
     </div>
-
-
-
-        {/* <div className='w-[50%]'>
-          <a href="#">Forgot your password?</a>
-          <button>Sign In</button>
-          <span>Don’t have an account? <a href="#">Sign up</a></span>
-        </div> */}
-
-        {/* 
-      <div id='temporary-link'>
-        <h4>temporary link for checking</h4>
-        <ul>
-          <Link to = "../">
-            <li>Link to Home</li>
-          </Link>
-          <Link to = "../profile">
-            <li>Link to Profile</li>
-          </Link>
-          <Link to = "../register">
-            <li>Link to Register</li>
-          </Link>
-          <Link to = "../setting">
-            <li>Link to Setting</li>
-          </Link>
-          <Link to = "../form">
-            <li>Link to Form</li>
-          </Link>  
-        </ul>
-      </div> */}
-    </div>
-    
-
-    </div>
+</div>
   )
 }
 
