@@ -1,130 +1,159 @@
-import React, { useState } from "react";
-import './Register.css'
+import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError]  = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "username" || name === "password" || name === "email") {
-      const updatedValue = value.replace(/\s/g, "");
-      setFormData({ ...formData, [name]: updatedValue });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    })
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     setLoading(true);
+  //     const request = await fetch('/api/auth/signup', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     const data = await request.json();
+  //     if (data.success === false) {
+  //       setLoading(false);
+  //       setError(data.message);
+  //       return;
+  //     }
+      
+  //     setLoading(false);
+  //     setError(null);
+  //     navigate('/login');
+
+  //   } catch (error) {
+  //     setLoading(false);
+  //     setError(error.message);
+  //   }
+  // }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-  };
-
-
-  const handleChanges = (e) => {
-    const { name, value } = e.target;
-    if (name === "username" || name === "password") {
-      const updatedValue = value.replace(/\s/g,"")
-      setFormData({...formData, [name]: updatedValue })
-    } else {
-        setFormData({...formData, [name]: value})
+    const { password, confirmPassword } = formData;
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
     }
+    console.log(formData);
   }
 
   return (
-    <div className="flex">
-      <div className="min-h-screen w-screen flex items-center justify-center border-2">
-        <div className="bg-white p-8 "></div>
+    <div className="flex w-[100vw] h-[100vh] items-center justify-center bg-black md:bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500">
+      <div className="lg:w-2/5 hidden h-full lg:flex items-center justify-center">
+        <div className="w-4/5 text-white">
+          <h1 className="text-6xl float-right mb-3">Welcome to</h1>
+          <h1 className="text-5xl font-bold float-right">Fitness Diary</h1>
+        </div>
       </div>
-      <div className="min-h-screen  flex items-center justify-center border-2">
-        <div className=" p-8 rounded w-96">
-          <h2 className="text-4xl mb-4 justify-center">
-            Create Account
-          </h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block text-[13pt] mb-3 text-center bg-transparent text-neutral-200">
-                Please enter your Username <br />
-                password and Email!
-              </label>
+      <div className="w-full lg:w-3/5 h-full flex flex-col items-center justify-center bg-pink-50 rounded-2xl drop-shadow-2xl">
+        <div className="w-4/5 lg:w-3/5 text-black my-2">
+          <h1 className="text-4xl font-bold mb-4">Sign Up</h1>
+          <p className="text-md">Create account to acess our services</p>
+        </div>
+        <div className="w-4/5 sm:w-3/5 my-2">
+          <form 
+            onSubmit={handleSubmit} 
+            className="flex flex-col w-full text-black gap-3"
+          >
+            <div className="w-full flex gap-3">
+              <input 
+                type="text" 
+                placeholder="First name ..." 
+                className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
+                id="fristName" 
+                onChange={handleChange} />
+              <input 
+                type="text" 
+                placeholder="Last name ..." 
+                className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
+                id="lastName" 
+                onChange={handleChange} />
+            </div>
+            <div className="w-full flex gap-3">
+              <input 
+                  type="email" 
+                  placeholder="E-mail ..." 
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
+                  id="email" 
+                  onChange={handleChange} />
+              <select
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                  id="gender"
+                  onChange={handleChange}
+                >
+                  <option disabled={true} value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+              </select>
+            </div>
+            <div className="w-full flex gap-3">
               <input
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
+                type="number"
+                placeholder="Phone number ..."
+                className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                id="phone"
                 onChange={handleChange}
-                placeholder="USERNAME"
-                className="w-full bg-gray-700 border text-center rounded px-3 py-2 mt-1 focus:outline-none focus:border-blue-500"
+              />
+              <input
+                type="date"
+                placeholder="Date of birth ..."
+                className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                id="DOB"
+                onChange={handleChange}
               />
             </div>
-            <div className="mb-4">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="EMAIL"
-                className="w-full bg-gray-700 border text-center rounded px-3 py-2 mt-1 focus:outline-none focus:border-blue-500"
-              />
-            </div>
-            <div className="mb-4">
+            <div className="w-full flex gap-3">
               <input
                 type="password"
+                placeholder="Password ..."
+                className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
                 id="password"
-                name="password"
-                value={formData.password}
                 onChange={handleChange}
-                placeholder="PASSWORD"
-                className="w-full bg-gray-700 border text-center rounded px-3 py-2 mt-1 focus:outline-none focus:border-blue-500"
               />
-            </div>
-            <div className="mb-4 flex h-full justify-center ">
-              <label className=" bg-transparent text-[10pt] border text-center text-sm px-3 opacity-50 py-2 mt-1 focus:border-blue-500">Upload Picture</label>
-              <label htmlFor="img" className=" bg-transparent text-[10pt] visible text-center text-sm px-3 py-2 mt-1 focus:outline-none focus:border-blue-500 hover:underline">Choose file</label>
               <input
-                type="file"
-                id="img"
-                name="img"
-                accept="image/*"
-                placeholder="upload picture"
-                className="w-[50%] hidden"
+                type="password"
+                placeholder="Confirm password ..."
+                className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                id="confirmPassword"
+                onChange={handleChange}
               />
             </div>
-            <button
-              type="submit"
-              className="w-[50%] bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-600 focus:outline-none"
-            >
-              Register
+            <button 
+              disabled={loading}
+              className="bg-slate-700 text-white p-3 mt-5 rounded-lg font-bold uppercase hover:opacity-95 disable:opacity-80">
+              {loading ? "Loading..." : "Sign Up"}
             </button>
           </form>
+          <div className='flex gap-2 mt-5'>
+            <p className='text-md  text-black'>Have an account?</p>
+            <Link to={'/login'}>
+              <span className='text-md font-bold text-blue-700'>Sign In</span>
+            </Link>
+          </div>
+          {/* {error && <p className='text-red-500 mt-5'>{error}</p>} */}
         </div>
       </div>
     </div>
   );
 };
-<>
-  <div>
-    <form>
-      <h1>Create Account</h1>
-      <span>Please enter your Username password and Email!</span>
-      <input type="userName" placeholder="Username" />
-      <input type="fullName" placeholder="Fullname" />
-      <input type="password" placeholder="Password" />
-      <input type="confirmPassword" placeholder="Confirm password" />
-      <button>Sign Up</button>
-      <span href="#">already have an account? Login</span>
-    </form>
-	</div>
-
-  <div>
-    <h1>Hello, Friend!</h1>
-    <p>Enter your personal details and start journey with us</p>
-    <button id="signUp">Sign Up</button>
-  </div>
-</>
 
 export default Register;
