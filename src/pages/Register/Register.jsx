@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-
+import GoogleIcon from '@mui/icons-material/Google';
 
 const Register = () => {
   const [formData, setFormData] = useState({});
@@ -17,7 +17,11 @@ const Register = () => {
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
-
+  //   const { password, confirmPassword } = formData;
+  //   if (password !== confirmPassword) {
+  //     alert("Passwords do not match");
+  //     return;
+  //   }
   //   try {
   //     setLoading(true);
   //     const request = await fetch('/api/auth/signup', {
@@ -45,15 +49,12 @@ const Register = () => {
   //   }
   // }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const { password, confirmPassword } = formData;
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    console.log(formData);
-  }
+
+    console.log(formData)
+  };
+
 
   return (
     <div className="flex w-[100vw] h-[100vh] items-center justify-center bg-black md:bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500">
@@ -149,7 +150,15 @@ const Register = () => {
               <span className='text-md font-bold text-blue-700'>Sign In</span>
             </Link>
           </div>
-          {/* {error && <p className='text-red-500 mt-5'>{error}</p>} */}
+          <div className='w-[80%] md:w-4/5 xl:w-3/5 mt-5 flex justify-center items-center  hidden md:flex'>
+              <div className='h-[2px] w-[20%] md:w-[10vw] xl:w-[8.5vw] 2xl:w-[9.5vw] bg-white'></div>
+              <p className='text-sm xl:text-md font-medium xl:font-bold mx-4'>Or countinue with</p>
+              <div className='h-[2px] w-[20%] md:w-[10vw] xl:w-[8.5vw] 2xl:w-[9.5vw] bg-white'></div>
+          </div>
+          <div className='h-aut flex items-center w-16 mt-5 py-3 px-4 border-2 border-white rounded-xl bg-slate-500 hover:bg-sky-900 cursor-pointer'>
+            <GoogleIcon />
+          </div>
+          {error && <p className='text-red-500 mt-5'>{error}</p>}
         </div>
       </div>
     </div>

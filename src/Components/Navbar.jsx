@@ -81,7 +81,7 @@ const Navbar = () => {
                         {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Notification</h1> : null}
                     </NavLink>
                     <NavLink
-                        to="#"
+                        to="/profile"
                         className="flex items-center"
                     >
                         <AccountCircleIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
@@ -89,10 +89,10 @@ const Navbar = () => {
                     </NavLink>
                 </div>
                 <div className="w-full flex flex-col h-[10vh]  justify-between xl:px-5">
-                    <div className="flex flex-row items-center">
+                    <Link to='/settings' className="flex flex-row items-center">
                         <SettingsIcon sx={{ fontSize: 40 }} className="text-white mx-2" /> 
                         {text === true ? <h1 className="text-xl font-bold text-white">Setting</h1> : null}
-                    </div>
+                    </Link>
                     <div className="flex flex-row items-center">
                         <LogoutIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
                         {text === true ? <h1 className="text-xl font-bold text-white">Logout</h1> : null}
