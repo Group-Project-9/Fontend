@@ -1,6 +1,6 @@
 import React from "react";
 
-const Distance = ({ selectOption }) => { // Use selectOption as prop name
+const Distance = ({ selectOption, distance, setDistance }) => { // Use selectOption as prop name
   return (
     <>
       {(selectOption === "running" || selectOption === "bicycle") && (
@@ -13,6 +13,8 @@ const Distance = ({ selectOption }) => { // Use selectOption as prop name
               name="distance"
               min={0}
               type="number"
+              value={distance}
+              onChange={(e) => setDistance(e.target.value)}
             />
             <label htmlFor="distance" className="mr-2 flex items-center text-black font-semibold">
               KM

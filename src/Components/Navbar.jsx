@@ -37,7 +37,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className="flex flex-col items-center static w-20 xl:w-60 h-full p-3 bg-black rounded-3xl">
+        <header className="flex flex-col items-center static w-20 xl:w-60 h-full p-3 rounded-3xl bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400">
             <Link to="/" className="h-30">
                 <img src={logo} alt="navbar-icon" className="w-40 pb-6 pt-4" />
             </Link>
@@ -81,7 +81,7 @@ const Navbar = () => {
                         {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Notification</h1> : null}
                     </NavLink>
                     <NavLink
-                        to="#"
+                        to="/profile"
                         className="flex items-center"
                     >
                         <AccountCircleIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
@@ -89,10 +89,10 @@ const Navbar = () => {
                     </NavLink>
                 </div>
                 <div className="w-full flex flex-col h-[10vh]  justify-between xl:px-5">
-                    <div className="flex flex-row items-center">
+                    <Link to='/settings' className="flex flex-row items-center">
                         <SettingsIcon sx={{ fontSize: 40 }} className="text-white mx-2" /> 
                         {text === true ? <h1 className="text-xl font-bold text-white">Setting</h1> : null}
-                    </div>
+                    </Link>
                     <div className="flex flex-row items-center">
                         <LogoutIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
                         {text === true ? <h1 className="text-xl font-bold text-white">Logout</h1> : null}
