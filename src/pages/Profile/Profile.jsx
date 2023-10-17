@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from axios;
-import './Profile.css'
+import axios from 'axios';
 import Card from './card';
 import pfp from './200px.jpg';
 import { mockProfile, mockInfo } from './mockdata';
@@ -53,9 +52,9 @@ const Profile = () => {
       </div>
       <div className='' >
         <div className='activity-header mt-4 ml-1 mr-4'>
-          <h2 className='text-lg text-neutral-600 dark:text-neutral-200 bg-stone-700 rounded-3xl pl-4'>Recent Activity</h2>
+          <h2 className='text-lg text-neutral-600 dark:text-neutral-200 bg-stone-700 rounded-3xl py-5 px-7'>Recent Activity</h2>
         </div>
-        <div className='grid md:grid-cols-3 grid-cols-1 '>
+        <div className='flex flex-row flex-wrap'>
           {mockInfo.map((item) => (
             <Card key={item.id}
               activity_id={item.activity_id}

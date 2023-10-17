@@ -37,7 +37,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className="flex flex-col items-center static w-20 xl:w-60 h-full p-3 bg-black rounded-3xl">
+        <header className="flex flex-col items-center static w-20 xl:w-60 h-full p-3 rounded-3xl bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400">
             <Link to="/" className="h-30">
                 <img src={logo} alt="navbar-icon" className="w-40 pb-6 pt-4" />
             </Link>
