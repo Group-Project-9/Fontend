@@ -4,8 +4,8 @@ const Distance = ({ selectOption, distance, setDistance }) => { // Use selectOpt
   return (
     <>
       {(selectOption === "running" || selectOption === "bicycle") && (
-        <div className="flex Box h-14">
-          <h2>Distance</h2>
+        <div className="flex items-center justify-between bg-[antiquewhite] text-black w-[400px] h-14 border rounded-xl">
+          <h2 className="text-black flex ml-[10px] font-semibold">Distance</h2>
           <div className="Right flex items-center">
             <input
               className="w-full bg-transparent text-end text-black font-semibold outline-none"
@@ -15,8 +15,9 @@ const Distance = ({ selectOption, distance, setDistance }) => { // Use selectOpt
               type="number"
               value={distance}
               onChange={(e) => setDistance(e.target.value)}
+              required
             />
-            <label htmlFor="distance" className="mr-2 flex items-center text-black font-semibold">
+            <label htmlFor="distance" className="h-full text-right bg-antiquewhite border-none outline-none mr-2 ml-2 flex items-center text-black font-semibold">
               KM
             </label>
           </div>

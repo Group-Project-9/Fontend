@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Activity from "./Activity/Activity";
 import DateTime from "./Activity/DateTime";
 import Duration from "./Activity/Duration";
@@ -11,22 +12,23 @@ import Axios from 'axios'
 import "./form.css";
 
 const Form = () => {
+
   const [selectOptions, setSelectOptions] = useState("1");
   const [imagePreview, setImagePreview] = useState(null);
 
   const [activity, setActivity] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [hour, setHour] = useState("0");
-  const [minute, setMinute] = useState("0");
+  const [hour, setHour] = useState("");
+  const [minute, setMinute] = useState("");
   const [location, setLocation] = useState("");
-  const [distance, setDistance] = useState("0");
+  const [distance, setDistance] = useState("");
   const [note, setNote] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const apiUrl = "https://dwdaewewad.api"; // Replace with your API endpoint URL
+    const apiUrl = "http://localhost:3000/form";
 
     const dataToSend = {
       activity: activity,
@@ -37,13 +39,12 @@ const Form = () => {
       location: location,
       distance: distance,
       note: note,
-      image: imagePreview, // Assuming you want to send the image URL as well
+      image: imagePreview,
     };
 
     try {
       const response = await Axios.post(apiUrl, dataToSend);
 
-      // Handle the response here if needed
       console.log("API Response:", response.data);
       console.log("activity:", activity);
       console.log("dateTime:", date, time);
@@ -51,6 +52,7 @@ const Form = () => {
       console.log("location:", location);
       console.log("distance:", distance + " Kilometers");
       console.log("note:", note);
+      
     } catch (error) {
       // Handle errors here
       console.error("API Error:", error);
@@ -125,7 +127,8 @@ const Form = () => {
           </h1>
           <div
             id="uploadIMG"
-            className="w-[350px] h-[350px] relative border bg-image rounded-xl overflow-hidden"
+            className="w-[350px] h-[350px] relative border bg-image rounded-xl overflow-hidden bg-center bg-no-repeat bg-50 bg-contain bg-[antiquewhite]"
+        
           >
             <input
               className="w-full h-full absolute inset-0 opacity-0"
