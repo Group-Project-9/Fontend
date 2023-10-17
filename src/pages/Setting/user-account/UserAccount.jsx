@@ -3,7 +3,7 @@ import ImgAvatar from "../../../assets/avatar-default.svg";
 
 const User_account = () => {
   return (
-    <div className="flex flex-col justify-center items-center h-screen mx-auto w-6/12">
+    <div className="flex flex-col justify-center items-center h-screen mx-auto w-6/12 ">
       <div>
         <h1 className="text-5xl mb-10 text-center">PROFILE</h1>
         <div className="flex justify-center items-center avatar mb-10">

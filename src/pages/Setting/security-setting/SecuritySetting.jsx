@@ -46,7 +46,7 @@ const Security_setting = () => {
       <div className="flex justify-center w-full mt-10">
         <a href="/settings">
           <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 ">
-            SAVE EDIT
+            SAVE
           </button>
         </a>
       </div>
