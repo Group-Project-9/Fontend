@@ -4,7 +4,7 @@ import '../main'
 
 const Layout = () => {
   return (
-    <main className="w-[100vw] h-[100vh] flex items-center p-4">
+    <main className="w-[100vw] h-[100vh] flex items-center p-4 bg-gradient-to-r from-gray-100 to-gray-300">
         <section className='flex h-full'>
             <Navbar />
         </section>
