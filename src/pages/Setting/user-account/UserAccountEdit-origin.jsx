@@ -1,27 +1,10 @@
-import React, {useState, useEffect} from "react";
-import axios from 'axios'
+import React from "react";
 import ImgAvatar from "../../../assets/avatar-default.svg";
 
 
 const UserAccountEdit = () => {
-  const [username, setUsername] = useState("");
-  const [fullname, setFullname] = useState("");
-  const [date, setDate] = useState("");
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");  
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios.post('', {username, fullname, date, height, weight })
-    .then(result => console.log(result))
-    .catch(err=> console.log(err))
-  };
-
   return (
-    <div className="bg-zinc-100 drop-shadow-xl rounded-lg ">
     <div className="flex flex-col items-center  ">
-      {/* ALL THINGS TO FILLS */}
-      <form className="flex flex-col items-center" onSubmit={handleSubmit}>
       {/*container*/}
       {/*flex-box-1*/}
       <div>
@@ -51,7 +34,6 @@ const UserAccountEdit = () => {
             type="text"
             placeholder="Username"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         {/*input-placeholder-FULLNAME*/}
@@ -60,7 +42,6 @@ const UserAccountEdit = () => {
             type="text"
             placeholder="Fullname"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setFullname(e.target.value)}
           />
         </div>
         {/*input-placeholder-DATE*/}
@@ -69,8 +50,6 @@ const UserAccountEdit = () => {
             type="date"
             placeholder="DD/MM/YY"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setDate(e.target.value)}
-
           />
         </div>
         {/*input-placeholder-Height*/}
@@ -79,8 +58,6 @@ const UserAccountEdit = () => {
             type="number"
             placeholder="Height"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setHeight(e.target.value)}
-
           />
         </div>
         {/*input-placeholder-Weight*/}
@@ -89,31 +66,28 @@ const UserAccountEdit = () => {
             type="number"
             placeholder="Weight"
             className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setWeight(e.target.value)}
           />
         </div>
       </div>
-      </form>
+      {/* <div className="border-b-2 border-gray-400 w-9/12 mb-5"/> */}
       
       {/*btn-CANCEL-SAVE*/}
       <div className="flex flex-row mt-5">
         <div>
           <a href="/settings/user-account">
-            <button type="button" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mx-2 w-32">
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mx-2 w-32">
               CANCEL
             </button>
           </a>
         </div>
         <div>
           <a href="/settings/user-account">
-            <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mx-2 w-32">
+            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mx-2 w-32">
               SAVE
             </button>
           </a>
         </div>
       </div>
-
-    </div>
     </div>
   );
 };
