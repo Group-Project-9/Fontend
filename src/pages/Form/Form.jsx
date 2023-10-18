@@ -79,8 +79,8 @@ const Form = () => {
 
   return (
     <div className="h-screen flex flex-col ">
-      <h1 className="text-center mt-10  text-[2rem]"> Create Activity</h1>
-      <div className="h-100 flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px] h-full ">
+      <h1 className="text-center mt-10 mb-6 text-[2rem]"> Create Activity</h1>
+      <div className="h-100 h-full flex bg-slate-100 justify-evenly rounded-3xl items-center min-w-[964px] max-w-[1200px] ">
         <div>
           <form onSubmit={handleSubmit} className="flex flex-col gap-3 relative ">
             <Activity
@@ -127,7 +127,7 @@ const Form = () => {
           </h1>
           <div
             id="uploadIMG"
-            className="w-[350px] h-[350px] relative border bg-image rounded-xl overflow-hidden bg-center bg-no-repeat bg-50 bg-contain bg-[antiquewhite]"
+            className="w-[350px] h-[350px] relative border bg-image rounded-xl overflow-hidden bg-center bg-no-repeat  bg-50 bg-contain bg-[antiquewhite]"
         
           >
             <input

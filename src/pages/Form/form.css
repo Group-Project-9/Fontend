@@ -13,6 +13,10 @@
     background-position: 50%;
 } 
 
+.Box {
+    backdrop-filter: 5px 5px 20px 5px !important;
+}
+
 
 /* #location {
     float: left;
