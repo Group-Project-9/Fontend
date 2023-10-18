@@ -1,4 +1,3 @@
-import React from "react";
 import ImgAvatar from "../../../assets/avatar-defult.svg";
 
 
