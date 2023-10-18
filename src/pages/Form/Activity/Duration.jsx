@@ -2,8 +2,8 @@ import React from "react";
 
 const Duration = ({ hour, minute , setHour, setMinute}) => {
   return (
-    <div className="flex Box h-14">
-      <h2 className="">Duration</h2>
+    <div className="flex items-center justify-between bg-[antiquewhite] text-black w-[400px] h-14 border rounded-xl">
+      <h2 className="text-black flex ml-[10px] font-semibold">Duration</h2>
       <div className="Right mr-2 flex items-center ">
         <input
           value={hour}
@@ -17,7 +17,7 @@ const Duration = ({ hour, minute , setHour, setMinute}) => {
           max="24"
         />
         <label
-          className="text-black flex items-center font-semibold"
+          className="text-black flex items-center font-semibold ml-2"
           htmlFor="hours"
         >
           Hours
@@ -32,9 +32,10 @@ const Duration = ({ hour, minute , setHour, setMinute}) => {
           name="minutes"
           min="0"
           max="59"
+          required
         />
         <label
-          className="text-black flex items-center font-semibold"
+          className="text-black flex items-center font-semibold  ml-2"
           htmlFor="minutes"
         >
           Minutes

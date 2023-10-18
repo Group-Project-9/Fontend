@@ -3,13 +3,13 @@ import React from "react";
 const Note = ({note, setNote}) => {
   return (
     <>
-      <div className="border-2 h-14 Box">
-        <h2 className="mr-2">Note</h2>
+      <div className="flex items-center justify-between bg-[antiquewhite] text-black w-[400px] h-14 border rounded-xl">
+        <h2 className="mr-2 flex ml-[10px] text-black font-semibold">Note</h2>
       </div>
-      <textarea 
+      <textarea  
       value={note} 
       onChange={(e) => setNote(e.target.value)}
-      className="w-full rounded-sm resize-none h-[150px] text-black font-semibold"></textarea>
+      className="w-full rounded-sm resize-none h-[150px] text-black font-semibold outline-none  bg-stone-400 p-[10px]"></textarea>
     </>
   );
 };

@@ -1,20 +1,9 @@
 
-.Box { 
-    border: 2px solid;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: antiquewhite;
-    border-radius: 8px;
-    color: black;
-    width: 400px;
-    
-}
 
-h2{
+/* h2{
     color: black;
     font-weight: 700;
-}
+} */
 
 #uploadIMG {
     background-color: antiquewhite;
@@ -22,38 +11,22 @@ h2{
     background-size: 50px;
     background-repeat: no-repeat;
     background-position: 50%;
-}
-
-.Right, label {
-    height: 100%;
-    text-align: end;
-    background-color:antiquewhite;
-    border: none;
-    outline: none ;
-}
-
-option {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: black;
-}
+} 
 
 
-
-
-#location {
+/* #location {
     float: left;
-}
+} */
 
-h2 {
+/* h2 {
     display: flex;
     margin-left: 10px;
-}
+} */
 
-textarea {
+/* textarea {
     background-color: rgb(189, 187, 183);
     padding: 10px;
-}
+} */
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
