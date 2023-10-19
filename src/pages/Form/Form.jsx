@@ -1,68 +1,47 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import Button from '@mui/material/Button';
+import InputAdornment from '@mui/material/InputAdornment';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { styled } from '@mui/material/styles';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
-import Activity from "./Activity/Activity";
-import DateTime from "./Activity/DateTime";
-import Duration from "./Activity/Duration";
-import Distance from "./Activity/Distance";
-import Note from "./Activity/Note";
-import Location from "./Activity/Location";
-import BtnSave from "./Activity/ButtonSave";
-import Axios from 'axios'
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
 
-import "./form.css";
+const activityType = [
+  { label: 'Running' },
+  { label: 'Yoga' },
+  { label: 'Weight Training' },
+  { label: 'Bicycle' },
+  { label: 'Swimming' },
+];
 
 const Form = () => {
-
-  const [selectOptions, setSelectOptions] = useState("1");
+  const [activityData, setActivityData] = useState([]);
   const [imagePreview, setImagePreview] = useState(null);
-
-  const [activity, setActivity] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [hour, setHour] = useState("");
-  const [minute, setMinute] = useState("");
-  const [location, setLocation] = useState("");
-  const [distance, setDistance] = useState("");
-  const [note, setNote] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const apiUrl = "http://localhost:3000/form";
-
-    const dataToSend = {
-      activity: activity,
-      date: date,
-      time: time,
-      hour: hour,
-      minute: minute,
-      location: location,
-      distance: distance,
-      note: note,
-      image: imagePreview,
-    };
-
-    try {
-      const response = await Axios.post(apiUrl, dataToSend);
-
-      console.log("API Response:", response.data);
-      console.log("activity:", activity);
-      console.log("dateTime:", date, time);
-      console.log("duration:", hour + " Hour", minute + " Minute" );
-      console.log("location:", location);
-      console.log("distance:", distance + " Kilometers");
-      console.log("note:", note);
-      
-    } catch (error) {
-      // Handle errors here
-      console.error("API Error:", error);
-    }
-  };
-
-
-  const handleChange = (event) => {
-    setSelectOptions(event.target.value);
-  };
+  const [newActivity, setNewActivity] = useState({
+    type: '',
+    start: new Date(),
+    duration: '',
+    location: '',
+    distance: '',
+    note: '',
+    image: null,
+  });
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -72,79 +51,107 @@ const Form = () => {
         setImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
+      setNewActivity({ ...newActivity, image: file });
     } else {
       setImagePreview(null);
+      setNewActivity({ ...newActivity, image: null });
     }
   };
 
+  const handleSave = () => {
+    // Create a new activity and add it to the list
+    const activity = {
+      type: newActivity.type,
+      start: newActivity.start,
+      duration: newActivity.duration,
+      location: newActivity.location,
+      distance: newActivity.distance,
+      note: newActivity.note,
+      image: newActivity.image ? newActivity.image.name : null, // Include image file name
+    };
+
+    setActivityData([...activityData, activity]);
+
+    // Reset the form
+    setNewActivity({
+      type: '',
+      start: new Date(),
+      duration: '',
+      location: '',
+      distance: '',
+      note: '',
+      image: null,
+    });
+  };
+
+  const saveToJSON = () => {
+    // Create a JSON object containing the saved activities
+    const activitiesJSON = JSON.stringify(activityData, null, 2);
+
+    // You can choose to do something with the JSON object here, such as sending it to a server or saving it to a file
+    console.log(activitiesJSON);
+  };
+
   return (
-    <div className="h-screen flex flex-col ">
-      <h1 className="text-center mt-10 mb-6 text-[2rem]"> Create Activity</h1>
-      <div className="h-100 h-full flex bg-slate-100 justify-evenly rounded-3xl items-center min-w-[964px] max-w-[1200px] ">
-        <div>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3 relative ">
-            <Activity
-              setActivity={setActivity}
-              handleChange={handleChange}
-              selectOptions={selectOptions}
-            />
-            <DateTime 
-              date={date}
-              time={time}  
-              setDate={setDate}
-              setTime={setTime}
-            />
-            <Duration 
-              hour={hour}
-              minute={minute}
-              setHour={setHour}
-              setMinute={setMinute}  
-            />
-            <Distance 
-              distance={distance}
-              setDistance={setDistance}
-              selectOption={selectOptions} />{" "}
-            
-            <Location 
-              location={location}
-              setLocation={setLocation}
-
-            />
-             
-            <Note 
-              note={note}
-              setNote={setNote}
-
-            />
-            <BtnSave />
-          </form>
+    <div className="h-100 h-full flex flex-col rounded-3xl p-10 py-20 bg-slate-100">
+      <div className="w-full">
+        <h1 className="text-center text-3xl text-black">Create Activity</h1>
+      </div>
+      <div className="flex w-full h-full py-10">
+        <div className="Left w-full gap-4 flex flex-col items-center justify-center border-r border-black">
+          <Autocomplete
+            disablePortal
+            options={activityType}
+            sx={{ width: 300}}
+            renderInput={(params) => <TextField {...params} label="Activity Type"
+            value={newActivity.type}
+             />}
+          />
+          
+          <LocalizationProvider  value={newActivity.start} dateAdapter={AdapterDayjs} >
+            <DemoContainer components={['DateTimePicker']}
+            value={newActivity.start} 
+            >
+              <DateTimePicker className="w-[300px] mt-20" label="Start" 
+              />
+            </DemoContainer>
+          </LocalizationProvider>
+          <TextField className="w-[300px]" id="outlined-basic" label="Duration" variant="outlined" 
+            value={newActivity.duration}
+          />
+          <TextField className="w-[300px]" id="outlined-basic" label="Location" variant="outlined" />
+          <TextField
+            className="w-[300px]"
+            id="outlined-basic"
+            label="Distance"
+            variant="outlined"
+            InputProps={{
+              endAdornment: <InputAdornment position="start">KM</InputAdornment>,
+            }}
+          />
+          <TextField className="w-[300px]" id="outlined-basic" label="Note" variant="outlined" />
+          <Button className="w-[300px] h-[50px]" variant="contained"  onClick={handleSave} >SAVE</Button>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <h1 className="text-center font-semibold text-xl">
-            {" "}
-            Upload your image
-          </h1>
+
+        <div className="Right w-full flex flex-col gap-4 items-center justify-center">
+          
           <div
             id="uploadIMG"
-            className="w-[350px] h-[350px] relative border bg-image rounded-xl overflow-hidden bg-center bg-no-repeat  bg-50 bg-contain bg-[antiquewhite]"
-        
+            className="w-[350px] h-[350px] bg-sky-400 flex justify-center relative items-center border bg-image rounded-xl overflow-hidden bg-center bg-no-repeat bg-50 bg-contain "
           >
-            <input
-              className="w-full h-full absolute inset-0 opacity-0"
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              placeholder="Upload"
-            />
             {imagePreview && (
               <img
                 src={imagePreview}
                 alt="Selected Image"
-                className="w-full h-full object-contain z-10"
+                className="w-full h-full absolute object-contain z-10"
               />
             )}
           </div>
+            <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+              Upload file
+              <VisuallyHiddenInput type="file" className='absolute' onChange={handleImageChange} />
+            </Button>
         </div>
       </div>
     </div>
