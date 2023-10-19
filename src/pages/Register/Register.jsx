@@ -20,7 +20,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-
+    console.log(formData);
     const { password, confirmPassword } = formData;
     if (password !== confirmPassword) {
       setMatchPassword(false)
@@ -156,14 +156,14 @@ const Register = () => {
               <span className='text-md font-bold text-blue-700'>Sign In</span>
             </Link>
           </div>
-          <div className='w-[80%] md:w-full xl:w-full 2xl:w-full mt-5 flex justify-center items-center  hidden md:flex'>
+          {/* <div className='w-[80%] md:w-full xl:w-full 2xl:w-full mt-5 flex justify-center items-center  hidden md:flex'>
               <div className='h-[2px] w-[20%] md:w-[10vw] xl:w-[8.5vw] 2xl:w-1/3 bg-white'></div>
               <p className='text-sm xl:text-md font-medium xl:font-bold mx-4'>Or countinue with</p>
               <div className='h-[2px] w-[20%] md:w-[10vw] xl:w-[8.5vw] 2xl:w-1/3 bg-white'></div>
           </div>
           <div className='h-auto mx-auto flex items-center w-16 mt-5 py-3 px-4 border-2 border-white rounded-xl bg-slate-500 hover:bg-sky-900 cursor-pointer'>
             <GoogleIcon/>
-          </div>
+          </div> */}
        
           {error && <p className='text-red-500 mt-5'>{error}</p>}
         </div>

@@ -37,7 +37,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className="flex flex-col items-center static w-20 xl:w-60 h-full p-3 rounded-3xl bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400">
+        <header className="flex flex-col items-center static w-20 xl:w-60 h-full p-3 rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600">
             <Link to="/" className="h-30">
                 <img src={logo} alt="navbar-icon" className="w-40 pb-6 pt-4" />
             </Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
                         className="flex items-center"
                     >
                         <FlagIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
-                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">My goals</h1> : null}
+                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Record</h1> : null}
                     </NavLink>
                     <NavLink
                         to="#"
@@ -70,15 +70,6 @@ const Navbar = () => {
                     >
                         <InsightsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
                         {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Statistics</h1> : null}
-                    </NavLink>
-                    <NavLink
-                        to="#"
-                        className="flex items-center"
-                    >
-                        <Badge color="secondary" badgeContent={100}>
-                            <NotificationsIcon  sx={{ fontSize: 40 }} className="text-white mx-2"/>
-                        </Badge>
-                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Notification</h1> : null}
                     </NavLink>
                     <NavLink
                         to="/profile"
@@ -93,10 +84,6 @@ const Navbar = () => {
                         <SettingsIcon sx={{ fontSize: 40 }} className="text-white mx-2" /> 
                         {text === true ? <h1 className="text-xl font-bold text-white">Setting</h1> : null}
                     </Link>
-                    <div className="flex flex-row items-center">
-                        <LogoutIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
-                        {text === true ? <h1 className="text-xl font-bold text-white">Logout</h1> : null}
-                    </div>
                 </div>
             </nav>
         </header>

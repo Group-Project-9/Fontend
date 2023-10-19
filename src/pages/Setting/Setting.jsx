@@ -1,61 +1,40 @@
 const Setting = () => {
   return (
-    <div>
-      <h1 className="text-7xl font-bold mb-10 text-center m-10">Settings</h1>
-      <div className="flex justify-center">
-        <div className="flex-col items-center">
-          {/* button for setting */}
-          
-        <div>
-          <div>
-            <a href="/settings/user-account">
-                <button className="box-border btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-2 w-80
-            bg-gradient-to-r from-green-400 to-blue-500 hover:from-magenta-500 hover:to-amber-500" type="submit">
-              <img className="object-contain hover:object-scale-down h-7 mx-2" src="src/pages/Setting/icon/user (1).png" alt="user-icon"></img >
-              User Account
-                </button>
-            </a>
-        </div>
-
-        <div >
-          <a href="/settings/security-setting">
-            <button className="box-border btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-2 w-80
-            bg-gradient-to-r from-green-400 to-blue-500 hover:from-magenta-500 hover:to-amber-500" type="submit">
-            <img className="object-contain hover:object-scale-down h-7 mx-2" src="src/pages/Setting/icon/verified.png" alt="security-icon"></img >
-              Security Setting
-            </button>
-          </a>
-        </div>
-
-        {/* <div>
-          <a href="/settings/theme-change">
-            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-1 w-60">
-              Theme Change
-            </button>
-          </a>
-        </div> */}
-
-        <div >
-          <a href="/settings/help-support">
-            <button className="box-border btn btn-xs sm:btn-sm md:btn-md lg:btn-lg my-2 w-80
-            bg-gradient-to-r from-green-400 to-blue-500 hover:from-magenta-500 hover:to-amber-500" type="submit">
-            <img className="object-contain hover:object-scale-down h-7 mx-2" src="src/pages/Setting/icon/headphones.png" alt="headphone-icon"></img >
-              Help & Support
-            </button>
-          </a>
-        </div>
-
-        <div>
-          <a href="/settings/log-out">
-            <button className="box-border btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mt-10 w-80
-            bg-gradient-to-r from-green-400 to-blue-500 hover:from-magenta-500 hover:to-amber-500" type="submit">
-            <img className="object-contain hover:object-scale-down h-7 mx-2" src="src/pages/Setting/icon/power-off.png" alt="turnOff-icon"></img >
-              Log Out
-            </button>
-          </a>
-        </div>
-        </div>
+    <div className="bg-gradient-to-r from-rose-100 to-teal-100 rounded-2xl w-full h-full">
+      {/* header */}
+      <div>
+        <h1 className="text-7xl font-bold mb-10 text-center m-10 text-inherit">Settings</h1>
+        <h2 className="text-xl font-bold mb-10 text-center text-inherit">Set your account and enhance security, access help and support</h2>
       </div>
+
+      {/* setting option */}
+      <div>
+        <div className="flex flex-wrap justify-center">
+
+          {/* user accout */}
+        <div className="flex flex-col bg-white rounded-lg shadow-md w-full m-12 overflow-hidden sm:w-52">
+          <img src="src/pages/Setting/iicon/user (2).png" alt="user-icon" class="m-6" />
+          <a href="/settings/user-account" class="bg-blue-200 text-white p-3 text-center hover:bg-blue-800 transition-all duration-500">User Account</a>
+        </div>
+          {/* security setting */}
+        <div className="flex flex-col bg-white rounded-lg shadow-md w-full m-12 overflow-hidden sm:w-52">
+          <img src="src/pages/Setting/iicon/security.png" alt="security-icon" class="m-6" />
+          <a href="/settings/security-setting" class="bg-blue-200 text-white p-3 text-center hover:bg-blue-800 transition-all duration-500">Security Setting</a>
+        </div>
+          {/* help support */}
+        <div className="flex flex-col bg-white rounded-lg shadow-md w-full m-12 overflow-hidden sm:w-52">
+          <img src="src/pages/Setting/iicon/customer-service-agent.png" alt="support-icon" class="m-6" />
+          <a href="/settings/help-support" class="bg-blue-200 text-white p-3 text-center hover:bg-blue-800 transition-all duration-500">Help & Support</a>
+        </div>
+        </div>
+
+          {/* log out */}
+        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-col bg-white rounded-lg shadow-md w-full m-12 overflow-hidden sm:w-52">
+          <img src="src/pages/Setting/iicon/turn-off.png" alt="logout-icon" class="m-6" />
+          <a href="/settings/log-out" class="bg-blue-200 text-white p-3 text-center hover:bg-red-500 transition-all duration-500">Log Out</a>
+        </div>
+        </div>
 
       </div>
     </div>
