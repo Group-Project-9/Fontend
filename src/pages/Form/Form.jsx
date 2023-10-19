@@ -140,11 +140,11 @@ const Form = () => {
               placeholder="Upload"
             />
             {imagePreview && (
-              <div className="flex items-center justify-center">
+              <div className="flex items-center h-full w-full bg-black justify-center">
                 <img
                   src={imagePreview}
                   alt="Selected Image"
-                  className="w-full h-full object-contain z-10"
+                  className="w-full h-full object-cover z-10 "
                 />
                 <button
                   className=" z-30 absolute w-7 h-7 rounded-full bg-amber-900 top-2 right-2 text-slate-200"
