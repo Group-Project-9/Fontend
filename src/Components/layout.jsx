@@ -4,11 +4,14 @@ import '../main'
 
 const Layout = () => {
   return (
-    <main className="w-[100vw] h-[100vh] flex items-center p-4 bg-gradient-to-r from-gray-100 to-gray-300">
-        <section className='flex h-full'>
+    <main 
+      className="w-screen h-screen flex xl:flex-row xl:items-center xl:p-4 bg-[#F3F5F7]
+      md:flex-row md:items-center
+      flex-col-reverse">
+        <section className='flex w-full h-auto xl:rounded-3xl md:w-20 xl:w-60 md:h-full xl:h-full px-5 md:px-1 bg-gradient-to-r from-blue-500 to-blue-600 '>
             <Navbar />
         </section>
-        <section className='w-[90vw] h-[100vh] p-4 flex flex-col justify-between'>
+        <section className='w-full h-full p-4 flex flex-col'>
             <Outlet />
         </section>
     </main>
