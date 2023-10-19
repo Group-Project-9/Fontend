@@ -13,18 +13,18 @@ import { Line } from 'react-chartjs-2';
 // When registering plugins, use the ChartJS instance, not 'ChartJS' itself.
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Legend, Tooltip);
 
-const DataViz = () => {
+const DataViz = ({day, information}) => {
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    labels: day,
     datasets: [
       {
         label: 'Number of Exercise (Hr / Day)',
-        data: [3, 4, 6, 2, 1, 8, 9],
+        data: information,
         backgroundColor: 'aqua',
         borderColor: 'black',
         pointBackgroundColor: 'aqua', // Corrected from 'pointBorderColor'
         fill: true,
-        tension: 0.4,
+        tension: .0,
       },
     ],
   };
