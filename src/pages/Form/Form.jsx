@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Activity from "./Activity/Activity";
 import DateTime from "./Activity/DateTime";

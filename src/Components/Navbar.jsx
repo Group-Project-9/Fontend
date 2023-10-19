@@ -91,7 +91,7 @@ const Navbar = () => {
                             <InsightsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
                             {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Record</h1> : null}
                         </NavLink>
-                        <div className="md:w-full flex md:flex-col md:h-[10vh] justify-center md:justify-between md:px-2  mx-2 md:mx-0">
+                        <div className="md:w-full flex md:flex-col md:h-[10vh] justify-center md:justify-between mx-2 md:mx-0">
                          <Link to='/settings' className="h-full w-full flex flex-row items-center">
                             <SettingsIcon sx={{ fontSize: 40 }} className="text-white xl:mx-2" /> 
                             {text === true ? <h1 className="text-xl font-bold text-white mx-2">Setting</h1> : null}
