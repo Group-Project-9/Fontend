@@ -13,7 +13,7 @@ import { Line } from 'react-chartjs-2';
 // When registering plugins, use the ChartJS instance, not 'ChartJS' itself.
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Legend, Tooltip);
 
-const DataViz = ({day, information}) => {
+const DataVizOverAll = ({day, information}) => {
   const data = {
     labels: day,
     datasets: [
@@ -49,4 +49,4 @@ const DataViz = ({day, information}) => {
   );
 };
 
-export default DataViz;
+export default DataVizOverAll;
