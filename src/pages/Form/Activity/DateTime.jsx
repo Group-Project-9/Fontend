@@ -2,7 +2,7 @@ import React from "react";
 
 const DateTime = ({ date, time, setDate, setTime }) => {
   return (
-    <div className="Box flex items-center justify-between bg-[antiquewhite] text-black w-[400px] h-14 border rounded-xl">
+    <div className="Box flex items-center justify-between  text-black w-[400px] h-14 border rounded-xl">
       <h2 className="text-black flex ml-[10px] font-semibold">Start</h2>
       <div className="flex h-full pr-1">
         <input

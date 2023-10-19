@@ -5,7 +5,7 @@ const BtnSave = () => {
     <div className="w-full flex justify-end">
       <button to="/profile"
         type="submit"
-        className="w-full h-[55px] font-semibold text-white hover:text-[#fbfbfb] hover:bg-[#8c52d2] bg-[#573bd5] rounded-xl"
+        className="w-full h-[55px] font-semibold text-white hover:text-[#fbfbfb] hover:bg-[#8c52d2] bg-sky-700 rounded-xl"
       >
         Save
       </button>
