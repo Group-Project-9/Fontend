@@ -1,6 +1,6 @@
 const Setting = () => {
   return (
-    <div className="bg-gradient-to-r from-rose-100 to-teal-100 rounded-2xl w-full h-full">
+    <div className="bg-white rounded-2xl w-full h-full">
       {/* header */}
       <div>
         <h1 className="text-7xl font-bold mb-10 text-center m-10 text-inherit">Settings</h1>
