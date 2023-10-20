@@ -24,17 +24,18 @@ const Form = () => {
   const [distance, setDistance] = useState("");
   const [note, setNote] = useState("");
 
+  const duration = (hour * 60) + minute;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const apiUrl = "http://localhost:3000/form";
+    const apiUrl = "/api/auth/activity";
 
     const dataToSend = {
+      email: 'test@example.com',
       activity: activity,
       date: date,
-      time: time,
-      hour: hour,
-      minute: minute,
+      minute: minute, 
       location: location,
       distance: distance,
       note: note,
@@ -45,12 +46,12 @@ const Form = () => {
       const response = await Axios.post(apiUrl, dataToSend);
 
       console.log("API Response:", response.data);
-      console.log("activity:", activity);
-      console.log("dateTime:", date, time);
-      console.log("duration:", hour + " Hour", minute + " Minute");
-      console.log("location:", location);
-      console.log("distance:", distance + " Kilometers");
-      console.log("note:", note);
+      // console.log("activity:", activity);
+      // console.log("dateTime:", date, time);
+      // console.log("duration:", hour + " Hour", minute + " Minute");
+      // console.log("location:", location);
+      // console.log("distance:", distance + " Kilometers");
+      // console.log("note:", note);
     } catch (error) {
       // Handle errors here
       console.error("API Error:", error);
@@ -61,8 +62,8 @@ const Form = () => {
     setSelectOptions(event.target.value);
   };
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
