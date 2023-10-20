@@ -1,15 +1,5 @@
-export const mockProfile = [
-    {
-      info_id: 0,
-      profile_id: 1,
-      full_name: "Potato putute",
-      weight: 56,
-      height: 178,
-      date_of_birth: 230409,
-    }
-  ]
   
-export const mockInfo = [
+const mockInfo = [
     {
       id:0,
       activity_id:"Yoga",
@@ -119,3 +109,5 @@ export const mockInfo = [
       note: "Explored scenic trails in the countryside."
     },
   ]
+
+  export default mockInfo;

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Layout from "./Components/layout.jsx";
 import Home from "./pages/home/Home.jsx";
-import Profile from "./pages/Profile/Profile";
+import Statistic from "./pages/Statistic/Statistic";
 import Register from "./pages/Register/Register";
 import Settings from "./pages/Setting/Setting";
 import UserAccount from "./pages/Setting/user-account/UserAccount";
@@ -38,8 +38,8 @@ export default function App() {
             element={<Home />}
            />
           <Route 
-            path="/profile" 
-            element={<Profile />} 
+            path="/statistic" 
+            element={<Statistic />} 
           />
           <Route 
             path="/form" 

@@ -85,7 +85,7 @@ const Navbar = () => {
                             {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Record</h1> : null}
                         </NavLink>
                         <NavLink
-                            to="/"
+                            to="/statistic"
                             className="flex items-center md:my-5 mx-2 md:mx-0"
                         >
                             <InsightsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
