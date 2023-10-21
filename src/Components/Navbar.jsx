@@ -1,16 +1,13 @@
 import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import LogoDT from '../assets/icon-dt.png';
-import LogoMB from '../assets/icon-mb.png';
-import HomeIcon from '@mui/icons-material/Home';
-import LogoutIcon from '@mui/icons-material/Logout';
-import SearchIcon from '@mui/icons-material/Search';
-import FlagIcon from '@mui/icons-material/Flag';
+import LogoDT from '../assets/icon-dt-small.png';
+import LogoMB from '../assets/icon-mb-small.png';
+import UserTest from '../assets/user-test.png';
+import RoofingIcon from '@mui/icons-material/Roofing';
+
 import InsightsIcon from '@mui/icons-material/Insights';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
-import Badge from '@mui/material/Badge';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import SportsMartialArtsIcon from '@mui/icons-material/SportsMartialArts';
 
 const Navbar = () => {
     
@@ -37,55 +34,79 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className="flex flex-col items-center static w-20 xl:w-60 h-full p-3 rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600">
-            <Link to="/" className="h-30">
-                <img src={logo} alt="navbar-icon" className="w-40 pb-6 pt-4" />
-            </Link>
-            <nav className="w-full flex flex-col ">
-                <div className="w-full h-[45vh] xl:px-5 flex flex-col justify-between mb-[25vh] xl:mb-[15vh]">
-                    <NavLink
-                        to="/"
-                        className="flex items-center "
-                    >
-                        <HomeIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
-                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Home</h1> : null}
-                    </NavLink>
-                    <NavLink
-                        to="#"
-                        className="flex items-center"
-                    >
-                        <SearchIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
-                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Search</h1> : null}
-                    </NavLink>
-                    <NavLink
-                        to="#"
-                        className="flex items-center"
-                    >
-                        <FlagIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
-                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Record</h1> : null}
-                    </NavLink>
-                    <NavLink
-                        to="#"
-                        className="flex items-center"
-                    >
-                        <InsightsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
-                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Statistics</h1> : null}
-                    </NavLink>
-                    <NavLink
+        <header className="w-full h-full flex md:flex-col justify-between items-center static md:p-2 xl:p-3 ">
+            <nav className="w-full flex md:flex-col md:h-4/5 ">
+                <div className="w-full md:h-4/5 xl:px-2 flex md:flex-col justify-center md:justify-between md:mb-[25vh] xl:mb-[15vh]">
+                    <div
                         to="/profile"
-                        className="flex items-center"
+                        className="flex xl:flex-col xl:items-start py-3 mx-2 md:mx-0"
                     >
-                        <AccountCircleIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
-                        {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Profile</h1> : null}
-                    </NavLink>
+                        <div className="flex w-full md:justify-center md:justify-between">
+                            <div className="w-14 h-14 xl:w-32 xl:h-32 border-2 rounded-full">
+                                <img src={UserTest} className="w-full h-full rounded-full" />
+                            </div>
+                            <Link to="settings/user-account" 
+                                className="hidden xl:inline w-1/5 h-8 uppercase font-medium text-white text-sm xl:text-xl hover:drop-shadow-xl "
+                            >
+                                edit
+                            </Link>
+                        </div>
+                        {text === true ? <h1 className="w-full my-3 text-2xl font-medium tracking-wide text-white mx-1">Hugh Jackman</h1> : null}
+                    </div>
+                    { text === true ? <div className="flex flex-col xl:flex-row items-center w-full border-y border-[#ECEEF0] py-4">
+                        <div className="h-full w-full flex flex-col justify-center items-center xl:border-r">
+                            <div>
+                                <p className="uppercase text-stone-300 font-medium ">height</p>
+                                <h1 className="w-full text-xl font-medium tracking-wide text-white">{`190`}<span className="ms-1 text-stone-300 font-medium">cm</span></h1>
+                            </div>
+                        </div>
+                        <div className="h-full w-full flex flex-col justify-center items-center">
+                            <div>
+                                <p className="uppercase text-stone-300 font-medium">weight</p>
+                                <h1 className="w-full text-xl font-medium tracking-wide text-white">{`85`}<span className="ms-1 text-stone-300 font-medium">kg</span></h1>
+                            </div>
+                        </div>
+                    </div> : null}
+                    <div 
+                        className="flex flex-row md:flex-col md:h-auto"
+                    >
+                        <NavLink
+                            to="/"
+                            className="flex items-center md:my-5 mx-2 md:mx-0"
+                        >
+                            <RoofingIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
+                            {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Home</h1> : null}
+                        </NavLink>
+                        <NavLink
+                            to="/form"
+                            className="flex items-center md:my-5 mx-2 md:mx-0"
+                        >
+                            <SportsMartialArtsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
+                            {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Record</h1> : null}
+                        </NavLink>
+                        <NavLink
+                            to="/statistic"
+                            className="flex items-center md:my-5 mx-2 md:mx-0"
+                        >
+                            <InsightsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
+                            {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Statistics</h1> : null}
+                        </NavLink>
+                        <div className="md:w-full flex md:flex-col md:h-[10vh] justify-center md:justify-between mx-2 md:mx-0">
+                         <Link to='/settings' className="h-full w-full flex flex-row items-center">
+                            <SettingsIcon sx={{ fontSize: 40 }} className="text-white md:mx-2 xl:mx-2" /> 
+                            {text === true ? <h1 className="text-xl font-bold text-white mx-2">Setting</h1> : null}
+                        </Link>
                 </div>
-                <div className="w-full flex flex-col h-[10vh]  justify-between xl:px-5">
-                    <Link to='/settings' className="flex flex-row items-center">
-                        <SettingsIcon sx={{ fontSize: 40 }} className="text-white mx-2" /> 
-                        {text === true ? <h1 className="text-xl font-bold text-white">Setting</h1> : null}
-                    </Link>
+                    </div>
+                    
                 </div>
+                
             </nav>
+            <div className="md:flex md:items-center md:justift-center h-fit w-fit md:h-1/5 md:w-full p-1 m-1 xl:p-2 xl:m-2 hidden md:inline">
+                <Link to="/">
+                    <img src={logo} alt="navbar-icon" className="d:w-full h-auto" />
+                </Link>
+            </div>
         </header>
     )
 }
