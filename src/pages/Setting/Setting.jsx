@@ -3,7 +3,8 @@ const Setting = () => {
     <div className="bg-white rounded-2xl w-full h-full">
       {/* header */}
       <div>
-        <h1 className="text-7xl font-bold mb-10 text-center m-10 text-inherit">Settings</h1>
+        <h1 className="text-7xl font-bold mb-10 text-center m-10 text-inherit
+        md:max-sm: text-xl ">Settings</h1>
         <h2 className="text-xl font-bold mb-10 text-center text-inherit">Set your account and enhance security, access help and support</h2>
       </div>
 
