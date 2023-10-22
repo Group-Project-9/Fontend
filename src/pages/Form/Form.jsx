@@ -9,7 +9,6 @@ import Note from "./Activity/Note";
 import Location from "./Activity/Location";
 import BtnSave from "./Activity/ButtonSave";
 
-import "./form.css";
 
 const Form = () => {
   const [selectOptions, setSelectOptions] = useState("1");
@@ -23,6 +22,9 @@ const Form = () => {
   const [location, setLocation] = useState("");
   const [distance, setDistance] = useState("");
   const [note, setNote] = useState("");
+  const [userInfo, setUserInfo] = useState({
+
+  });
 
   const duration = (hour * 60) + minute;
 
@@ -80,11 +82,11 @@ const Form = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-slate-100 rounded-3xl">
-      <h1 className="text-center mt-16 mb-6 text-[2rem] text-slate-500">
-        Create Activity
-      </h1>
-      <div className="h-100 h-full flex  justify-evenly rounded-3xl items-center min-w-[964px] max-w-[1200px] ">
+    <main className="h-full w-full flex flex-col ">
+      <div className="w-full h-24 flex items-center justify-center bg-gradient-to-l from-[#006ED5] via-[#0097DC] to-[#00BFD1] rounded-2xl">
+        <h1 className="text-center mt-10  text-[2rem]"> Create Activity</h1>
+      </div>
+      <div className="h-full w-full flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px] h-full ">
         <div>
           <form
             onSubmit={handleSubmit}
@@ -158,7 +160,7 @@ const Form = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

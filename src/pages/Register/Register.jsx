@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import GoogleIcon from '@mui/icons-material/Google';
+// import GoogleIcon from '@mui/icons-material/Google';
 
 const Register = () => {
   const [formData, setFormData] = useState({});
@@ -84,12 +84,14 @@ const Register = () => {
                 placeholder="First name ..." 
                 className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
                 id="firstname" 
+                required
                 onChange={handleChange} />
               <input 
                 type="text" 
                 placeholder="Last name ..." 
                 className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
                 id="lastname" 
+                required
                 onChange={handleChange} />
             </div>
             <div className="w-full flex gap-3">
@@ -98,6 +100,7 @@ const Register = () => {
                   placeholder="E-mail ..." 
                   className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
                   id="email" 
+                  required
                   onChange={handleChange} />
               <select
                   className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
@@ -113,16 +116,18 @@ const Register = () => {
             <div className="w-full flex gap-3">
               <input
                 type="number"
-                placeholder="Phone number ..."
+                placeholder="Weight ..."
                 className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
-                id="phone"
+                id="weight"
+                required
                 onChange={handleChange}
               />
               <input
-                type="date"
-                placeholder="Date of birth ..."
+                type="number"
+                placeholder="Height ..."
                 className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
-                id="DOB"
+                id="height"
+                required
                 onChange={handleChange}
               />
             </div>
@@ -132,6 +137,7 @@ const Register = () => {
                 placeholder="Password ..."
                 className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
                 id="password"
+                required
                 onChange={handleChange}
               />
               <input
@@ -139,6 +145,7 @@ const Register = () => {
                 placeholder="Confirm password ..."
                 className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
                 id="confirmPassword"
+                required
                 onChange={handleChange}
               />
             </div>
