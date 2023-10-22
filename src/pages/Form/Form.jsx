@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Axios from "axios";
 
-// import Activity from "./Activity/Activity";
-// import DateTime from "./Activity/DateTime";
-// import Duration from "./Activity/Duration";
-// import Distance from "./Activity/Distance";
-// import Note from "./Activity/Note";
-// import Location from "./Activity/Location";
-// import BtnSave from "./Activity/ButtonSave";
+import Activity from "./Activity/Activity";
+import DateTime from "./Activity/DateTime";
+import Duration from "./Activity/Duration";
+import Distance from "./Activity/Distance";
+import Note from "./Activity/Note";
+import Location from "./Activity/Location";
+import BtnSave from "./Activity/ButtonSave";
 
 
 const Form = () => {
@@ -15,13 +15,13 @@ const Form = () => {
   const [imagePreview, setImagePreview] = useState(null);
 
   const [activity, setActivity] = useState("");
-  // const [date, setDate] = useState("");
-  // const [time, setTime] = useState("");
-  // const [hour, setHour] = useState("");
-  // const [minute, setMinute] = useState("");
-  // const [location, setLocation] = useState("");
-  // const [distance, setDistance] = useState("");
-  // const [note, setNote] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [hour, setHour] = useState("");
+  const [minute, setMinute] = useState("");
+  const [location, setLocation] = useState("");
+  const [distance, setDistance] = useState("");
+  const [note, setNote] = useState("");
   const [userInfo, setUserInfo] = useState({
 
   });
@@ -91,7 +91,7 @@ const Form = () => {
             onSubmit={handleSubmit}
             className="flex flex-col gap-3 relative "
           >
-            {/* <Activity
+            <Activity
               setActivity={setActivity}
               handleChange={handleChange}
               selectOptions={selectOptions}
@@ -115,7 +115,7 @@ const Form = () => {
             />
             <Location location={location} setLocation={setLocation} />
             <Note note={note} setNote={setNote} />
-            <BtnSave /> */}
+            <BtnSave />
           </form>
         </div>
 
