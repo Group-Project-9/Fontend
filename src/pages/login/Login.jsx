@@ -3,14 +3,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import LogoDT from '../../assets/icon-dt.png';
 import LogoMB from '../../assets/icon-mb.png';
 // import GoogleIcon from '@mui/icons-material/Google';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequest, loginSuccess, loginFailure } from '../../App/User/userSlice';
 
 const Login = () => {
 
   const [logo, setLogo] = useState(LogoDT);
-  const [formData, setFormData] = useState({email: '', password: ''});
-  const [error, setError]  = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({});
+  const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogoChange = () => {
     const windowWidth = window.innerWidth;
@@ -31,16 +33,17 @@ const Login = () => {
 
   const handleChange = (e) => {
     setFormData({
-      email: e.target.id === 'email' ? e.target.value : formData.email,
-      password: e.target.id === 'password' ? e.target.value : formData.password,
+      ...formData,
+      [e.target.id]: e.target.value
     })
   };
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
-    console.log(formData);
+    dispatch(loginRequest());
+
     try {
-      setLoading(true);
       const request = await fetch('/api/auth/signin', {
         method: 'POST',
         headers: {
@@ -51,18 +54,15 @@ const Login = () => {
 
       const data = await request.json();
       if (data.success === false) {
-        setLoading(false);
-        setError(data.message);
+        dispatch(loginFailure(data.message));
         return;
       }
       
-      setLoading(false);
-      setError(null);
+      dispatch(loginSuccess(data));
       navigate('/');
 
     } catch (error) {
-      setLoading(false);
-      setError(error.message);
+      dispatch(loginFailure(error.message));
     }
   }
   
