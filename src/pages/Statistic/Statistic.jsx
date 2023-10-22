@@ -6,8 +6,9 @@ import mockInfo from './mockdata';
 
 const Statistic = () => {
 
-  const [getData, setGetData] = useState(mockInfo);
+  // const [getData, setGetData] = useState(mockInfo);
   // const [userSelect, setUserSelect] = useState(mockInfo);
+  
 
 
   return (
@@ -19,7 +20,7 @@ const Statistic = () => {
       </section>
       <section className="w-full h-4/6 rounded-2xl p-4 bg-gradient-to-r from-cyan-200 to-cyan-400">
         <article>
-          <ActivityCard allActivity={getData} />
+          {/* <ActivityCard allActivity={} /> */}
         </article>
       </section>
     </main>    

@@ -1,19 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../index.css";
 import Layout from "../Components/layout.jsx";
-import Home from "../pages/home/Home.jsx";
-import Statistic from "../pages/Statistic/Statistic";
-import Register from "../pages/Register/Register";
-import Settings from "../pages/Setting/Setting";
-import UserAccount from "../pages/Setting/user-account/UserAccount";
-import UserAccountEdit from "../pages/Setting/user-account/UserAccountEdit";
-import SecuritySetting from "../pages/Setting/security-setting/SecuritySetting";
-import HelpSupport from "../pages/Setting/help-support/HelpSupport";
-import LogOut from "../pages/Setting/log-out/LogOut";
-import DataViz from "../pages/Data-vitualization/DataViz";
+import Home from "../Pages/home/Home.jsx";
+import Statistic from "../Pages/Statistic/Statistic";
+import Register from "../Pages/Register/Register";
+import Settings from "../Pages/Setting/Setting";
+import UserAccount from "../Pages/Setting/user-account/UserAccount";
+import UserAccountEdit from "../Pages/Setting/user-account/UserAccountEdit";
+import SecuritySetting from "../Pages/Setting/security-setting/SecuritySetting";
+import HelpSupport from "../Pages/Setting/help-support/HelpSupport";
+import LogOut from "../Pages/Setting/log-out/LogOut";
+import DataViz from "../Pages/Data-vitualization/DataViz";
 
-import Form from "../pages/Form/Form";
-import Login from "../pages/login/Login";
+import Form from "../Pages/Form/Form";
+import Login from "../Pages/Login/Login";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default function App() {
