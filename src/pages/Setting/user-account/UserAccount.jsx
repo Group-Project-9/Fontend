@@ -27,8 +27,8 @@ const UserAccountSettings = () => {
 
   return (
 
-    <div className="bg-gray-100 h-full w-full p-4 flex flex-col items-center ">
-      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-md'>
+    <div className="bg-gray-100 h-full w-full flex flex-col items-center rounded-2xl">
+      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-sm'>
                 <h1 className='text-2xl xl:text-5xl text-inherit'>User Account Settings</h1>
       </div>
       <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 max-w-md w-full m-5">
@@ -105,7 +105,7 @@ const UserAccountSettings = () => {
 
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 text-center rounded-md hover:bg-blue-700 transition-all duration-300"
+          className="bg-blue-500 text-white p-2 text-center rounded-md hover:bg-blue-700 transition-all duration-300 mx-auto w-full"
         >
           Save
         </button>

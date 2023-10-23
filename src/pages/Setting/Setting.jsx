@@ -3,7 +3,7 @@ const Setting = () => {
     <div className="bg-gray-100 rounded-2xl w-full h-full ">
       {/* header */}
       
-      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-md'>
+      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-sm'>
                 <h1 className='text-2xl xl:text-5xl text-inherit'>Settings</h1>
       </div>
         {/* <h1 className="lg:text-4xl max-lg:text-4xl xl:text-6xl font-bold mb-10 text-center m-10 text-inherit">Settings</h1> */}
