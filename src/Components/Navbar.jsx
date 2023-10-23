@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';  // Use to get Current User
 
 import LogoDT from '../assets/icon-dt-small.png';
 import LogoMB from '../assets/icon-mb-small.png';
@@ -15,7 +15,9 @@ const Navbar = () => {
     const [logo, setLogo] = useState(LogoDT);
     const [text, setText] = useState(true);
 
-    const { currentUser } = useSelector((state) => state.user);
+    const { currentUser } = useSelector((state) => state.user);  // Use to get Current User
+
+    console.log(currentUser.email); // Check Current User
 
     const handleLogoChange = () => {
         const windowWidth = window.innerWidth;
