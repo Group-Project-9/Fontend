@@ -8,40 +8,32 @@ import { IoCallOutline } from "react-icons/io5";
 
 const HelpSupport = () => {
   return (
-    <div>
-      <h1 className="text-5xl mb-10 text-center">Help Support</h1>
-      {/* flex container */}
-      <div className="flex justify-center items-center ">
-        <div className="flex flex-col justify-center items-start ">
-          {/*flex box-1 */}
-          <div className="flex flex-row mb-2">
-            <div className="mr-10 self-center">
-              <AiOutlineMail style={{ fontSize: "1.5rem" }} />
-            </div>
-            <div className="mr-10 self-center" style={{ fontSize: "1.5rem" }}>
-              <p>fitness.diary@support.com</p>
-            </div>
-          </div>
+    <div className="bg-gray-100 h-full w-full py-8">
+      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-md'>
+                <h1 className='text-2xl xl:text-5xl text-inherit'>Help & Support</h1>
+      </div>
+      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md m-5">
+        {/* <h2 className="text-2xl font-semibold mb-4">Help & Support</h2> */}
 
-          {/*flex box-2 */}
-          <div className="flex flex-row mb-2">
-            <div className="mr-10 self-center">
-              <IoCallOutline style={{ fontSize: "1.5rem" }} />
-            </div>
-            <div className="mr-10 self-center" style={{ fontSize: "1.5rem" }} >
-              <p>(+66)89-000-0000</p>
-            </div>
-          </div>
+        <p className="text-gray-600 mb-4">
+          If you need assistance or have any questions, please feel free to contact us:
+        </p>
 
-          {/*flex box-3 */}
-          <div className="flex flex-row mb-2">
-            <div className="mr-10 self-center" style={{ fontSize: "1.5rem" }} >
-              <HiMiniMapPin />
-            </div>
-            <div className="mr-10 self-center" style={{ fontSize: "1.5rem" }} >
-              <p>BANGKOK, THAILAND</p>
-            </div>
-          </div>
+        <div className="mb-4">
+          <p className="text-gray-600 text-sm mb-2">Email:</p>
+          <p className="text-blue-500">
+            <a href="mailto:fitness.diary@support.com">fitness.diary@support.com</a>
+          </p>
+        </div>
+
+        <div className="mb-4">
+          <p className="text-gray-600 text-sm mb-2">Phone:</p>
+          <p className="text-blue-500">(+66) 89-000-0000</p>
+        </div>
+
+        <div className="mb-4">
+          <p className="text-gray-600 text-sm mb-2">Location:</p>
+          <p className="text-blue-500">BANGKOK, THAILAND</p>
         </div>
       </div>
     </div>
