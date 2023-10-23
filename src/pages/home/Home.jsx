@@ -1,6 +1,5 @@
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DataVizOverAll from '../Data-vitualization/DataViz';
-import SlideExcercise from '../../Components/ListExcercise';
 
 const Record = [
   {
