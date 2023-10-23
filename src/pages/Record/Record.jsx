@@ -14,7 +14,7 @@ const Record = () => {
           </button>
         </div>
 
-        <div className="หน้าแสดง activity ทั้งหมด w-100 w-full h-full flex flex-wrap p-10 justify-start gap-8 gap-y-[1px] ">
+        <div className="หน้าแสดง activity ทั้งหมด w-100 w-full h-auto flex flex-wrap p-10 justify-start gap-8 ">
           <div className="กล่องactivity มี1.ซ้าย2.ขวา แนวนอน rounded-2xl w-[250px] flex  overflow-hidden  h-[175px]">
             <div className="ซ้าย w-1/2 h-full bg-sky-500 p-3 flex flex-col justify-center">
               <p className="text-white font-semibold">Running</p>
