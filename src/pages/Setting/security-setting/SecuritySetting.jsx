@@ -2,9 +2,12 @@ import React from 'react'
 
 const Security_setting = () => {
   return (
-    <div className="bg-gray-100 min-h-screen py-8">
-      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Security Settings</h2>
+    <div className="bg-gray-100 h-full w-full py-8">
+      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-md'>
+                <h1 className='text-2xl xl:text-5xl text-inherit'>Security Settings</h1>
+      </div>
+      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md m-5">
+        {/* <h2 className="text-2xl font-semibold mb-4">Security Settings</h2> */}
 
         <div className="mb-4">
           <label className="block text-gray-600 text-sm mb-2" htmlFor="currentPassword">

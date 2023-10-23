@@ -2,17 +2,20 @@ const Setting = () => {
   return (
     <div className="bg-gray-100 rounded-2xl w-full h-full ">
       {/* header */}
-      <div>
-        <h1 className="lg:text-7xl max-lg:text-4xl font-bold mb-10 text-center m-10 text-inherit">Settings</h1>
-        {/* <h2 className="lg:text-xl max-lg:text-base font-bold mb-10 text-center text-inherit">Set your account and enhance security, access help and support</h2> */}
+      
+      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-md'>
+                <h1 className='text-2xl xl:text-5xl text-inherit'>Settings</h1>
       </div>
+        {/* <h1 className="lg:text-4xl max-lg:text-4xl xl:text-6xl font-bold mb-10 text-center m-10 text-inherit">Settings</h1> */}
+        {/* <h2 className="lg:text-xl max-lg:text-base font-bold mb-10 text-center text-inherit">Set your account and enhance security, access help and support</h2> */}
+      
 
       {/* setting option */}
       <div>
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center m-5">
 
           {/* user accout */}
-          <div class="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
+          <div class="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4 ">
   <img src="src/pages/Setting/iicon/user (2).png" alt="user-icon" class="p-6 max-lg:hidden" />
   <a href="/settings/user-account" class="bg-blue-200 text-white p-3 text-sm xl:text-xl text-center hover:bg-blue-800 transition-all duration-500">User Account</a>
 </div>

@@ -8,9 +8,12 @@ import { IoCallOutline } from "react-icons/io5";
 
 const HelpSupport = () => {
   return (
-    <div className="bg-gray-100 min-h-screen py-8">
-      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Help & Support</h2>
+    <div className="bg-gray-100 h-full w-full py-8">
+      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-md'>
+                <h1 className='text-2xl xl:text-5xl text-inherit'>Help & Support</h1>
+      </div>
+      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md m-5">
+        {/* <h2 className="text-2xl font-semibold mb-4">Help & Support</h2> */}
 
         <p className="text-gray-600 mb-4">
           If you need assistance or have any questions, please feel free to contact us:
