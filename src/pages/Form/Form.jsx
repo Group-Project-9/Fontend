@@ -84,9 +84,9 @@ const Form = () => {
   return (
     <main className="h-full w-full flex flex-col ">
       <div className="w-full h-24 flex items-center justify-center bg-gradient-to-l from-[#006ED5] via-[#0097DC] to-[#00BFD1] rounded-2xl">
-        <h1 className="text-center mt-10  text-[2rem]"> Create Activity</h1>
+        <h1 className="text-center text-slate-900 text-[2rem]"> Create Activity</h1>
       </div>
-      <div className="h-full w-full flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px] h-full ">
+      <div className="h-full w-full flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px]">
         <div>
           <form
             onSubmit={handleSubmit}
