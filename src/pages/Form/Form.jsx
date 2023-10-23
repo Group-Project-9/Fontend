@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Axios from "axios";
+import { useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+
 
 import Activity from "./Activity/Activity";
 import DateTime from "./Activity/DateTime";
@@ -11,6 +14,10 @@ import BtnSave from "./Activity/ButtonSave";
 
 
 const Form = () => {
+
+  const { currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
   const [selectOptions, setSelectOptions] = useState("1");
   const [imagePreview, setImagePreview] = useState(null);
 
@@ -22,22 +29,22 @@ const Form = () => {
   const [location, setLocation] = useState("");
   const [distance, setDistance] = useState("");
   const [note, setNote] = useState("");
-  const [userInfo, setUserInfo] = useState({
+  // const [userInfo, setUserInfo] = useState({
 
-  });
+  // });
 
   const duration = (hour * 60) + minute;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const apiUrl = "/api/auth/activity";
+    const apiUrl = "/api/record/add";
 
     const dataToSend = {
-      email: 'test@example.com',
+      email: currentUser.email,
       activity: activity,
       date: date,
-      minute: minute, 
+      minute: duration, 
       location: location,
       distance: distance,
       note: note,
@@ -47,13 +54,11 @@ const Form = () => {
     try {
       const response = await Axios.post(apiUrl, dataToSend);
 
+      console.log(response)
       console.log("API Response:", response.data);
-      // console.log("activity:", activity);
-      // console.log("dateTime:", date, time);
-      // console.log("duration:", hour + " Hour", minute + " Minute");
-      // console.log("location:", location);
-      // console.log("distance:", distance + " Kilometers");
-      // console.log("note:", note);
+      if (response.status === 201) {
+        navigate('/');
+      }
     } catch (error) {
       // Handle errors here
       console.error("API Error:", error);
