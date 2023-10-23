@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 // import GoogleIcon from '@mui/icons-material/Google';
+import GoogleAuth from "../../Components/GoogleAuth";
 
 const Register = () => {
   const [formData, setFormData] = useState({});
@@ -154,6 +155,7 @@ const Register = () => {
               className="bg-slate-700 text-white p-3 mt-5 rounded-lg font-bold uppercase hover:opacity-95 disable:opacity-80">
               {loading ? "Loading..." : "Sign Up"}
             </button>
+            <GoogleAuth />
           </form>
           {matchPassword === false && <p className='text-red-500 mt-5'>Password does not match</p>}
           {selectGender === false && <p className='text-red-500 mt-5'>Please select gender</p>}
