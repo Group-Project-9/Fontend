@@ -5,6 +5,7 @@ import LogoMB from '../../assets/icon-mb.png';
 // import GoogleIcon from '@mui/icons-material/Google';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest, loginSuccess, loginFailure } from '../../App/User/userSlice';
+import GoogleAuth from "../../Components/GoogleAuth";
 
 const Login = () => {
 
@@ -59,7 +60,7 @@ const Login = () => {
       }
       
       dispatch(loginSuccess(data));
-      navigate('/');
+      // navigate('/');
 
     } catch (error) {
       dispatch(loginFailure(error.message));
@@ -118,6 +119,7 @@ const Login = () => {
             
           {loading ? "Loading..." : "Sign In"}
         </button>
+        <GoogleAuth />
       </form>
       {error && <p className='text-red-500 mt-5'>{error}</p>}
       {/* <div className='w-[80%] md:w-4/5 xl:w-3/5 mt-5 flex justify-center items-center  hidden md:flex'>
