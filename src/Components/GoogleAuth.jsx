@@ -9,11 +9,13 @@ const GoogleAuth = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleGoogleClick = async () => {
+    const handleGoogleAuth = async () => {
         try {
             const provider = new GoogleAuthProvider(app);
             const auth = getAuth();
-            const result = await signInWithPopup(auth ,provider);
+            const result = await signInWithPopup(auth, provider);
+
+            console.log(result);
             
             const res = await fetch('/api/auth/google', {
                 method: 'POST',
@@ -28,7 +30,7 @@ const GoogleAuth = () => {
             });
             const data = await res.json();
             dispatch(loginSuccess(data));
-            // navigate('/');
+            navigate('/');
 
         } catch (error) {
             console.log(`Could not sign in with Google: ${error.message}`)
@@ -38,7 +40,7 @@ const GoogleAuth = () => {
     return (
         <button 
             type="button"
-            onClick={handleGoogleClick}
+            onClick={handleGoogleAuth}
             className="bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95">
             Continue with Google
         </button>

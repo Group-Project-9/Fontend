@@ -60,7 +60,7 @@ const Login = () => {
       }
       
       dispatch(loginSuccess(data));
-      // navigate('/');
+      navigate('/');
 
     } catch (error) {
       dispatch(loginFailure(error.message));
