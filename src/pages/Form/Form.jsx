@@ -26,17 +26,18 @@ const Form = () => {
 
   });
 
+  const duration = (hour * 60) + minute;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const apiUrl = "http://localhost:3000/form";
+    const apiUrl = "/api/auth/activity";
 
     const dataToSend = {
+      email: 'test@example.com',
       activity: activity,
       date: date,
-      time: time,
-      hour: hour,
-      minute: minute,
+      minute: minute, 
       location: location,
       distance: distance,
       note: note,
@@ -47,12 +48,12 @@ const Form = () => {
       const response = await Axios.post(apiUrl, dataToSend);
 
       console.log("API Response:", response.data);
-      console.log("activity:", activity);
-      console.log("dateTime:", date, time);
-      console.log("duration:", hour + " Hour", minute + " Minute");
-      console.log("location:", location);
-      console.log("distance:", distance + " Kilometers");
-      console.log("note:", note);
+      // console.log("activity:", activity);
+      // console.log("dateTime:", date, time);
+      // console.log("duration:", hour + " Hour", minute + " Minute");
+      // console.log("location:", location);
+      // console.log("distance:", distance + " Kilometers");
+      // console.log("note:", note);
     } catch (error) {
       // Handle errors here
       console.error("API Error:", error);
@@ -63,8 +64,8 @@ const Form = () => {
     setSelectOptions(event.target.value);
   };
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -83,9 +84,9 @@ const Form = () => {
   return (
     <main className="h-full w-full flex flex-col ">
       <div className="w-full h-24 flex items-center justify-center bg-gradient-to-l from-[#006ED5] via-[#0097DC] to-[#00BFD1] rounded-2xl">
-        <h1 className="text-center mt-10  text-[2rem]"> Create Activity</h1>
+        <h1 className="text-center text-slate-900 text-[2rem]"> Create Activity</h1>
       </div>
-      <div className="h-full w-full flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px] h-full ">
+      <div className="h-full w-full flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px]">
         <div>
           <form
             onSubmit={handleSubmit}

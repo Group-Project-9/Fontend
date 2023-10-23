@@ -14,6 +14,7 @@ import DataViz from "../Pages/Data-vitualization/DataViz";
 
 import Form from "../Pages/Form/Form";
 import Login from "../Pages/Login/Login";
+import Record from "../pages/Record/Record";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default function App() {
@@ -38,7 +39,7 @@ export default function App() {
            />
           <Route 
             path="/statistic" 
-            element={<Statistic />} 
+            element={<Record />} 
           />
           <Route 
             path="/form" 
