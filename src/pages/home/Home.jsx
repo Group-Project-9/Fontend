@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <main className='w-full h-full flex flex-col gap-4'>
-      <section className="w-full flex items-center justify-center h-2/6 bg-gradient-to-r from-amber-400 to-[#FFBF00] rounded-2xl p-4">
+      <section className="w-full flex items-center justify-center h-2/6 bg-[#FFCA3A] rounded-2xl p-4">
         <article className="w-full md:w-3/4 h-full flex justify-between items-center px-3 xl:px-5">
           <div className='flex flex-col items-start'>
             <FitnessCenterIcon sx={{ fontSize: 100 }} className="text-black mx-2" />

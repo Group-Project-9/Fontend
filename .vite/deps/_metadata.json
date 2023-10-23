@@ -1,0 +1,173 @@
+{
+  "hash": "402644b6",
+  "browserHash": "0fbb5aed",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "e2acbd2e",
+      "needsInterop": true
+    },
+    "@mui/icons-material/FitnessCenter": {
+      "src": "../../node_modules/@mui/icons-material/FitnessCenter.js",
+      "file": "@mui_icons-material_FitnessCenter.js",
+      "fileHash": "f99f496b",
+      "needsInterop": true
+    },
+    "@mui/icons-material/Insights": {
+      "src": "../../node_modules/@mui/icons-material/Insights.js",
+      "file": "@mui_icons-material_Insights.js",
+      "fileHash": "f570181a",
+      "needsInterop": true
+    },
+    "@mui/icons-material/Roofing": {
+      "src": "../../node_modules/@mui/icons-material/Roofing.js",
+      "file": "@mui_icons-material_Roofing.js",
+      "fileHash": "53db98e0",
+      "needsInterop": true
+    },
+    "@mui/icons-material/Settings": {
+      "src": "../../node_modules/@mui/icons-material/Settings.js",
+      "file": "@mui_icons-material_Settings.js",
+      "fileHash": "fcf2766d",
+      "needsInterop": true
+    },
+    "@mui/icons-material/SportsMartialArts": {
+      "src": "../../node_modules/@mui/icons-material/SportsMartialArts.js",
+      "file": "@mui_icons-material_SportsMartialArts.js",
+      "fileHash": "f151ddca",
+      "needsInterop": true
+    },
+    "@reduxjs/toolkit": {
+      "src": "../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js",
+      "file": "@reduxjs_toolkit.js",
+      "fileHash": "e94e9abc",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "42f8f2f9",
+      "needsInterop": false
+    },
+    "chart.js": {
+      "src": "../../node_modules/chart.js/dist/chart.js",
+      "file": "chart__js.js",
+      "fileHash": "242eb13c",
+      "needsInterop": false
+    },
+    "firebase/app": {
+      "src": "../../node_modules/firebase/app/dist/esm/index.esm.js",
+      "file": "firebase_app.js",
+      "fileHash": "5b71118d",
+      "needsInterop": false
+    },
+    "firebase/auth": {
+      "src": "../../node_modules/firebase/auth/dist/esm/index.esm.js",
+      "file": "firebase_auth.js",
+      "fileHash": "9d3e90ee",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "e251349f",
+      "needsInterop": true
+    },
+    "react-chartjs-2": {
+      "src": "../../node_modules/react-chartjs-2/dist/index.js",
+      "file": "react-chartjs-2.js",
+      "fileHash": "1034e22a",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "1b77612f",
+      "needsInterop": true
+    },
+    "react-icons/ai": {
+      "src": "../../node_modules/react-icons/ai/index.esm.js",
+      "file": "react-icons_ai.js",
+      "fileHash": "ef1093aa",
+      "needsInterop": false
+    },
+    "react-icons/bi": {
+      "src": "../../node_modules/react-icons/bi/index.esm.js",
+      "file": "react-icons_bi.js",
+      "fileHash": "07f68ed9",
+      "needsInterop": false
+    },
+    "react-icons/hi2": {
+      "src": "../../node_modules/react-icons/hi2/index.esm.js",
+      "file": "react-icons_hi2.js",
+      "fileHash": "fbe1308c",
+      "needsInterop": false
+    },
+    "react-icons/io5": {
+      "src": "../../node_modules/react-icons/io5/index.esm.js",
+      "file": "react-icons_io5.js",
+      "fileHash": "91deaebe",
+      "needsInterop": false
+    },
+    "react-redux": {
+      "src": "../../node_modules/react-redux/es/index.js",
+      "file": "react-redux.js",
+      "fileHash": "22c2d0a9",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "7075d3dc",
+      "needsInterop": false
+    },
+    "redux-persist": {
+      "src": "../../node_modules/redux-persist/es/index.js",
+      "file": "redux-persist.js",
+      "fileHash": "4132747f",
+      "needsInterop": false
+    },
+    "redux-persist/integration/react": {
+      "src": "../../node_modules/redux-persist/es/integration/react.js",
+      "file": "redux-persist_integration_react.js",
+      "fileHash": "ef478a0e",
+      "needsInterop": false
+    },
+    "redux-persist/lib/storage": {
+      "src": "../../node_modules/redux-persist/lib/storage/index.js",
+      "file": "redux-persist_lib_storage.js",
+      "fileHash": "64a5ef61",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-ZWQ47MMX": {
+      "file": "chunk-ZWQ47MMX.js"
+    },
+    "chunk-3XTRAATE": {
+      "file": "chunk-3XTRAATE.js"
+    },
+    "chunk-GUROXSFK": {
+      "file": "chunk-GUROXSFK.js"
+    },
+    "chunk-XKNOYUAC": {
+      "file": "chunk-XKNOYUAC.js"
+    },
+    "chunk-KZNZ64NG": {
+      "file": "chunk-KZNZ64NG.js"
+    },
+    "chunk-VAWKSDSC": {
+      "file": "chunk-VAWKSDSC.js"
+    },
+    "chunk-ZSN3XFJS": {
+      "file": "chunk-ZSN3XFJS.js"
+    },
+    "chunk-TNGNAPD2": {
+      "file": "chunk-TNGNAPD2.js"
+    },
+    "chunk-2GTGKKMZ": {
+      "file": "chunk-2GTGKKMZ.js"
+    }
+  }
+}
