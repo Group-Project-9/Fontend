@@ -9,6 +9,7 @@ const Location = ({location , setLocation}) => {
         value={location} 
         onChange={(e) => setLocation(e.target.value)} 
         className=" h-full text-right border-none bg-transparent outline-none font-semibold mr-2 w-[200%]" type="text"   
+        maxLength={20}
         required    
       />
     </div>
