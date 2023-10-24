@@ -73,7 +73,7 @@ const Login = () => {
     <div   
       className='w-full md:w-4/5 lg:w-2/4 xl:h-full flex text-center justify-center sm:bg-gradient-to-r from-sky-400 from-10% via-sky-500 via-30% to-blue-500 to-90% rounded-xl mb-5 sm:mb-0 md:mb-5'
     >
-      <img src={logo} alt="logo-webpage" className='w-full'/>
+      <img src={logo} alt="logo-webpage" className='w-full '/>
     </div>
     <div 
       className='w-full lg:w-[50%] flex flex-col items-center justify-start'
