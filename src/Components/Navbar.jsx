@@ -17,7 +17,6 @@ const Navbar = () => {
 
     const { currentUser } = useSelector((state) => state.user);  // Use to get Current User
 
-    console.log(currentUser.email); // Check Current User
 
     const handleLogoChange = () => {
         const windowWidth = window.innerWidth;

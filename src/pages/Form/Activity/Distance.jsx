@@ -15,6 +15,7 @@ const Distance = ({ selectOption, distance, setDistance }) => { // Use selectOpt
               type="number"
               value={distance}
               onChange={(e) => setDistance(e.target.value)}
+              maxLength={2}
               required
             />
             <label htmlFor="distance" className="h-full text-right bg-antiquewhite border-none outline-none mr-2 ml-2 flex items-center text-black font-semibold">
