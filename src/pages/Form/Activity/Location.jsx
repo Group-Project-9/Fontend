@@ -3,7 +3,7 @@ import React from "react";
 
 const Location = ({location , setLocation}) => {
   return (
-    <div className="Box flex items-center justify-between text-black w-[400px] h-14 border rounded-xl">
+    <div className="Box flex items-center justify-between shadow-lg bg-slate-100 text-black w-[400px] h-14 rounded-xl">
       <h2 className="mx-[10px] ml-[10px] flex items-center justify-center text-black font-semibold">Location</h2>
       <input 
         value={location} 

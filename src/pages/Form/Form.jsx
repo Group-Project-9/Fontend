@@ -13,6 +13,7 @@ import Location from "./Activity/Location";
 import BtnSave from "./Activity/ButtonSave";
 
 
+
 const Form = () => {
 
   const { currentUser } = useSelector((state) => state.user);
@@ -90,7 +91,7 @@ const Form = () => {
   return (
     <main className="h-full w-full flex flex-col ">
       <div className="w-full h-24 flex items-center justify-center bg-gradient-to-l from-[#006ED5] via-[#0097DC] to-[#00BFD1] rounded-2xl">
-        <h1 className="text-center text-slate-900 text-[2rem]"> Create Activity</h1>
+        <h1 className="text-center font-bold text-slate-900 text-[2rem]"> Create Activity</h1>
       </div>
       <div className="h-full w-full flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px]">
         <div>
@@ -127,13 +128,13 @@ const Form = () => {
         </div>
 
         <div className="flex flex-col gap-5">
-          <h1 className="text-center font-semibold text-xl text-slate-500">
+          <h1 className="text-center font-semibold text-2xl text-black">
             
             Upload your image
           </h1>
           <div
             id="uploadIMG"
-            className="w-[350px] h-[350px] relative border bg-image rounded-xl transform transition duration-500 hover:scale-100 overflow-hidden bg-center bg-no-repeat flex justify-center text-black items-center text-center bg-50 bg-contain bg-sky-500"
+            className="  w-[350px] h-[350px] relative bg-image rounded-xl shadow-2xl  overflow-hidden bg-center bg-no-repeat flex justify-center text-black items-center text-center bg-50 bg-contain bg-sky-500"
           >
               <img
                 className="w-20 absolute"
