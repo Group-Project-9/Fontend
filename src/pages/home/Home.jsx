@@ -1,10 +1,28 @@
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DataVizOverAll from '../Data-vitualization/DataViz';
-
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
-  const day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const information = [4, 3, 1, 6, 4, 9, 7];
+
+  const { currentUser } = useSelector((state) => state.user);
+  const [day, setDay] = useState([]);
+  const [information, setInformation] = useState([]);
+
+  useEffect(() => {
+     async function fetchData() {
+      const response = await fetch(`/api/record_by/user_record?email=${currentUser.email}`);
+      const data = await response.json();
+
+      console.log(data);
+      // const day = data.map((item) => item.day);
+      // const information = data.map((item) => item.information);
+      // setDay(day);
+      // setInformation(information);
+     }
+
+    fetchData();
+  }, [currentUser]);
 
   return (
     <main className='w-full h-full flex flex-col gap-4'>
