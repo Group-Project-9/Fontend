@@ -1,40 +1,14 @@
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DataVizOverAll from '../Data-vitualization/DataViz';
 
-const Record = [
-  {
-    type: 'Yoga',
-    
-    totalDuration: 24,
-  }, 
-  {
-    type: 'Running',
-    totalDuration: 38,
-  },
-  {
-    type: 'Swimming',
-    totalDuration: 14,
-  },
-  {
-    type: 'Cycling',
-    totalDuration: 17,
-  },
-  {
-    type: 'Gym',
-    totalDuration: 42,
-  },
-]
 
 const Home = () => {
-  const exercises = ['Yoga', 'Running', 'Swimming', 'Cycling', 'Walking', 'Gym', 'Dancing'];
   const day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const information = [4, 3, 1, 6, 4, 9, 7];
 
-  
-
   return (
     <main className='w-full h-full flex flex-col gap-4'>
-      <section className="w-full flex items-center justify-center h-2/6 bg-[#FFCA3A] rounded-2xl p-4">
+      <section className="w-full flex items-center justify-center h-2/6 bg-yellow-300 rounded-2xl p-4 drop-shadow-xl">
         <article className="w-full md:w-3/4 h-full flex justify-between items-center px-3 xl:px-5">
           <div className='flex flex-col items-start'>
             <FitnessCenterIcon sx={{ fontSize: 100 }} className="text-black mx-2" />
@@ -50,7 +24,7 @@ const Home = () => {
           </div>
         </article>
       </section>
-      <section className="w-full h-4/6 bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-gray-100 to-gray-300 rounded-2xl p-4">
+      <section className="w-full h-4/6 bg-transparent rounded-2xl p-4">
         <article className="w-full h-full flex items-center justify-center">
           <DataVizOverAll day={day} information={information}/>
         </article>

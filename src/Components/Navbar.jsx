@@ -38,19 +38,21 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className="w-full h-full flex md:flex-col justify-between items-center static md:p-2 xl:p-3 ">
-            <nav className="w-full flex md:flex-col md:h-4/5 ">
+        <header className="w-full h-full flex md:flex-col justify-between items-center static py-2 md:py-10 xl:py-5 md:px-1">
+            <nav className="w-full flex md:flex-col md:h-4/5">
                 <div className="w-full md:h-4/5 xl:px-2 flex md:flex-col justify-center md:justify-between md:mb-[25vh] xl:mb-[15vh]">
                     <div
                         to="/profile"
-                        className="flex xl:flex-col xl:items-start py-3 mx-2 md:mx-0"
+                        className="flex xl:flex-col xl:items-start md:self-center"
                     >
                         <div className="flex w-full md:justify-center md:justify-between">
-                            <div className="w-14 h-14 xl:w-32 xl:h-32 border-2 rounded-full">
-                                <img src={currentUser.avatar} className="w-full h-full rounded-full" />
+                            <div className="w-14 h-14 xl:w-32 xl:h-32 border-2 hover:border-4 rounded-full">
+                                <Link to="settings/user-account">
+                                    <img src={currentUser.avatar} className="w-full h-full rounded-full" />
+                                </Link> 
                             </div>
                             <Link to="settings/user-account" 
-                                className="hidden xl:inline w-1/5 h-8 uppercase font-medium text-white text-sm xl:text-xl hover:drop-shadow-xl "
+                                className="hidden xl:inline h-8 uppercase font-medium text-white text-sm xl:text-xl hover:drop-shadow-3xl hover:bg-stone-600 rounded-3xl"
                             >
                                 edit
                             </Link>
@@ -72,35 +74,35 @@ const Navbar = () => {
                         </div>
                     </div> : null}
                     <div 
-                        className="flex flex-row md:flex-col md:h-auto"
+                        className="flex flex-row md:flex-col md:h-full md:mt-10 md:gap-4 md:justify-around"
                     >
                         <NavLink
                             to="/"
-                            className="flex items-center md:my-5 mx-2 md:mx-0"
+                            className="flex items-center hover:bg-stone-600 py-1 px-2 rounded-3xl"
                         >
                             <RoofingIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
                             {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Home</h1> : null}
                         </NavLink>
                         <NavLink
                             to="/form"
-                            className="flex items-center md:my-5 mx-2 md:mx-0"
+                            className="flex items-center hover:bg-stone-600 py-1 px-2 rounded-3xl"
                         >
                             <SportsMartialArtsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
                             {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Exercise</h1> : null}
                         </NavLink>
                         <NavLink
                             to="/statistic"
-                            className="flex items-center md:my-5 mx-2 md:mx-0"
+                            className="flex items-center hover:bg-stone-600 py-1 px-2 rounded-3xl"
                         >
                             <InsightsIcon sx={{ fontSize: 40 }} className="text-white mx-2" />
                             {text === true ? <h1 className="mx-2 text-xl font-bold text-white">Record</h1> : null}
                         </NavLink>
-                        <div className="md:w-full flex md:flex-col md:h-[10vh] justify-center md:justify-between mx-2 md:mx-0">
-                         <Link to='/settings' className="h-full w-full flex flex-row items-center">
-                            <SettingsIcon sx={{ fontSize: 40 }} className="text-white md:mx-2 xl:mx-2" /> 
+                        <NavLink 
+                            to='/settings' 
+                            className="flex items-center hover:bg-stone-600 py-1 px-2 rounded-3xl">
+                            <SettingsIcon sx={{ fontSize: 40 }} className="text-white mx-2" /> 
                             {text === true ? <h1 className="text-xl font-bold text-white mx-2">Setting</h1> : null}
-                        </Link>
-                </div>
+                        </NavLink>
                     </div>
                     
                 </div>

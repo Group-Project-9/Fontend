@@ -15,6 +15,7 @@ import PrivateRoute from "../Components/PrivateRoute";
 import Form from "../Pages/Form/Form";
 import Login from "../Pages/Login/Login";
 import Record from "../pages/Record/Record";
+import NotFound from "../Components/NotFound";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
           path="/register" 
           element={<Register />} 
         />
+   
         <Route element={<PrivateRoute />}>
           <Route 
             path="/" 
@@ -73,6 +75,9 @@ export default function App() {
               path="/data" 
               element={<DataViz />} 
             />
+            <Route 
+              path='*' 
+              element={<NotFound />} />
           </Route>
         </Route>
       </Routes>
