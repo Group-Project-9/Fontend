@@ -95,10 +95,10 @@ const Form = () => {
         <h1 className="text-center text-white font-medium text-[2rem]"> Create Your Activity</h1>
       </div>
       <div className="h-auto w-full flex flex-col xl:flex-row justify-evenly items-center border-4 border-[#A4826D] rounded-2xl">
-        <div className="w-full h-full py-2 px-4 flex flex-col xl:flex-row xl:gap-4">
+        <div className="w-full h-full py-5 px-4 flex flex-col xl:flex-row xl:gap-4">
           <form
             onSubmit={handleSubmit}
-            className="flex w-full h-auto flex-col gap-3 relative items-center py-2"
+            className="flex w-full h-auto flex-col gap-3 relative items-center"
           >
             <Activity
               setActivity={setActivity}
@@ -129,7 +129,7 @@ const Form = () => {
           <div className="flex md:flex-col md:w-full md:gap-2 xl:gap-5">
           <div
             id="uploadIMG"
-            className="w-full h-12 md:h-16 relative border rounded-xl transform transition duration-500 
+            className="w-full xl:w-5/6 h-12 md:h-16 relative border rounded-xl transform transition duration-500 
             flex items-center justify-center bg-stone-500 hover:opacity-80 cursor-pointer"
           >
             <h1 className="font-bold text-white">Upload Image</h1>
@@ -147,7 +147,7 @@ const Form = () => {
                 <img
                   src={imagePreview}
                   alt="Selected Image"
-                  className="w-full h-full object-cover z-10 "
+                  className="w-full xl:w-5/6 h-full object-cover z-10 "
                 />
                 <button
                   className="z-10 top-3 right-3 absolute w-10 h-10 rounded-full bg-red-700 text-slate-200 border-2 hover:border-4"

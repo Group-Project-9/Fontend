@@ -206,8 +206,9 @@ const UserAccountSettings = () => {
                 
               </div> */}
               <button 
+                disabled={loading}
                 className='w-full xl:w-1/2 bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>
-                Update
+                {loading ? 'Loading...' : 'Update'}
               </button>
             </form>
           </article>

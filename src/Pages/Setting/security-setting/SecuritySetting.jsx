@@ -1,55 +1,30 @@
-import React from 'react'
+
 
 const Security_setting = () => {
   return (
-    <div className="bg-gray-100 rounded-2xl h-full w-full">
-      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-sm'>
-                <h1 className='text-2xl xl:text-5xl text-inherit'>Security Settings</h1>
-      </div>
-      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md m-5">
-        {/* <h2 className="text-2xl font-semibold mb-4">Security Settings</h2> */}
-
-        <div className="mb-4">
-          <label className="block text-gray-600 text-sm mb-2" htmlFor="currentPassword">
-            Current Password
-          </label>
-          <input
-            type="password"
-            id="currentPassword"
-            className="w-full border rounded px-3 py-2"
-            placeholder="Enter your current password"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-600 text-sm mb-2" htmlFor="newPassword">
-            New Password
-          </label>
-          <input
-            type="password"
-            id="newPassword"
-            className="w-full border rounded px-3 py-2"
-            placeholder="Enter your new password"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-600 text-sm mb-2" htmlFor="confirmPassword">
-            Confirm New Password
-          </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            className="w-full border rounded px-3 py-2"
-            placeholder="Confirm your new password"
-          />
-        </div>
-
-        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mx-auto w-full">
-          Update Password
-        </button>
-      </div>
-    </div>
+    <main className='w-full h-full flex items-center justify-center'>
+      <section className='w-4/5 h-4/5 flex flex-col  items-center justify-center bg-[#705747] rounded-2xl'>
+        <article className="w-4/5 h-[10%]">
+          <h1 className="text-center text-2xl xl:text-4xl text-stone-200 font-bold">Change Password</h1>
+        </article>
+        <article className="w-4/5 h-[70%] border-4 rounded-xl">
+          <form className="">
+            <div className="w-1/2 flex flex-col">
+              <label htmlFor="oldpass">Previous Password</label>
+              <input type="password" id="oldpass" placeholder="Previous Password . . ." />
+            </div>
+            <div>
+              <label htmlFor="newpass">New Password</label>
+              <input type="password" id="newpass" placeholder="New Password . . ." />
+            </div>
+            <div>
+              <label htmlFor="newpass">Comfirm New Password</label>
+              <input type="password" id="newpass-con" placeholder="Comfirm New Password . . ." />
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
   )
 }
 

@@ -48,7 +48,8 @@ const Navbar = () => {
                         <div className="flex w-full md:justify-center md:justify-between">
                             <div className="w-14 h-14 xl:w-32 xl:h-32 border-2 hover:border-4 rounded-full">
                                 <Link to="settings/user-account">
-                                    <img src={currentUser.avatar} className="w-full h-full rounded-full" />
+                                    <img src={currentUser.avatar} 
+                                    className="w-full h-full rounded-full object-cover" />
                                 </Link> 
                             </div>
                             <Link to="settings/user-account" 

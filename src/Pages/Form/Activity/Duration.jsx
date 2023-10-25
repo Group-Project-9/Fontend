@@ -1,7 +1,7 @@
 
 const Duration = ({ hour, minute , setHour, setMinute}) => {
   return (
-    <div className=" flex items-center justify-between  text-black w-full h-14 border-b-2 border-[#5C675F] rounded-xl">
+    <div className=" flex items-center justify-between xl:w-4/5 text-black w-full h-14 border-b-2 border-[#5C675F] rounded-xl">
       <h2 className="text-black flex ml-[10px] font-semibold">Duration:</h2>
       <div className="Right mr-2 flex items-center ">
         <input

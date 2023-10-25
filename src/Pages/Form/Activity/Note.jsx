@@ -1,8 +1,8 @@
 
 const Note = ({note, setNote}) => {
   return (
-    <div className="w-full">
-      <div className="flex items-center justify-between text-black w-full h-14 border rounded-xl">
+    <div className="w-full xl:w-4/5">
+      <div className="flex items-center justify-between text-black  w-full h-14 border rounded-xl">
         <h2 className="flex ml-2 text-black font-semibold">Note:</h2>
       </div>
       <textarea  

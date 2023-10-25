@@ -37,6 +37,7 @@ const Record = () => {
           (record) => record.email === currentUser.email
         );
         setData(filteredData);
+        console.log(filteredData)
       })
       .catch((error) => {
         console.error("Error:", error);
