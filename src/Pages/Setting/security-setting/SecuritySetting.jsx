@@ -8,19 +8,36 @@ const Security_setting = () => {
           <h1 className="text-center text-2xl xl:text-4xl text-stone-200 font-bold">Change Password</h1>
         </article>
         <article className="w-4/5 h-[70%] border-4 rounded-xl">
-          <form className="">
+          <form className="w-full h-full flex flex-col items-center justify-center text-white gap-4">
             <div className="w-1/2 flex flex-col">
-              <label htmlFor="oldpass">Previous Password</label>
-              <input type="password" id="oldpass" placeholder="Previous Password . . ." />
+              <label 
+                htmlFor="oldpass"
+                className="font-bold">Previous Password:</label>
+              <input 
+                type="password" 
+                id="oldpass" 
+                className="w-full h-12 p-2 rounded-xl text-black bg-white" 
+                placeholder="Previous Password . . ." 
+              />
             </div>
-            <div>
-              <label htmlFor="newpass">New Password</label>
-              <input type="password" id="newpass" placeholder="New Password . . ." />
+            <div className="w-1/2 flex flex-col">
+              <label htmlFor="newpass" className="font-bold">New Password:</label>
+              <input 
+                type="password" 
+                id="newpass" 
+                placeholder="New Password . . ." 
+                className="w-full h-12 p-2 rounded-xl text-black bg-white"/>
             </div>
-            <div>
-              <label htmlFor="newpass">Comfirm New Password</label>
-              <input type="password" id="newpass-con" placeholder="Comfirm New Password . . ." />
+            <div className="w-1/2 flex flex-col">
+              <label htmlFor="newpass-con" className="font-bold">Comfirm New Password:</label>
+              <input 
+                type="password" 
+                id="newpass-con" 
+                placeholder="Comfirm New Password . . ." 
+                className="w-full h-12 p-2 rounded-xl text-black bg-white"/>
             </div>
+            <button type="submit"
+            className="w-1/2 h-12 p-2 rounded-xl text-black bg-gray-800 hover:bg-stone-500 text-white font-bold mt-3" >Submit</button>
           </form>
         </article>
       </section>

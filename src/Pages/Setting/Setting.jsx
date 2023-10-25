@@ -1,9 +1,37 @@
+import { signOutUserStart, signOutUserSuccess, signOutUserFailure } from "../../App/User/userSlice.js";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+
 const Setting = () => {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
+  const handleSignOut = async () => {
+
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch('/api/auth/signout/');
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+      dispatch(signOutUserSuccess(data));
+      navigate('/login');
+
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
+    }
+  };
+
   return (
-    <div className="bg-gray-100 rounded-2xl w-full h-full ">
+    <div className="bg-[#705747] rounded-2xl w-full h-full flex flex-col">
       {/* header */}
       
-      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-sm'>
+      <div className='flex w-full h-20 justify-center items-center px-10  bg-gray-500 rounded-2xl text-white'>
                 <h1 className='text-2xl xl:text-5xl text-inherit'>Settings</h1>
       </div>
         {/* <h1 className="lg:text-4xl max-lg:text-4xl xl:text-6xl font-bold mb-10 text-center m-10 text-inherit">Settings</h1> */}
@@ -15,30 +43,34 @@ const Setting = () => {
         <div className="flex flex-wrap justify-center m-5">
 
           {/* user accout */}
-          <div class="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4 ">
-  <img src="src/pages/Setting/iicon/user (2).png" alt="user-icon" class="p-6 max-lg:hidden" />
-  <a href="/settings/user-account" class="bg-blue-200 text-white p-3 text-sm xl:text-xl text-center hover:bg-blue-800 transition-all duration-500">User Account</a>
+          <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4 ">
+  <img src="src/pages/Setting/iicon/user (2).png" alt="user-icon" className="p-6 max-lg:hidden" />
+  <a href="/settings/user-account" className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-stone-800 transition-all duration-500">User Account</a>
 </div>
 
           {/* security setting */}
-          <div class="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
-  <img src="src/pages/Setting/iicon/security.png" alt="security-icon" class="p-6 max-lg:hidden" />
-  <a href="/settings/security-setting" class="bg-blue-200 text-white p-3 text-sm xl:text-xl text-center hover:bg-blue-800 transition-all duration-500">Security Setting</a>
+          <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
+  <img src="src/pages/Setting/iicon/security.png" alt="security-icon" className="p-6 max-lg:hidden" />
+  <a href="/settings/security-setting" className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-stone-800 transition-all duration-500">Security Setting</a>
 </div>
 
           {/* help support */}
-          <div class="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
-  <img src="src/pages/Setting/iicon/customer-service-agent.png" alt="support-icon" class="p-6 max-lg:hidden" />
-  <a href="/settings/help-support" class="bg-blue-200 text-white p-3 text-sm xl:text-xl text-center hover:bg-blue-800 transition-all duration-500">Help & Support</a>
+          <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
+  <img src="src/pages/Setting/iicon/customer-service-agent.png" alt="support-icon" className="p-6 max-lg:hidden" />
+  <a href="/settings/help-support" className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-stone-800 transition-all duration-500">Help & Support</a>
 </div>
 
         </div>
 
           {/* log out */}
         <div className="flex flex-wrap justify-center">
-        <div class="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
-  <img src="src/pages/Setting/iicon/turn-off.png" alt="logout-icon" class="p-6 max-lg:hidden" />
-  <a href="/settings/log-out" class="bg-blue-200 text-white p-3 text-sm xl:text-xl text-center hover:bg-red-500 transition-all duration-500">Log Out</a>
+        <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
+  <img src="src/pages/Setting/iicon/turn-off.png" alt="logout-icon" className="p-6 max-lg:hidden" />
+  <button 
+    onClick={handleSignOut}
+    className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-red-500 transition-all duration-500"
+    >Log Out
+  </button>
 </div>
 
         </div>

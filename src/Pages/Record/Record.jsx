@@ -13,6 +13,12 @@ const Record = () => {
   const [data, setData] = useState([]);
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const [formData, setFormData] = useState({});
+  const [selectedRecordId, setSelectedRecordId] = useState(null);
+
+  const getID = (e) => {
+    setSelectedRecordId(e);
+    console.log(e);
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -21,18 +27,18 @@ const Record = () => {
     });
   };
 
-  const handleSubmit = async (e, recordId) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(recordId);
-  
+    
     const updatedData = {
-      _id: recordId, // Make sure you have the correct ID for the record to update
-      ...formData, // Include the updated data
+      _id: selectedRecordId,
+      ...formData,
     };
-    console.log(updatedData)
+    console.log(updatedData);
   
     try {
-      const request = await fetch("/api/record_by/user_update_record", {
+      const request = await fetch(`/api/record_by/user_update_record/${updatedData._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -40,18 +46,21 @@ const Record = () => {
         body: JSON.stringify(updatedData),
       });
   
-      const response = await request.json();
+      if (request.ok) {
+        const response = await request.json();
   
-      if (response.success) {
-        console.log("Record updated successfully");
+        if (response.success) {
+          console.log("Record updated successfully");
+        } else {
+          console.error("Update failed:", response.error);
+        }
       } else {
-        console.error("Update failed:", response.error);
+        console.error("Update failed. Server returned an error status:", request.status);
       }
     } catch (error) {
       console.error("API Error:", error);
     }
   };
-  
 
   useEffect(() => {
     axios
@@ -68,30 +77,6 @@ const Record = () => {
       });
   }, [currentUser.email, deleteConfirmation]);
 
-  const handleEdit = async (recordId) => {
-    const actitvity = {
-      _id: recordId,
-    };
-
-    try {
-      const request = await fetch(`/api/record_by/user_update_record/${actitvity._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(actitvity),
-      });
-
-      const data = await request.json();
-      setDeleteConfirmation(!deleteConfirmation);
-      if (data.success === false) {
-        console.log('Update successful')
-        return;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   const handleDelete = async (recordId) => {
     const actitvity = {
@@ -110,7 +95,7 @@ const Record = () => {
       const data = await request.json();
       setDeleteConfirmation(!deleteConfirmation);
       if (data.success === false) {
-        console.log('Delete successful')
+        console.log("Delete successful");
         return;
       }
     } catch (error) {
@@ -190,7 +175,6 @@ const Record = () => {
                       <label className="py-4 justify-between font-medium text-black flex">
                         Duration
                         <input
-                          
                           className="text-black text-end bg-transparent font-semibold outline-none"
                           type="number"
                           placeholder="0"
@@ -198,6 +182,7 @@ const Record = () => {
                           name="hours"
                           min="0"
                           max="24"
+                          onChange={handleChange}
                         />
                         <label
                           className="text-black flex items-center font-semibold ml-2"
@@ -206,7 +191,6 @@ const Record = () => {
                           Hours
                         </label>
                         <input
-                          
                           className="text-black text-end bg-transparent font-semibold outline-none"
                           type="number"
                           placeholder="0"
@@ -215,6 +199,7 @@ const Record = () => {
                           min="0"
                           max="59"
                           required
+                          onChange={handleChange}
                         />
                         <label
                           className="text-black flex items-center font-semibold  ml-2"
@@ -240,9 +225,9 @@ const Record = () => {
                         />
                       </label>
 
-                      <button 
-                        onClick={() => handleEdit(record._id)} 
-                        type="submit" 
+                      <button
+                        onClick={() => getID(record._id)}
+                        type="submit"
                         className="btn absolute bottom-6"
                       >
                         Update
