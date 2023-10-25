@@ -184,7 +184,7 @@ const UserAccountSettings = () => {
                   />
                 </div>
                 <div className='flex flex-col'>
-                  <label htmlFor="weight" className='text-white font-medium'>Weight:</label>
+                  <label htmlFor="weight" className='text-white font-medium'>Height:</label>
                   <input
                     type="number"
                     defaultValue={currentUser.height}

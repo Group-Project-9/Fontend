@@ -1,32 +1,57 @@
 import { useState, useEffect } from "react";
 import { BiAlarm, BiCurrentLocation } from "react-icons/bi";
-import { AiOutlineCalendar, AiFillCloseCircle } from "react-icons/ai";
+import { AiOutlineCalendar, AiOutlineEdit } from "react-icons/ai";
+import { RiEditFill } from "react-icons/ri";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import "./Record.css";
 
-
 const Record = () => {
-
   const { currentUser } = useSelector((state) => state.user); // Use to get Current User
 
   const [data, setData] = useState([]);
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
-  // const dispatch = useDispatch();
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e, recordId) => {
+    e.preventDefault();
+    console.log(recordId);
   
-  // const deleteRecord = (recordId) => {
-  //   axios
-  //     .delete(`/api/record/delete/${recordId}`)
-  //     .then(() => {
-  //       // Remove the deleted record from the state
-  //       const updatedData = data.filter((record) => record._id !== recordId);
-  //       setData(updatedData);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error deleting record:", error);
-  //     });
-  // };
+    const updatedData = {
+      _id: recordId, // Make sure you have the correct ID for the record to update
+      ...formData, // Include the updated data
+    };
+    console.log(updatedData)
+  
+    try {
+      const request = await fetch("/api/record_by/user_update_record", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      });
+  
+      const response = await request.json();
+  
+      if (response.success) {
+        console.log("Record updated successfully");
+      } else {
+        console.error("Update failed:", response.error);
+      }
+    } catch (error) {
+      console.error("API Error:", error);
+    }
+  };
+  
 
   useEffect(() => {
     axios
@@ -37,69 +62,36 @@ const Record = () => {
           (record) => record.email === currentUser.email
         );
         setData(filteredData);
-        console.log(filteredData)
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, [currentUser.email]);
+  }, [currentUser.email, deleteConfirmation]);
 
-  // const handleDelete = (recordId) => {
-
-  //   if (deleteConfirmation === recordId) {
-  //     // Perform the delete action
-  //     axios
-  //       .delete(`/api/record/delete/${recordId}`)
-  //       .then(() => {
-  //         // Reload the data after deleting
-  //         axios.get("/api/record/read").then((response) => {
-  //           const filteredData = response.data.filter(
-  //             (record) => record.email === currentUser.email
-  //           );
-  //           setData(filteredData);
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error:", error);
-  //       });
-
-  //   } else {
-  //     // Show the delete confirmation dialog
-  //     setDeleteConfirmation(recordId);
-  //   }
-  // };
-
-  useEffect(() => {
-    console.log("Activity was delete")    
-
-  }, [deleteConfirmation]);
-
-  const handleDelete = async(recordId) => {
-
+  const handleDelete = async (recordId) => {
     const actitvity = {
-      "_id": recordId
-    }
+      _id: recordId,
+    };
 
     try {
-      const request = await fetch('/api/record_by/user_delete_Record', {
-        method: 'DELETE',
+      const request = await fetch("/api/record_by/user_delete_Record", {
+        method: "DELETE",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(actitvity),
       });
 
       const data = await request.json();
-      setDeleteConfirmation(!deleteConfirmation)
+      setDeleteConfirmation(!deleteConfirmation);
       if (data.success === false) {
+        console.log('Delete successful')
         return;
       }
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
- 
-  } 
+  };
 
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">
@@ -116,27 +108,138 @@ const Record = () => {
           </NavLink>
         </div>
         <div
-          className="activity-for-scroll relative w-100 w-full h-auto flex flex-wrap p-10 pt-5 pb-24 justify-start items-center gap-6"
+          className="activity-for-scroll relative w-100 w-full h-auto flex flex-wrap p-10 pt-5 pb-24 justify-start items-start gap-6"
           style={{
             height: "100%",
             overflowY: "scroll",
             scrollbarWidth: "none",
-            "-ms-overflow-style": "none",
+            msOverflowStyle: "none",
           }}
         >
           {Array.isArray(data) && data.length > 0 ? (
             data.map((record, index) => (
               <div
                 key={index}
-                className="กล่องactivity มี1.ซ้าย2.ขวา แนวนอน relative shadow-xl  rounded-2xl w-[250px] flex overflow-hidden h-[175px] group"
+                className="กล่องactivity มี1.ซ้าย2.ขวา แนวนอน relative cursor-pointer shadow-xl rounded-2xl w-[250px] flex overflow-hidden h-[175px] group"
               >
+                <dialog id="my_modal_1" className="modal">
+                  <div className="modal-box w-auto bg-rose-200 relative">
+                    <h3 className="font-bold text-lg text-black">Hello!</h3>
+                    <form onSubmit={handleSubmit}>
+                      <label className="py-4 justify-between font-medium text-black flex">
+                        Activity Type
+                        <select
+                          className="text-black bg-transparent font-medium outline-none"
+                          id="activity"
+                          onChange={handleChange}
+                        >
+                          <option default hidden>
+                            select
+                          </option>
+                          <option className="font-medium">Running</option>
+                          <option className="font-medium">Aerobic</option>
+                          <option className="font-medium">Yoga</option>
+                          <option className="font-medium">
+                            Weight Training
+                          </option>
+                          <option className="font-medium">Bicycle</option>
+                        </select>
+                      </label>
+                      <label className="py-4 justify-between font-medium text-black flex">
+                        Start
+                        <div>
+                          <input
+                            className="text-center bg-transparent outline-none"
+                            id="date"
+                            type="date"
+                            onChange={handleChange}
+                          />
+                          <input
+                            className="text-center bg-transparent outline-none"
+                            id="time"
+                            type="time"
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </label>
+                      <label className="py-4 justify-between font-medium text-black flex">
+                        Duration
+                        <input
+                          
+                          className="text-black text-end bg-transparent font-semibold outline-none"
+                          type="number"
+                          placeholder="0"
+                          id="hours"
+                          name="hours"
+                          min="0"
+                          max="24"
+                        />
+                        <label
+                          className="text-black flex items-center font-semibold ml-2"
+                          htmlFor="hours"
+                        >
+                          Hours
+                        </label>
+                        <input
+                          
+                          className="text-black text-end bg-transparent font-semibold outline-none"
+                          type="number"
+                          placeholder="0"
+                          id="minutes"
+                          name="minutes"
+                          min="0"
+                          max="59"
+                          required
+                        />
+                        <label
+                          className="text-black flex items-center font-semibold  ml-2"
+                          htmlFor="minutes"
+                        >
+                          Minutes
+                        </label>
+                      </label>
+                      <label className="py-4 justify-between font-medium text-black flex">
+                        Location
+                        <input
+                          className="text-black bg-transparent outline-none border-b border-slate-800"
+                          id="location"
+                          onChange={handleChange}
+                        />
+                      </label>
+                      <label className="py-4 justify-between font-medium text-black flex">
+                        Note
+                        <input
+                          className="bg-transparent outline-none border-b border-slate-800"
+                          id="note"
+                          onChange={handleChange}
+                        />
+                      </label>
+
+                      <button onClick={() => handleSubmit(record._id)} type="submit" className="btn absolute bottom-6">
+                        Update
+                      </button>
+                    </form>
+                    <div className="modal-action">
+                      <form method="dialog">
+                        <button className="btn abs">close</button>
+                      </form>
+                    </div>
+                  </div>
+                </dialog>
+
                 <button
+                  onClick={() => handleDelete(record._id)}
                   className="z-50 hidden group-hover:block text-black right-1 top-2 absolute w-5"
-                  onClick={() => handleDelete(record._id)} // Pass the record _id to the delete function
                 >
-                  <AiFillCloseCircle />
+                  <AiOutlineEdit />
                 </button>
-                <div className="ซ้าย relative w-1/2 h-full bg-sky-500 p-3 flex flex-col justify-start">
+
+                <div
+                  onClick={() =>
+                    document.getElementById("my_modal_1").showModal()
+                  }
+                  className="ซ้าย  relative w-1/2 h-full bg-sky-500 p-3 flex flex-col justify-start"
+                >
                   <p className="text-white left-0 font-semibold">
                     {record.activity}
                   </p>
@@ -154,17 +257,22 @@ const Record = () => {
                       : record.location}
                   </p>
                 </div>
-                <div className="ขวา w-1/2 relative">
+                <div
+                  onClick={() =>
+                    document.getElementById("my_modal_1").showModal()
+                  }
+                  className="ขวา w-1/2 relative"
+                >
                   <img
                     className="h-full object-cover"
-                    src="https://i.ibb.co/QHSCTRZ/Screenshot-2023-10-23-222636.png"
+                    src="https://i.ibb.co/DwB2b7B/Screenshot-2023-10-23-222636.png"
                     alt={record.activity}
                   />
                 </div>
               </div>
             ))
           ) : (
-            <div className="balls absolute left-[50%] translate-x-[-50%]">
+            <div className="balls absolute top-[40%] left-[50%] ">
               <div></div>
               <div></div>
               <div></div>
@@ -175,7 +283,7 @@ const Record = () => {
       <div className="ขวา w-1/4 h-full border rounded-r-3xl overflow-hidden">
         <img
           className="w-full h-full object-cover"
-          src="https://i.ibb.co/k9bR69F/Screenshot-2023-10-23-225025.png"
+          src="https://i.ibb.co/tKFDsXy/Screenshot-2023-10-23-225025.png"
           alt="Placeholder"
         />
       </div>
