@@ -108,7 +108,7 @@ const Navbar = () => {
                 </div>
                 
             </nav>
-            <div className="md:flex md:items-center md:justift-center h-fit w-fit md:h-1/5 md:w-full p-1 m-1 xl:p-2 xl:m-2 hidden md:inline">
+            <div className="md:flex md:items-center md:justify-center h-fit w-fit md:h-1/5 md:w-full p-1 m-1 xl:p-2 xl:m-2 hidden md:inline">
                 <Link to="/">
                     <img src={logo} alt="navbar-icon" className="d:w-full h-auto" />
                 </Link>
