@@ -8,18 +8,18 @@ import { IoCallOutline } from "react-icons/io5";
 
 const HelpSupport = () => {
   return (
-    <div className="bg-gray-100 rounded-2xl h-full w-full">
-      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-sm'>
+    <div className="bg-gray-100 rounded-2xl h-full w-full flex flex-col">
+      <div className='flex w-full h-1/6 justify-center items-center px-10 border bg-gray-300 rounded-2xl shadow-sm text-black'>
                 <h1 className='text-2xl xl:text-5xl text-inherit'>Help & Support</h1>
       </div>
-      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md m-5">
+      <div className="max-w-md h-3/6 mx-auto bg-white p-6 rounded-lg shadow-md m-5 flex flex-col justify-center">
         {/* <h2 className="text-2xl font-semibold mb-4">Help & Support</h2> */}
 
-        <p className="text-gray-600 mb-4">
+        <p className="text-gray-600 mb-4 text-xl">
           If you need assistance or have any questions, please feel free to contact us:
         </p>
 
-        <div className="mb-4">
+        <div className="mb-4 text-xl">
           <p className="text-gray-600 text-sm mb-2">Email:</p>
           <p className="text-blue-500">
             <a href="mailto:fitness.diary@support.com">fitness.diary@support.com</a>

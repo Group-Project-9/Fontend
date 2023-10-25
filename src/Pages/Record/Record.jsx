@@ -14,6 +14,14 @@ const Record = () => {
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const [formData, setFormData] = useState({});
   const [selectedRecordId, setSelectedRecordId] = useState(null);
+// <<<<<<< 4000
+// =======
+
+//   const getID = (e) => {
+//     setSelectedRecordId(e);
+//     console.log(e);
+//   };
+// >>>>>>> main
 
   const getID = (e) => {
     setSelectedRecordId(e);

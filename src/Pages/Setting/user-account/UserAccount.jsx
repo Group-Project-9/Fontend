@@ -122,7 +122,7 @@ const UserAccountSettings = () => {
                 )}
               </p>
               <div className="w-full xl:w-1/2 flex gap-3 mt-3">
-                <div className='flex flex-col'>
+                <div className='flex flex-col w-full'>
                   <label htmlFor="firstname" className='text-white font-medium'>First name:</label>
                   <input
                     type="text"
@@ -133,7 +133,7 @@ const UserAccountSettings = () => {
                     onChange={handleChange}
                     />
                 </div>
-                <div className='flex flex-col'>
+                <div className='flex flex-col w-full'>
                   <label htmlFor="lastname" className='text-white font-medium'>Last name:</label>
                   <input
                     type="text"
@@ -172,7 +172,7 @@ const UserAccountSettings = () => {
                 </div>
               </div>
               <div className="w-full xl:w-1/2 flex gap-3">
-                <div className='flex flex-col'>
+                <div className='flex flex-col w-full'>
                   <label htmlFor="weight" className='text-white font-medium'>Weight:</label>
                   <input
                     type="number"
@@ -183,7 +183,7 @@ const UserAccountSettings = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className='flex flex-col'>
+                <div className='flex flex-col w-full'>
                   <label htmlFor="weight" className='text-white font-medium'>Height:</label>
                   <input
                     type="number"
