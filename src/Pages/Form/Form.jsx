@@ -12,7 +12,7 @@ import Note from "./Activity/Note";
 import Location from "./Activity/Location";
 import BtnSave from "./Activity/ButtonSave";
 
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+// import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const Form = () => {
 

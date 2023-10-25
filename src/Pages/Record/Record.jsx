@@ -4,7 +4,7 @@ import { AiOutlineCalendar, AiFillCloseCircle } from "react-icons/ai";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
-import "./style.css";
+import "./Record.css";
 const Record = () => {
   const [data, setData] = useState([]);
   const [deleteConfirmation, setDeleteConfirmation] = useState(null);
