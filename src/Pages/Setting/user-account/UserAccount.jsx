@@ -63,7 +63,7 @@ const UserAccountSettings = () => {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`/api/record_by/update_user_info/${currentUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
