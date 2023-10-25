@@ -12,22 +12,22 @@ const Record = () => {
   const { currentUser } = useSelector((state) => state.user); // Use to get Current User
 
   const [data, setData] = useState([]);
-  const [deleteConfirmation, setDeleteConfirmation] = useState(null);
-  const dispatch = useDispatch();
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+  // const dispatch = useDispatch();
   
-  const deleteRecord = (recordId) => {
-    axios
-      .delete(`/api/record/delete/${recordId}`)
-      .then(() => {
-        // Remove the deleted record from the state
-        const updatedData = data.filter((record) => record._id !== recordId);
-        setData(updatedData);
-      })
-      .catch((error) => {
-        console.error("Error deleting record:", error);
-      });
-  };
-  
+  // const deleteRecord = (recordId) => {
+  //   axios
+  //     .delete(`/api/record/delete/${recordId}`)
+  //     .then(() => {
+  //       // Remove the deleted record from the state
+  //       const updatedData = data.filter((record) => record._id !== recordId);
+  //       setData(updatedData);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error deleting record:", error);
+  //     });
+  // };
+
   useEffect(() => {
     axios
       .get("/api/record/read")
@@ -43,29 +43,62 @@ const Record = () => {
       });
   }, [currentUser.email]);
 
-  const handleDelete = (recordId) => {
-    if (deleteConfirmation === recordId) {
-      // Perform the delete action
-      axios
-        .delete(`/api/record/delete/${recordId}`)
-        .then(() => {
-          // Reload the data after deleting
-          axios.get("/api/record/read").then((response) => {
-            const filteredData = response.data.filter(
-              (record) => record.email === currentUser.email
-            );
-            setData(filteredData);
-          });
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+  // const handleDelete = (recordId) => {
 
-    } else {
-      // Show the delete confirmation dialog
-      setDeleteConfirmation(recordId);
+  //   if (deleteConfirmation === recordId) {
+  //     // Perform the delete action
+  //     axios
+  //       .delete(`/api/record/delete/${recordId}`)
+  //       .then(() => {
+  //         // Reload the data after deleting
+  //         axios.get("/api/record/read").then((response) => {
+  //           const filteredData = response.data.filter(
+  //             (record) => record.email === currentUser.email
+  //           );
+  //           setData(filteredData);
+  //         });
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error:", error);
+  //       });
+
+  //   } else {
+  //     // Show the delete confirmation dialog
+  //     setDeleteConfirmation(recordId);
+  //   }
+  // };
+
+  useEffect(() => {
+    console.log("Activity was delete")    
+
+  }, [deleteConfirmation]);
+
+  const handleDelete = async(recordId) => {
+
+    const actitvity = {
+      "_id": recordId
     }
-  };
+
+    try {
+      const request = await fetch('/api/record_by/user_delete_Record', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(actitvity),
+      });
+
+      const data = await request.json();
+      setDeleteConfirmation(!deleteConfirmation)
+      if (data.success === false) {
+        return;
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+ 
+  } 
 
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">
