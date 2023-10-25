@@ -15,7 +15,7 @@ const Layout = () => {
         </section>
         <section 
           style={{boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px'}}
-          className='w-full h-full p-4 flex flex-col bg-[#F0EBE3] md:rounded-3xl md:ms-4'>
+          className='w-full h-full p-4 flex flex-col bg-[#F0EBE3] md:rounded-l-3xl md:rounded-none md:rounded-3xl md:ms-4'>
             <Outlet />
         </section>
     </main>

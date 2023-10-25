@@ -23,6 +23,7 @@ const Record = () => {
         console.error("Error:", error);
       });
   }, [currentUser.email]);
+  console.log(data._id)
 
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">

@@ -1,9 +1,8 @@
-import React from "react";
 
 const Duration = ({ hour, minute , setHour, setMinute}) => {
   return (
-    <div className="Box flex items-center justify-between  text-black w-[400px] h-14 border rounded-xl">
-      <h2 className="text-black flex ml-[10px] font-semibold">Duration</h2>
+    <div className="Box flex items-center justify-between  text-black w-[400px] h-14 border-b-2 border-[#5C675F] rounded-xl">
+      <h2 className="text-black flex ml-[10px] font-semibold">Duration:</h2>
       <div className="Right mr-2 flex items-center ">
         <input
           value={hour}

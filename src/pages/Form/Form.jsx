@@ -12,6 +12,7 @@ import Note from "./Activity/Note";
 import Location from "./Activity/Location";
 import BtnSave from "./Activity/ButtonSave";
 
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const Form = () => {
 
@@ -34,12 +35,13 @@ const Form = () => {
   // });
  // Check Current User
 
-  const duration = (hour * 60) + minute;
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const apiUrl = "/api/record/add";
+    const duration = (parseFloat(hour) * 60) + parseFloat(minute);
 
     const dataToSend = {
       email: currentUser.email,
@@ -55,8 +57,8 @@ const Form = () => {
     try {
       const response = await Axios.post(apiUrl, dataToSend);
 
-      console.log(response)
-      console.log("API Response:", response.data);
+      // console.log(response)
+      // console.log("API Response:", response.data);
       if (response.status === 201) {
         navigate('/');
       }
@@ -88,11 +90,11 @@ const Form = () => {
   };
 
   return (
-    <main className="h-full w-full flex flex-col ">
-      <div className="w-full h-24 flex items-center justify-center bg-gradient-to-l from-[#006ED5] via-[#0097DC] to-[#00BFD1] rounded-2xl">
-        <h1 className="text-center text-slate-900 text-[2rem]"> Create Activity</h1>
+    <main className="h-full w-full flex flex-col justify-center md:gap-[10vw] xl:gap-10 md:px-8 xl:px-8">
+      <div className="w-full h-16 md:h-20 xl:h-24 flex items-center justify-center bg-[#674B36] rounded-2xl">
+        <h1 className="text-center text-white font-medium text-[2rem]"> Create Your Activity</h1>
       </div>
-      <div className="h-full w-full flex justify-evenly items-center gap-20 min-w-[964px] max-w-[1200px]">
+      <div className="h-3/4 w-full flex flex-col xl:flex-row justify-evenly items-center border-4 border-[#A4826D] rounded-2xl">
         <div>
           <form
             onSubmit={handleSubmit}
@@ -126,20 +128,17 @@ const Form = () => {
           </form>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <h1 className="text-center font-semibold text-xl text-slate-500">
-            
+        <div className="flex flex-col md:w-4/5 md:gap-2 xl:gap-5">
+          <h1 className="font-semibold text-xl text-slate-500">
             Upload your image
           </h1>
           <div
             id="uploadIMG"
-            className="w-[350px] h-[350px] relative border bg-image rounded-xl transform transition duration-500 hover:scale-100 overflow-hidden bg-center bg-no-repeat flex justify-center text-black items-center text-center bg-50 bg-contain bg-sky-500"
+            className="w-full md:h-16 relative border rounded-xl transform transition duration-500 
+            flex items-center justify-center bg-stone-500 hover:opacity-80 cursor-pointer"
           >
-              <img
-                className="w-20 absolute"
-                src="https://cdn-icons-png.flaticon.com/512/126/126477.png"
-                alt="Image"
-              />
+     
+            <CloudUploadIcon sx={{ fontSize: 50 }} className="text-white mx-2 absolute" />
             
             <input
               className="w-full h-full absolute inset-0 opacity-0"
@@ -149,14 +148,14 @@ const Form = () => {
               placeholder="Upload"
             />
             {imagePreview && (
-              <div className="flex items-center h-full w-full bg-black justify-center">
+              <div className="w-full flex h-24 xl:h-full items-center bg-black justify-center">
                 <img
                   src={imagePreview}
                   alt="Selected Image"
                   className="w-full h-full object-cover z-10 "
                 />
                 <button
-                  className=" z-30 absolute w-7 h-7 rounded-full bg-amber-900 top-2 right-2 text-slate-200"
+                  className=" z-30 absolute w-7 h-7 rounded-full bg-red-700 top-2 right-2 text-slate-200 hover:border-2"
                   onClick={resetImage}
                 >
                   X
