@@ -25,7 +25,7 @@ const Form = () => {
   const [activity, setActivity] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [hour, setHour] = useState("");
+  const [hour, setHour] = useState("0");
   const [minute, setMinute] = useState("");
   const [location, setLocation] = useState("");
   const [distance, setDistance] = useState("");
