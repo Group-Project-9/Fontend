@@ -21,13 +21,15 @@ const DataVizOverAll = ({ day }) => {
 
   const daysOfWeek = Object.keys(day);
   const dataOfdays = Object.values(day);
+
+  const record = [6, 4, 6, 4, 5, 2, 7]
   
   const data = {
     labels: daysOfWeek,
     datasets: [
       {
         label: 'Number of Exercise (Hr / Day)',
-        data: dataOfdays,
+        data: record,
         backgroundColor: 'aqua',
         borderColor: 'black',
         pointBackgroundColor: 'aqua', // Corrected from 'pointBorderColor'
@@ -40,7 +42,7 @@ const DataVizOverAll = ({ day }) => {
   const options = {
     plugins: {
       legend: {
-        display: true, // Corrected 'true' instead of true.
+        display: false, // Corrected 'true' instead of true.
       },
     },
     scales: {
