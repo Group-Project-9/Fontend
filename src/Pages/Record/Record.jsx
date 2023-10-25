@@ -46,7 +46,7 @@ const Record = () => {
           },
           body: JSON.stringify(updatedData),
         });
-    
+    //
         if (request.ok) {
           const response = await request.json();
           setUpdate(!update)
