@@ -14,20 +14,14 @@ const Record = () => {
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const [formData, setFormData] = useState({});
   const [selectedRecordId, setSelectedRecordId] = useState(null);
-// <<<<<<< 4000
-// =======
+  const [update ,setUpdate] = useState(false);
 
-//   const getID = (e) => {
-//     setSelectedRecordId(e);
-//     console.log(e);
-//   };
-// >>>>>>> main
 
   const getID = (e) => {
     setSelectedRecordId(e);
     console.log(e);
   };
-// //
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -35,40 +29,45 @@ const Record = () => {
     }); 
   };
 
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+      
+      const updatedData = {
+        _id: selectedRecordId,
+        ...formData,
+      };
+      console.log(updatedData);
     
-    const updatedData = {
-      _id: selectedRecordId,
-      ...formData,
-    };
-    console.log(updatedData);
-  
-    try {
-      const request = await fetch(`/api/record_by/user_update_record/${updatedData._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedData),
-      });
-  
-      if (request.ok) {
-        const response = await request.json();
-  
-        if (response.success) {
-          console.log("Record updated successfully");
+      try {
+        const request = await fetch(`/api/record_by/user_update_record/${updatedData._id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedData),
+        });
+    //
+        if (request.ok) {
+          const response = await request.json();
+          setUpdate(!update)
+          if (response.success) {
+            console.log("Record updated successfully");
+            setUpdate(!update)
+          } else {
+            console.error("Update failed:", response.error);
+          }
         } else {
-          console.error("Update failed:", response.error);
+          console.error("Update failed. Server returned an error status:", request.status);
         }
-      } else {
-        console.error("Update failed. Server returned an error status:", request.status);
+      } catch (error) {
+        console.error("API Error:", error);
       }
-    } catch (error) {
-      console.error("API Error:", error);
-    }
-  };
+    };
+
+
+
+
+  
 
   useEffect(() => {
     axios
@@ -202,8 +201,8 @@ const Record = () => {
                           className="text-black text-end bg-transparent font-semibold outline-none"
                           type="number"
                           placeholder="0"
-                          id="minutes"
-                          name="minutes"
+                          id="minute"
+                          name="minute"
                           min="0"
                           max="59"
                           required
@@ -211,11 +210,12 @@ const Record = () => {
                         />
                         <label
                           className="text-black flex items-center font-semibold  ml-2"
-                          htmlFor="minutes"
+                          htmlFor="minute"
                         >
                           Minutes
                         </label>
                       </label>
+                      
                       <label className="py-4 justify-between font-medium text-black flex">
                         Location
                         <input
@@ -236,7 +236,7 @@ const Record = () => {
                       <button
                         onClick={() => getID(record._id)}
                         type="submit"
-                        className="btn absolute bottom-6"
+                        className="btn abs absolute bottom-6"
                       >
                         Update
                       </button>
