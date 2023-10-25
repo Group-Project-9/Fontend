@@ -1,116 +1,104 @@
-import ImgAvatar from "../../../Assets/avatar-defult.svg";
-import React, { useState } from 'react';
+// import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 
 const UserAccountSettings = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    fullName: '',
-    dateOfBirth: '',
-    height: '',
-    weight: '',
-  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const { currentUser } = useSelector((state) => state.user); 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // You can handle form submission here
-    console.log(formData);
-  };
-  
 
   return (
-
-    <div className="bg-gray-100 h-full w-full flex flex-col items-center rounded-2xl">
-      <div className='flex w-full h-20 justify-center items-center px-10 border bg-white rounded-lg shadow-sm'>
-                <h1 className='text-2xl xl:text-5xl text-inherit'>User Account Settings</h1>
-      </div>
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 max-w-md w-full m-5">
-        <div className="mb-4">
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-            User Name
-          </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender</label>
-            <select
-              id="gender"
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md">
-            <option value="">-</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="height" className="block text-sm font-medium text-gray-700">
-            Height (cm)
-          </label>
-          <input
-            type="number"
-            id="height"
-            name="height"
-            value={formData.height}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </div>
-
-        <div className="mb-6">
-          <label htmlFor="weight" className="block text-sm font-medium text-gray-700">
-            Weight (kg)
-          </label>
-          <input
-            type="number"
-            id="weight"
-            name="weight"
-            value={formData.weight}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 text-center rounded-md hover:bg-blue-700 transition-all duration-300 mx-auto w-full"
-        >
-          Save
-        </button>
-      </form>
-    </div>
+    <main className="w-full h-full flex flex-col items-center justify-center p-3">
+        <section className="w-full h-full flex flex-col items-center justify-center gap-10 p-3">
+          <article className="w-full h-2/6 flex items-center justify-center bg-white rounded-2xl">
+            <h1 className="text-3xl font-bold text-black">Edit Profile</h1>
+          </article>
+          <article className="w-4/5 h-5/6 bg-[#A4826E] px-2 py-5 rounded-2xl">
+            <form 
+              className="w-full h-full flex flex-col w-full text-black gap-6"
+            >
+              <img src={currentUser.avatar} alt="Profile"
+          className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2" />
+              <div className="w-full flex gap-3">
+                <input 
+                  type="text" 
+                  placeholder="First name ..." 
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
+                  id="firstname" 
+                  required
+                  />
+                <input 
+                  type="text" 
+                  placeholder="Last name ..." 
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
+                  id="lastname" 
+                  required
+                  />
+              </div>
+              <div className="w-full flex gap-3">
+              <input 
+                  type="email" 
+                  placeholder="E-mail ..." 
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
+                  id="email" 
+                  required
+                  />
+              <select
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                  id="gender"
+                  required
+                >
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+              </select>
+              </div>
+              <div className="w-full flex gap-3">
+                <input
+                  type="number"
+                  placeholder="Weight ..."
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                  id="weight"
+                  required
+                />
+                <input
+                  type="number"
+                  placeholder="Height ..."
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                  id="height"
+                  required
+                />
+              </div>
+              <div className="w-full flex gap-3">
+                <input
+                  type="password"
+                  placeholder="Password ..."
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                  id="password"
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Confirm password ..."
+                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
+                  id="confirmPassword"
+                  required
+                />
+              </div>
+              <button 
+                className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>
+                Update
+              </button>
+            </form>
+           
+          </article>
+        </section>
+        <section className='w-full h-auto flex justify-around items-center gap-10 mt-5 text-lg'>
+              <span className='text-white cursor-pointer py-3 px-5 bg-red-500 rounded-xl'>Delete Account</span>
+              <span className='text-white cursor-pointer py-3 px-5 bg-blue-700 rounded-xl'>Sign Out</span>
+        </section>
+    </main>
   );
 };
 

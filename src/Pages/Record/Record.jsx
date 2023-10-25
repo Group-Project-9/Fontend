@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BiAlarm, BiCurrentLocation } from "react-icons/bi";
 import { AiOutlineCalendar, AiFillCloseCircle } from "react-icons/ai";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import "./Record.css";
+
+
 const Record = () => {
+
+  const { currentUser } = useSelector((state) => state.user); // Use to get Current User
+
   const [data, setData] = useState([]);
   const [deleteConfirmation, setDeleteConfirmation] = useState(null);
   const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state.user); // Use to get Current User
+  
   const deleteRecord = (recordId) => {
     axios
       .delete(`/api/record/delete/${recordId}`)
@@ -22,6 +27,7 @@ const Record = () => {
         console.error("Error deleting record:", error);
       });
   };
+  
   useEffect(() => {
     axios
       .get("/api/record/read")
@@ -36,6 +42,7 @@ const Record = () => {
         console.error("Error:", error);
       });
   }, [currentUser.email]);
+
   const handleDelete = (recordId) => {
     if (deleteConfirmation === recordId) {
       // Perform the delete action
@@ -53,11 +60,13 @@ const Record = () => {
         .catch((error) => {
           console.error("Error:", error);
         });
+
     } else {
       // Show the delete confirmation dialog
       setDeleteConfirmation(recordId);
     }
   };
+
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">
       <div className="ซ้าย w-3/4 h-full relative border">

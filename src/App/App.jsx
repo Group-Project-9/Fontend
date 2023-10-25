@@ -5,7 +5,6 @@ import Home from "../Pages/home/Home.jsx";
 import Register from "../Pages/Register/Register";
 import Settings from "../Pages/Setting/Setting";
 import UserAccount from "../Pages/Setting/user-account/UserAccount";
-import UserAccountEdit from "../Pages/Setting/user-account/UserAccountEdit";
 import SecuritySetting from "../Pages/Setting/security-setting/SecuritySetting";
 import HelpSupport from "../Pages/Setting/help-support/HelpSupport";
 import LogOut from "../Pages/Setting/log-out/LogOut";
@@ -54,10 +53,6 @@ export default function App() {
             <Route 
               path="settings/user-account" 
               element={<UserAccount />} 
-            />
-            <Route
-              path="settings/user-account/edit"
-              element={<UserAccountEdit />}
             />
             <Route
               path="settings/security-setting"

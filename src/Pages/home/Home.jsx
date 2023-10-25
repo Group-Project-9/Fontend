@@ -7,26 +7,32 @@ const Home = () => {
 
   const { currentUser } = useSelector((state) => state.user);
   
-  const [day, setDay] = useState([]);
+  const [daysOfWeek, setDaysOfWeek] = useState({
+    Sunday: 0,
+    Monday: 0,
+    Tuesday: 0,
+    Wednesday: 0,
+    Thursday: 0,
+    Friday: 0,
+    Saturday: 0,
+  });
+
   const [information, setInformation] = useState([]);
   const [totalDay, setTotalday] = useState(0);
   const [error, setError]  = useState(null);
 
-  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   
   useEffect(() => {
 
-    const currentDate = new Date();
-    const reparateData = [
-      daysOfWeek[currentDate.getDay()],
-      monthsOfYear[currentDate.getMonth()],
-      currentDate.getDate(),
-      currentDate.getHours(),
-      currentDate.getMinutes()
-    ];
-    console.log(`Cur Date: ${currentDate}`)
-    console.log(`repa Date: ${reparateData}`)
+    // const currentDate = new Date();
+    // const reparateDate = [
+    //   daysOfWeek[currentDate.getDay()],
+    //   currentDate[currentDate.getMonth()],
+    //   currentDate.getDate(),
+    //   currentDate.getHours(),
+    //   currentDate.getMinutes()
+    // ];
+    // const todayDate = reparateDate[0];
 
      async function fetchData() {
       try {
@@ -75,7 +81,7 @@ const Home = () => {
       </section>
       <section className="w-full h-4/6 bg-transparent rounded-2xl p-4">
         <article className="w-full h-full flex items-center justify-center">
-          <DataVizOverAll day={day} information={information}/>
+          <DataVizOverAll day={daysOfWeek}/>
           {error && <p className='text-red-500 mt-5'>{error}</p>}
         </article>
       </section>
