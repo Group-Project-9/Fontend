@@ -94,7 +94,7 @@ const UserAccountSettings = () => {
           <article className="w-full h-full flex flex-col items-center justify-center bg-[#A4826E] px-2 py-5 rounded-2xl">
             <form 
               onSubmit={handleSubmit}
-              className="md:w-5/6 xl:w-4/6 h-auto flex flex-col w-full text-black gap-4 items-center justify-center p-5"
+              className="md:w-5/6 xl:w-5/6 h-auto flex flex-col w-full text-black gap-4 items-center justify-center p-5"
             >
               <input 
                 onChange={(e)=>setFile(e.target.files[0])}
@@ -122,62 +122,80 @@ const UserAccountSettings = () => {
                 )}
               </p>
               <div className="w-full xl:w-1/2 flex gap-3 mt-3">
-                <input 
-                  type="text" 
-                  defaultValue={currentUser.firstname}
-                  placeholder="First name ..." 
-                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
-                  id="firstname" 
-                  onChange={handleChange}
-                  />
-                <input 
-                  type="text" 
-                  defaultValue={currentUser.lastname}
-                  placeholder="Last name ..." 
-                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
-                  id="lastname" 
-                  onChange={handleChange}
-                  />
+                <div className='flex flex-col'>
+                  <label htmlFor="firstname" className='text-white font-medium'>First name:</label>
+                  <input
+                    type="text"
+                    defaultValue={currentUser.firstname}
+                    placeholder="First name ..."
+                    className="w-full border-2 border-gray-200 p-3 rounded-lg bg-white"
+                    id="firstname"
+                    onChange={handleChange}
+                    />
+                </div>
+                <div className='flex flex-col'>
+                  <label htmlFor="lastname" className='text-white font-medium'>Last name:</label>
+                  <input
+                    type="text"
+                    defaultValue={currentUser.lastname}
+                    placeholder="Last name ..."
+                    className="w-full border-2 border-gray-200 p-3 rounded-lg bg-white"
+                    id="lastname"
+                    onChange={handleChange}
+                    />
+                </div>
               </div>
               <div className="w-full xl:w-1/2 flex gap-3">
-              <input 
-                  type="email" 
-                  defaultValue={currentUser.email}
-                  placeholder="E-mail ..." 
-                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white" 
-                  id="email" 
-                  onChange={handleChange}
+                <div className='flex flex-col w-1/2'>
+                  <label htmlFor="email" className='text-white font-medium'>Email:</label>
+                  <input
+                      type="email"
+                      defaultValue={currentUser.email}
+                      placeholder="E-mail ..."
+                      className="w-full border-2 border-gray-200 p-3 rounded-lg bg-white"
+                      id="email"
+                      onChange={handleChange}
+                      />
+                </div>
+                <div className="flex flex-col w-1/2 mt-1">
+                  <label htmlFor="gender" className='text-white font-medium'>Gender:</label>
+                  <select
+                      className="w-full border-2 border-gray-200 p-3 rounded-lg bg-white"
+                      id="gender"
+                      onChange={handleChange}
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div className="w-full xl:w-1/2 flex gap-3">
+                <div className='flex flex-col'>
+                  <label htmlFor="weight" className='text-white font-medium'>Weight:</label>
+                  <input
+                    type="number"
+                    defaultValue={currentUser.weight}
+                    placeholder="Weight ..."
+                    className="w-full border-2 border-gray-200 p-3 rounded-lg bg-white"
+                    id="weight"
+                    onChange={handleChange}
                   />
-              <select
-                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
-                  id="gender"
-                  onChange={handleChange}
-                >
-                  <option value="">Select Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-              </select>
+                </div>
+                <div className='flex flex-col'>
+                  <label htmlFor="weight" className='text-white font-medium'>Weight:</label>
+                  <input
+                    type="number"
+                    defaultValue={currentUser.height}
+                    placeholder="Height ..."
+                    className="w-full border-2 border-gray-200 p-3 rounded-lg bg-white"
+                    id="height"
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-              <div className="w-full xl:w-1/2 flex gap-3">
-                <input
-                  type="number"
-                  defaultValue={currentUser.weight}
-                  placeholder="Weight ..."
-                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
-                  id="weight"
-                  onChange={handleChange}
-                />
-                <input
-                  type="number"
-                  defaultValue={currentUser.height}
-                  placeholder="Height ..."
-                  className="w-1/2 border-2 border-gray-200 p-3 rounded-lg bg-white"
-                  id="height"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="w-full xl:w-1/2 flex gap-3">
+              {/* <div className="w-full xl:w-1/2 flex gap-3">
                 <input
                   type="password"
                   placeholder="Confirm Password ..."
@@ -186,7 +204,7 @@ const UserAccountSettings = () => {
                   onChange={handleChange}
                 />
                 
-              </div>
+              </div> */}
               <button 
                 className='w-full xl:w-1/2 bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>
                 Update
