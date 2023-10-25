@@ -19,12 +19,12 @@ const Record = () => {
     setSelectedRecordId(e);
     console.log(e);
   };
-
+// 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
-    });
+    }); 
   };
 
 
