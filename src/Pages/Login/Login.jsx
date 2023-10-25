@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import LogoDT from '../../assets/icon-dt.png';
-import LogoMB from '../../assets/icon-mb.png';
+import LogoDT from '../../Assets/icon-dt.png';
+import LogoMB from '../../Assets/icon-mb.png';
 // import GoogleIcon from '@mui/icons-material/Google';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest, loginSuccess, loginFailure } from '../../App/User/userSlice';
