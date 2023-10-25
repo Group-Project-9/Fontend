@@ -91,7 +91,7 @@ const Record = () => {
             data.map((record, index) => (
               <div
                 key={index}
-                className="กล่องactivity มี1.ซ้าย2.ขวา แนวนอน relative shadow-xl  rounded-2xl w-[250px] flex overflow-hidden h-[175px] group"
+                className="กล่องactivity มี 1.ซ้าย2.ขวา แนวนอน relative shadow-xl  rounded-2xl w-[250px] flex overflow-hidden h-[175px] group"
               >
                 <button
                   className="z-50 hidden group-hover:block text-black right-1 top-2 absolute w-5"
