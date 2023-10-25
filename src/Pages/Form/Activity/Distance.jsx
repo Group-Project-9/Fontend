@@ -4,7 +4,7 @@ const Distance = ({ selectOption, distance, setDistance }) => { // Use selectOpt
   return (
     <>
       {(selectOption === "Running" || selectOption === "Bicycle") && (
-        <div className="Box flex items-center justify-between text-black w-[400px] h-14 border-b-2 border-[#5C675F]  rounded-xl">
+        <div className="flex items-center justify-between text-black w-full h-14 border-b-2 border-[#5C675F]  rounded-xl">
           <h2 className="text-black flex ml-[10px] font-semibold">Distance:</h2>
           <div className="Right flex items-center">
             <input

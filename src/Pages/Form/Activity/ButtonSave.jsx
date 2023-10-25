@@ -2,10 +2,10 @@ import React from "react";
 
 const BtnSave = () => {
   return (
-    <div className="w-full flex justify-end">
+    <div className="w-full flex justify-center">
       <button to="/profile"
         type="submit"
-        className="w-full h-[55px] font-semibold text-white hover:text-[#fbfbfb] hover:bg-[#8c52d2] bg-sky-600 rounded-xl"
+        className="w-full md:w-4/5 md:w-full h-12 font-semibold text-white hover:text-[#fbfbfb] hover:opacity-80 bg-[#674B36] rounded-xl"
       >
         Save
       </button>

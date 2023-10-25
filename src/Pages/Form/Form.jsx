@@ -90,15 +90,15 @@ const Form = () => {
   };
 
   return (
-    <main className="h-full w-full flex flex-col justify-center md:gap-[10vw] xl:gap-10 md:px-8 xl:px-8">
+    <main className="h-full w-full flex flex-col justify-center gap-10 md:gap-[10vw] xl:gap-10 md:px-8 xl:px-8">
       <div className="w-full h-16 md:h-20 xl:h-24 flex items-center justify-center bg-[#674B36] rounded-2xl">
         <h1 className="text-center text-white font-medium text-[2rem]"> Create Your Activity</h1>
       </div>
-      <div className="h-3/4 w-full flex flex-col xl:flex-row justify-evenly items-center border-4 border-[#A4826D] rounded-2xl">
-        <div>
+      <div className="h-auto w-full flex flex-col xl:flex-row justify-evenly items-center border-4 border-[#A4826D] rounded-2xl">
+        <div className="w-full h-full py-2 px-4 flex flex-col xl:flex-row xl:gap-4">
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-3 relative "
+            className="flex w-full h-auto flex-col gap-3 relative items-center py-2"
           >
             <Activity
               setActivity={setActivity}
@@ -126,20 +126,13 @@ const Form = () => {
             <Note note={note} setNote={setNote} />
             <BtnSave />
           </form>
-        </div>
-
-        <div className="flex flex-col md:w-4/5 md:gap-2 xl:gap-5">
-          <h1 className="font-semibold text-xl text-slate-500">
-            Upload your image
-          </h1>
+          <div className="flex md:flex-col md:w-full md:gap-2 xl:gap-5">
           <div
             id="uploadIMG"
-            className="w-full md:h-16 relative border rounded-xl transform transition duration-500 
+            className="w-full h-12 md:h-16 relative border rounded-xl transform transition duration-500 
             flex items-center justify-center bg-stone-500 hover:opacity-80 cursor-pointer"
           >
-     
-            <CloudUploadIcon sx={{ fontSize: 50 }} className="text-white mx-2 absolute" />
-            
+            <h1 className="font-bold text-white">Upload Image</h1>
             <input
               className="w-full h-full absolute inset-0 opacity-0"
               type="file"
@@ -147,15 +140,16 @@ const Form = () => {
               onChange={handleImageChange}
               placeholder="Upload"
             />
+            </div>
             {imagePreview && (
-              <div className="w-full flex h-24 xl:h-full items-center bg-black justify-center">
+              <div className="relative w-full flex h-20 xl:h-full items-center bg-black justify-center">
                 <img
                   src={imagePreview}
                   alt="Selected Image"
                   className="w-full h-full object-cover z-10 "
                 />
                 <button
-                  className=" z-30 absolute w-7 h-7 rounded-full bg-red-700 top-2 right-2 text-slate-200 hover:border-2"
+                  className="z-10 top-3 right-3 absolute w-10 h-10 rounded-full bg-red-700 text-slate-200 border-2 hover:border-4"
                   onClick={resetImage}
                 >
                   X

@@ -3,8 +3,8 @@ import React from "react";
 
 const Activity = ({ selectOptions, handleChange, activity, setActivity }) => {
   return (
-    <div className="Box flex items-center justify-between  text-black w-[400px] h-14 border-b-2 border-[#5C675F] rounded-xl backdrop-filter-blur">
-      <h2 className="w-[30%] flex ml-[10px] text-black font-semibold">Activity Type:</h2>
+    <div className="w-full h-14 flex items-center justify-between text-black border-b-2 border-[#5C675F] rounded-xl backdrop-filter-blur">
+      <h2 className="md:w-[30%] flex ml-[10px] text-black font-semibold">Activity Type:</h2>
       <select
         value={selectOptions}
         onChange={(e) => {
