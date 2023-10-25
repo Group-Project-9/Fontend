@@ -2,8 +2,8 @@ import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';  // Use to get Current User
 
-import LogoDT from '../assets/icon-dt-small.png';
-import LogoMB from '../assets/icon-mb-small.png';
+import LogoDT from '../Assets/icon-dt-small.png';
+import LogoMB from '../Assets/icon-mb-small.png';
 import RoofingIcon from '@mui/icons-material/Roofing';
 
 import InsightsIcon from '@mui/icons-material/Insights';

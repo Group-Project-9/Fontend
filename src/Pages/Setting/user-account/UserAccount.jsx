@@ -1,4 +1,4 @@
-import ImgAvatar from "../../../assets/avatar-defult.svg";
+import ImgAvatar from "../../../Assets/avatar-defult.svg";
 import React, { useState } from 'react';
 
 const UserAccountSettings = () => {
