@@ -14,7 +14,7 @@ import PrivateRoute from "../Components/PrivateRoute";
 
 import Form from "../Pages/Form/Form";
 import Login from "../Pages/Login/Login";
-import Record from "../pages/Record/Record";
+import Record from "../Pages/Record/Record";
 import NotFound from "../Components/NotFound";
 
 // eslint-disable-next-line react-refresh/only-export-components
