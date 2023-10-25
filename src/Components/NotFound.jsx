@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className="bg-gray-100 rounded-2xl w-full h-full ">
+    <div className="bg-gray-100 rounded-2xl w-full h-full flex items-center justify-center">
       {/* container */}
       <div className="flex flex-col w-full justify-center items-center py-10 ">
         <h1 className="text-5xl md:text-7xl xl:text-9xl text-inherit mb-10">

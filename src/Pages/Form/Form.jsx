@@ -12,7 +12,7 @@ import Note from "./Activity/Note";
 import Location from "./Activity/Location";
 import BtnSave from "./Activity/ButtonSave";
 
-// import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const Form = () => {
 
@@ -133,6 +133,7 @@ const Form = () => {
             flex items-center justify-center bg-stone-500 hover:opacity-80 cursor-pointer"
           >
             <h1 className="font-bold text-white">Upload Image</h1>
+            <CloudUploadIcon className="text-white ms-4" />
             <input
               className="w-full h-full absolute inset-0 opacity-0"
               type="file"

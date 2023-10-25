@@ -6,15 +6,46 @@ import { useEffect, useState } from 'react';
 const Home = () => {
 
   const { currentUser } = useSelector((state) => state.user);
+  
   const [day, setDay] = useState([]);
   const [information, setInformation] = useState([]);
+  const [totalDay, setTotalday] = useState(0);
+  const [error, setError]  = useState(null);
 
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  
   useEffect(() => {
-     async function fetchData() {
-      const response = await fetch(`/api/record_by/user_record?email=${currentUser.email}`);
-      const data = await response.json();
 
-      console.log(data);
+    const currentDate = new Date();
+    const reparateData = [
+      daysOfWeek[currentDate.getDay()],
+      monthsOfYear[currentDate.getMonth()],
+      currentDate.getDate(),
+      currentDate.getHours(),
+      currentDate.getMinutes()
+    ];
+    console.log(`Cur Date: ${currentDate}`)
+    console.log(`repa Date: ${reparateData}`)
+
+     async function fetchData() {
+      try {
+        const response = await fetch(`/api/record_by/user_record?email=${currentUser.email}`);
+        const data = await response.json();
+        setTotalday(data.length)
+        console.log(data);
+
+        if (data.status === 200) {
+          setError(data.message);
+          return;
+        }
+
+      } catch (error) {
+        setError(error.message);
+        
+      }
+
+
       // const day = data.map((item) => item.day);
       // const information = data.map((item) => item.information);
       // setDay(day);
@@ -37,7 +68,7 @@ const Home = () => {
           <div>
             <div className='flex flex-col gap-2 items-center justify-center w-40 h-40 md:w-44 md:h-44 rounded-full border-4 bg-black'>
               <p className='text-xl text-white'>Total Day</p>
-              <h1 className='text-5xl font-bold text-white'>{`1`}</h1>
+              <h1 className='text-5xl font-bold text-white'>{totalDay}</h1>
             </div>
           </div>
         </article>
@@ -45,6 +76,7 @@ const Home = () => {
       <section className="w-full h-4/6 bg-transparent rounded-2xl p-4">
         <article className="w-full h-full flex items-center justify-center">
           <DataVizOverAll day={day} information={information}/>
+          {error && <p className='text-red-500 mt-5'>{error}</p>}
         </article>
       </section>
     </main>
