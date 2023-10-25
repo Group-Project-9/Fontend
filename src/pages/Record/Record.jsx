@@ -5,7 +5,7 @@ import { RiEditFill } from "react-icons/ri";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
-import "./Record.css";
+import "./style.css";
 
 const Record = () => {
   const { currentUser } = useSelector((state) => state.user); // Use to get Current User
