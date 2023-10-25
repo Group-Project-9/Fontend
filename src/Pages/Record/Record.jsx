@@ -68,6 +68,31 @@ const Record = () => {
       });
   }, [currentUser.email, deleteConfirmation]);
 
+  const handleEdit = async (recordId) => {
+    const actitvity = {
+      _id: recordId,
+    };
+
+    try {
+      const request = await fetch(`/api/record_by/user_update_record/${actitvity._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(actitvity),
+      });
+
+      const data = await request.json();
+      setDeleteConfirmation(!deleteConfirmation);
+      if (data.success === false) {
+        console.log('Update successful')
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleDelete = async (recordId) => {
     const actitvity = {
       _id: recordId,
@@ -96,7 +121,7 @@ const Record = () => {
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">
       <div className="ซ้าย w-3/4 h-full relative border">
-        <div className="flex w-full h-20 shadow-xl justify-between items-center px-10">
+        <div className="flex w-full h-20 shadow-xl justify-between items-center px-10 mb-4">
           <h1 className=" text-4xl font-semibold text-gray-900 border">
             Habit and Activity
           </h1>
@@ -215,7 +240,11 @@ const Record = () => {
                         />
                       </label>
 
-                      <button onClick={() => handleSubmit(record._id)} type="submit" className="btn absolute bottom-6">
+                      <button 
+                        onClick={() => handleEdit(record._id)} 
+                        type="submit" 
+                        className="btn absolute bottom-6"
+                      >
                         Update
                       </button>
                     </form>
@@ -238,7 +267,7 @@ const Record = () => {
                   onClick={() =>
                     document.getElementById("my_modal_1").showModal()
                   }
-                  className="ซ้าย  relative w-1/2 h-full bg-sky-500 p-3 flex flex-col justify-start"
+                  className="ซ้าย  relative w-3/5 h-full bg-stone-700 p-3 flex flex-col justify-start "
                 >
                   <p className="text-white left-0 font-semibold">
                     {record.activity}
