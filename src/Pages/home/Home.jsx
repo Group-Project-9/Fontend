@@ -53,8 +53,8 @@ const Home = () => {
         setTotalMinutes(totalTime % 60);
 
         // graph time spend last 7 day
-        const day = data.map((item) => item.day);
-        const information = data.map((item) => item.information);
+        const day = data.map((item) => item.date);
+        const information = data.map((item) => item.minute);
         setDay(day);
         setInformation(information);
 
@@ -99,7 +99,7 @@ const Home = () => {
       </section>
       <section className="w-full h-4/6 bg-transparent rounded-2xl p-4">
         <article className="w-full h-full flex items-center justify-center">
-          <DataVizOverAll day={daysOfWeek}/>
+          <DataVizOverAll day={day} information={information}/>
           {error && <p className='text-red-500 mt-5'>{error}</p>}
         </article>
       </section>
