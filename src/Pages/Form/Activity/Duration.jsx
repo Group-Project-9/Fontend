@@ -31,7 +31,6 @@ const Duration = ({ hour, minute , setHour, setMinute}) => {
           name="minutes"
           min="0"
           max="59"
-          required
         />
         <label
           className="text-black flex items-center font-semibold  ml-2"
