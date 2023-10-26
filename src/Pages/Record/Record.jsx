@@ -105,7 +105,7 @@ const Record = () => {
 
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">
-      <div className="ซ้าย w-3/4 h-full relative border">
+      <div className="ซ้าย w-ull xl:w-3/4 h-full relative border">
         <div className="flex w-full h-20 shadow-xl justify-between items-center px-10 mb-4 bg-stone-700 rounded-2xl xl:rounded-l-2xl">
           <h1 className=" text-xl md:text-2xl text-4xl font-semibold text-white">
             Habit and Activity
@@ -294,7 +294,7 @@ const Record = () => {
           )}
         </div>
       </div>
-      <div className="ขวา w-1/4 h-full border rounded-r-3xl overflow-hidden">
+      <div className="ขวา w-1/4 h-full border rounded-r-3xl overflow-hidden hidden xl:inline">
         <img
           className="w-full h-full object-cover"
           src="https://i.ibb.co/tKFDsXy/Screenshot-2023-10-23-225025.png"
