@@ -64,7 +64,7 @@ const Record = () => {
 
   useEffect(() => {
     axios
-      .get("/api/record/read")
+      .get("https://backend-project-final.onrender.com/api/record/read")
       .then((response) => {
         // Filter data based on currentUser.email
         const filteredData = response.data.filter(
@@ -92,7 +92,7 @@ const deleteRecord = async (recordId) => {
   };
 
   try {
-    const request = await fetch("/api/record_by/user_delete_Record", {
+    const request = await fetch("https://backend-project-final.onrender.com/api/record_by/user_delete_Record", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

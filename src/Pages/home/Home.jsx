@@ -38,7 +38,7 @@ const Home = () => {
 
      async function fetchData() {
       try {
-        const response = await fetch(`/api/record_by/user_record?email=${currentUser.email}`);
+        const response = await fetch(`https://backend-project-final.onrender.com/api/record_by/user_record?email=${currentUser.email}`);
         const data = await response.json();
         setTotalday(data.length)
 

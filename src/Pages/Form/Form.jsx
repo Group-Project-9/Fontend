@@ -40,7 +40,7 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const apiUrl = "/api/record/add";
+    const apiUrl = "https://backend-project-final.onrender.com/api/record/add";
     const duration = (parseFloat(hour) * 60) + parseFloat(minute);
 
     const dataToSend = {

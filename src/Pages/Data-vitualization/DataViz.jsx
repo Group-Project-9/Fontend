@@ -9,7 +9,7 @@ import {
 } from 'chart.js';
 
 import { Line } from 'react-chartjs-2';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 
 // When registering plugins, use the ChartJS instance, not 'ChartJS' itself.
@@ -17,7 +17,7 @@ ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Legend, 
 
 const DataVizOverAll = ({ day, information }) => {
 
-  const { currentUser } = useSelector((state) => state.user); 
+  // const { currentUser } = useSelector((state) => state.user); 
 
   // const daysOfWeek = Object.keys(day);
   const dataOfdays = Object.values(day);
