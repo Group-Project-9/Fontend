@@ -23,8 +23,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-    console.log(formData);
-    const { password, confirmPassword } = formData;
+    const { password, confirmPassword, email } = formData;
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+    
     if (password !== confirmPassword) {
       setMatchPassword(false)
       return;
@@ -34,10 +41,12 @@ const Register = () => {
       return;
     }
 
-    if (password.length < 8) { // add this condition to check password length
+    if (password.length < 8) {
       setError('Password must be at least 8 characters long');
       return;
     }
+
+
     setMatchPassword(true)
     setSelectGender(true)
     console.log(formData);
