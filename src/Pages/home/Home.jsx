@@ -11,6 +11,8 @@ const Home = () => {
   const [information, setInformation] = useState([]);
   const [totalDay, setTotalday] = useState(0);
   const [error, setError]  = useState(null);
+  const [totalHours, setTotalHours] = useState([]);
+  const [totalMinutes, setTotalMinutes] = useState([]);
 
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -35,6 +37,23 @@ const Home = () => {
         setTotalday(data.length)
         console.log(data);
 
+        //info for record header
+        const totalTime = data.reduce((total, current) => total + current.minute, 0);
+        setTotalHours(Math.floor(totalTime/60))
+        setTotalMinutes(totalTime % 60)
+
+        //info for graph last 7 day
+        /* const lastSevenDay = data.slice(-7);
+        const day = lastSevenDay.map((item) => item.date);
+        const information = lastSevenDay.map((item) => item.minute);
+        setDay(day);
+        setInformation(information);  */
+
+        const day = lastSevenDay.map((item) => item.date);
+        const information = lastSevenDay.map((item) => item.minute);
+        setDay(day);
+        setInformation(information); 
+
         if (data.status === 200) {
           setError(data.message);
           return;
@@ -45,11 +64,6 @@ const Home = () => {
         
       }
 
-
-      // const day = data.map((item) => item.day);
-      // const information = data.map((item) => item.information);
-      // setDay(day);
-      // setInformation(information);
      }
 
     fetchData();
@@ -61,9 +75,9 @@ const Home = () => {
         <article className="w-full md:w-3/4 h-full flex justify-between items-center px-3 xl:px-5">
           <div className='flex flex-col items-start'>
             <FitnessCenterIcon sx={{ fontSize: 100 }} className="text-black mx-2" />
-            <h1 className='xl:text-3xl text-black font-bold'>Total hours of exercise per week</h1>
+            <h1 className='xl:text-3xl text-black font-bold'>Total exercise record times</h1>
             <div className='h-[2px] w-full bg-black my-1'></div>
-            <p className='text-black text-xl my-2'>{`1`} hour {`50`} minutes</p>
+            <p className='text-black text-xl my-2'>{totalHours} hour {totalMinutes} minutes</p>
           </div>
           <div>
             <div className='flex flex-col gap-2 items-center justify-center w-40 h-40 md:w-44 md:h-44 rounded-full border-4 bg-black'>
