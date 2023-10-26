@@ -15,14 +15,15 @@ import { useSelector } from 'react-redux';
 // When registering plugins, use the ChartJS instance, not 'ChartJS' itself.
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Legend, Tooltip);
 
-const DataVizOverAll = ({ day }) => {
+const DataVizOverAll = ({ day, information }) => {
 
   const { currentUser } = useSelector((state) => state.user); 
 
-  const daysOfWeek = Object.keys(day);
+  // const daysOfWeek = Object.keys(day);
   const dataOfdays = Object.values(day);
-
-  const record = [6, 4, 6, 4, 5, 2, 7]
+  
+  const daysOfWeek = day;
+  const record = information;
   
   const data = {
     labels: daysOfWeek,
