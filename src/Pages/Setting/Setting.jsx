@@ -1,6 +1,10 @@
 import { signOutUserStart, signOutUserSuccess, signOutUserFailure } from "../../App/User/userSlice.js";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import userAccout from "../../Assets/UserAcount.png";
+import Protech from "../../Assets/Protech.png";
+import Operator from "../../Assets/Operator.png";
+import Logout from "../../Assets/Logout.png";
 
 
 const Setting = () => {
@@ -44,19 +48,19 @@ const Setting = () => {
 
           {/* user accout */}
           <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4 ">
-  <img src="src/pages/Setting/iicon/user (2).png" alt="user-icon" className="p-6 max-lg:hidden" />
+  <img src={userAccout} alt="user-icon" className="p-6 max-lg:hidden" />
   <a href="/settings/user-account" className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-stone-800 transition-all duration-500">User Account</a>
 </div>
 
           {/* security setting */}
           <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
-  <img src="src/pages/Setting/iicon/security.png" alt="security-icon" className="p-6 max-lg:hidden" />
+  <img src={Protech} alt="security-icon" className="p-6 max-lg:hidden" />
   <a href="/settings/security-setting" className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-stone-800 transition-all duration-500">Security Setting</a>
 </div>
 
           {/* help support */}
           <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
-  <img src="src/pages/Setting/iicon/customer-service-agent.png" alt="support-icon" className="p-6 max-lg:hidden" />
+  <img src={Operator} alt="support-icon" className="p-6 max-lg:hidden" />
   <a href="/settings/help-support" className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-stone-800 transition-all duration-500">Help & Support</a>
 </div>
 
@@ -65,7 +69,7 @@ const Setting = () => {
           {/* log out */}
         <div className="flex flex-wrap justify-center">
         <div className="flex flex-col bg-white rounded-lg shadow-md w-52 m-3 overflow-hidden lg:w-36 lg:m-1 xl:w-56 xl:m-4">
-  <img src="src/pages/Setting/iicon/turn-off.png" alt="logout-icon" className="p-6 max-lg:hidden" />
+  <img src={Logout} alt="logout-icon" className="p-6 max-lg:hidden" />
   <button 
     onClick={handleSignOut}
     className="bg-stone-400 text-white p-3 text-sm xl:text-xl text-center hover:bg-red-500 transition-all duration-500"
