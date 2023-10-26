@@ -48,7 +48,7 @@ const Login = () => {
     dispatch(loginRequest());
 
     try {
-      const request = await fetch('/api/auth/signin', {
+      const request = await fetch('https://backend-project-final.onrender.com/api/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

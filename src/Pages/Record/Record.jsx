@@ -41,7 +41,7 @@ const Record = () => {
       };
     
       try {
-        const request = await fetch(`/api/record_by/user_update_record/${updatedData._id}`, {
+        const request = await fetch(`https://backend-project-final.onrender.com/api/record_by/user_update_record/${updatedData._id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

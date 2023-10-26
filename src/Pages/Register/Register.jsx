@@ -53,7 +53,7 @@ const Register = () => {
 
     try {
       setLoading(true);
-      const request = await fetch('/api/auth/signup', {
+      const request = await fetch('https://backend-project-final.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ const Setting = () => {
 
     try {
       dispatch(signOutUserStart());
-      const res = await fetch('/api/auth/signout/');
+      const res = await fetch('https://backend-project-final.onrender.com/api/auth/signout/');
       const data = await res.json();
       if (data.success === false) {
         dispatch(signOutUserFailure(data.message));
