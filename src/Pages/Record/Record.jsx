@@ -78,30 +78,39 @@ const Record = () => {
   }, [currentUser.email, deleteConfirmation]);
 
 
-  const handleDelete = async (recordId) => {
-    const actitvity = {
-      _id: recordId,
-    };
+ const handleDelete = (recordId) => {
+  const confirmation = window.confirm("Are you sure you want to delete this record?");
+  
+  if (confirmation) {
+    deleteRecord(recordId);
+  }
+};
 
-    try {
-      const request = await fetch("/api/record_by/user_delete_Record", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(actitvity),
-      });
-
-      const data = await request.json();
-      setDeleteConfirmation(!deleteConfirmation);
-      if (data.success === false) {
-        console.log("Delete successful");
-        return;
-      }
-    } catch (error) {
-      console.log(error);
-    }
+const deleteRecord = async (recordId) => {
+  const actitvity = {
+    _id: recordId,
   };
+
+  try {
+    const request = await fetch("/api/record_by/user_delete_Record", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(actitvity),
+    });
+
+    const data = await request.json();
+    setDeleteConfirmation(!deleteConfirmation);
+    if (data.success === false) {
+      console.log("Delete successful");
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">
