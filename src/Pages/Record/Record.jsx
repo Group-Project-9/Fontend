@@ -36,7 +36,6 @@ const Record = () => {
         _id: selectedRecordId,
         ...formData,
       };
-      console.log(updatedData);
     
       try {
         const request = await fetch(`/api/record_by/user_update_record/${updatedData._id}`, {
@@ -47,27 +46,18 @@ const Record = () => {
           body: JSON.stringify(updatedData),
         });
     //
-        if (request.ok) {
+        if (request.status === 200) {
           const response = await request.json();
-          setUpdate(!update)
-          if (response.success) {
-            console.log("Record updated successfully");
-            setUpdate(!update)
+          location.reload();
+
           } else {
-            console.error("Update failed:", response.error);
+            console.error("Update failed");
           }
-        } else {
-          console.error("Update failed. Server returned an error status:", request.status);
-        }
+       
       } catch (error) {
         console.error("API Error:", error);
       }
     };
-
-
-
-
-  
 
   useEffect(() => {
     axios
