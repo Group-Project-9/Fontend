@@ -41,7 +41,6 @@ const Home = () => {
         const response = await fetch(`/api/record_by/user_record?email=${currentUser.email}`);
         const data = await response.json();
         setTotalday(data.length)
-        console.log(data);
 
         if (data.status === 200) {
           setError(data.message);

@@ -9,7 +9,7 @@ const Security_setting = () => {
         </article>
         <article className="w-4/5 h-[70%] border-4 rounded-xl">
           <form className="w-full h-full flex flex-col items-center justify-center text-white gap-4">
-            <div className="w-1/2 flex flex-col">
+            <div className="w-4/5 md:w-1/2 flex flex-col">
               <label 
                 htmlFor="oldpass"
                 className="font-bold">Previous Password:</label>
@@ -20,7 +20,7 @@ const Security_setting = () => {
                 placeholder="Previous Password . . ." 
               />
             </div>
-            <div className="w-1/2 flex flex-col">
+            <div className="w-4/5 md:w-1/2 flex flex-col">
               <label htmlFor="newpass" className="font-bold">New Password:</label>
               <input 
                 type="password" 
@@ -28,7 +28,7 @@ const Security_setting = () => {
                 placeholder="New Password . . ." 
                 className="w-full h-12 p-2 rounded-xl text-black bg-white"/>
             </div>
-            <div className="w-1/2 flex flex-col">
+            <div className="w-4/5 md:w-1/2 flex flex-col">
               <label htmlFor="newpass-con" className="font-bold">Comfirm New Password:</label>
               <input 
                 type="password" 
