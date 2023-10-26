@@ -3,6 +3,7 @@ import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../App/User/userSlice";
 import { useNavigate } from "react-router-dom";
+import GoogleIcon from '@mui/icons-material/Google';
 
 const GoogleAuth = () => {
 
@@ -41,8 +42,9 @@ const GoogleAuth = () => {
         <button 
             type="button"
             onClick={handleGoogleAuth}
-            className="bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95">
-            Continue with Google
+            className="bg-red-700 text-white p-3 rounded-lg uppercase hover:bg-red-400 flex items-center justify-center">
+            <p className="font-bold me-2">Continue with </p>
+            <GoogleIcon />
         </button>
   )
 }

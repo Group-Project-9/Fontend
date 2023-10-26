@@ -31,7 +31,8 @@
     "react-slideshow-image": "^4.2.1",
     "redux-persist": "^6.0.0",
     "sort-by": "^0.0.2",
-    "swiper": "^10.2.0"
+    "swiper": "^10.2.0",
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

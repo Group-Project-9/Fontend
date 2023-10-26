@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 // import GoogleIcon from '@mui/icons-material/Google';
 import GoogleAuth from "../../Components/GoogleAuth";
+// import validator from 'validator'
 
 const Register = () => {
   const [formData, setFormData] = useState({});
@@ -18,6 +19,7 @@ const Register = () => {
     })
   };
 
+
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -29,6 +31,11 @@ const Register = () => {
     }
     if (!Object.prototype.hasOwnProperty.call(formData, 'gender')) {
       setSelectGender(false)
+      return;
+    }
+
+    if (password.length < 8) { // add this condition to check password length
+      setError('Password must be at least 8 characters long');
       return;
     }
     setMatchPassword(true)

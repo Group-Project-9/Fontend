@@ -6,6 +6,10 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import "./Record.css";
+// import Running from "../../Assets/running.jpg";
+// import Weight from "../../Assets/weight.jpg";
+// import Yoga from "../../Assets/yoga.jpg";
+import Defualt from "../../Assets/defualt.png";
 
 const Record = () => {
   const { currentUser } = useSelector((state) => state.user); // Use to get Current User
@@ -13,9 +17,8 @@ const Record = () => {
   const [data, setData] = useState([]);
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const [formData, setFormData] = useState({});
-  const [selectedRecordId, setSelectedRecordId] = useState(null);
-  const [update ,setUpdate] = useState(false);
-
+  const [selectedRecordId, setSelectedRecordId] = useState(undefined);
+  // const [update ,setUpdate] = useState(false);
 
   const getID = (e) => {
     setSelectedRecordId(e);
@@ -47,7 +50,7 @@ const Record = () => {
         });
     //
         if (request.status === 200) {
-          const response = await request.json();
+          // const response = await request.json();
           location.reload();
 
           } else {
@@ -103,8 +106,8 @@ const Record = () => {
   return (
     <div className="แยก1.ซ้าย 2.ขวา หน้าทั้งหมดของRecord w-full h-full overflow-hidden flex">
       <div className="ซ้าย w-3/4 h-full relative border">
-        <div className="flex w-full h-20 shadow-xl justify-between items-center px-10 mb-4">
-          <h1 className=" text-4xl font-semibold text-gray-900 border">
+        <div className="flex w-full h-20 shadow-xl justify-between items-center px-10 mb-4 bg-stone-700 rounded-2xl xl:rounded-l-2xl">
+          <h1 className=" text-xl md:text-2xl text-4xl font-semibold text-white">
             Habit and Activity
           </h1>
           <NavLink
@@ -117,7 +120,6 @@ const Record = () => {
         <div
           className="activity-for-scroll relative w-100 w-full h-auto flex flex-wrap p-10 pt-5 pb-24 justify-start items-start gap-6"
           style={{
-            height: "100%",
             overflowY: "scroll",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -127,7 +129,7 @@ const Record = () => {
             data.map((record, index) => (
               <div
                 key={index}
-                className="กล่องactivity มี1.ซ้าย2.ขวา แนวนอน relative cursor-pointer shadow-xl rounded-2xl w-[250px] flex overflow-hidden h-[175px] group"
+                className="กล่องactivity มี1.ซ้าย2.ขวา แนวนอน relative cursor-pointer shadow-xl rounded-2xl w-[250px] flex overflow-hidden h-[175px] group hover:border-4 border-gray-500"
               >
                 <dialog id="my_modal_1" className="modal">
                   <div className="modal-box w-auto bg-rose-200 relative">
@@ -195,7 +197,6 @@ const Record = () => {
                           name="minute"
                           min="0"
                           max="59"
-                          required
                           onChange={handleChange}
                         />
                         <label
@@ -277,7 +278,8 @@ const Record = () => {
                 >
                   <img
                     className="h-full object-cover"
-                    src="https://i.ibb.co/DwB2b7B/Screenshot-2023-10-23-222636.png"
+                    // FIX HERE
+                    src={Defualt}
                     alt={record.activity}
                   />
                 </div>

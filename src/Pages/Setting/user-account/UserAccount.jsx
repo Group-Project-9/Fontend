@@ -4,6 +4,7 @@ import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/
 import { app } from "../../../firebase";
 import { updateUserStart, updateUserSuccess, updateUserFailure } from '../../../App/User/userSlice.js';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const UserAccountSettings = () => {
 
@@ -89,7 +90,12 @@ const UserAccountSettings = () => {
     <main className="w-full h-full flex flex-col items-center justify-center p-3">
         <section className="w-full h-full flex flex-col items-center justify-center gap-10 p-3">
           <article className="w-full h-24 flex items-center justify-center bg-white rounded-2xl">
-            <h1 className="text-3xl font-bold text-black">Edit Profile</h1>
+            <div className='w-[40%]'>
+              <Link to="/settings" className='text-3xl font-bold text-black'>{`<`}</Link>
+            </div>
+            <div className='w-[50%]'>
+              <h1 className="text-3xl font-bold text-black">Edit Profile</h1>
+            </div>
           </article>
           <article className="w-full h-full flex flex-col items-center justify-center bg-[#A4826E] px-2 py-5 rounded-2xl">
             <form 

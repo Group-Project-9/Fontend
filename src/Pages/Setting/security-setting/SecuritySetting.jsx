@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 
 const Security_setting = () => {
   return (
@@ -36,8 +36,9 @@ const Security_setting = () => {
                 placeholder="Comfirm New Password . . ." 
                 className="w-full h-12 p-2 rounded-xl text-black bg-white"/>
             </div>
-            <button type="submit"
-            className="w-1/2 h-12 p-2 rounded-xl text-black bg-gray-800 hover:bg-stone-500 text-white font-bold mt-3" >Submit</button>
+            <Link type="submit"
+              to="/settings"
+            className="w-1/2 h-12 p-2 rounded-xl text-black bg-gray-800 hover:bg-stone-500 text-white font-bold mt-3 text-center pt-3" >Submit</Link>
           </form>
         </article>
       </section>

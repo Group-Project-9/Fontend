@@ -6,6 +6,7 @@ import LogoMB from '../../Assets/icon-mb.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest, loginSuccess, loginFailure } from '../../App/User/userSlice';
 import GoogleAuth from "../../Components/GoogleAuth";
+import videoBG from "../../Assets/Video_BG2.mp4";
 
 const Login = () => {
 
@@ -31,6 +32,8 @@ const Login = () => {
           window.removeEventListener("resize", handleLogoChange);
       };
   }, []);
+
+
 
   const handleChange = (e) => {
     setFormData({
@@ -74,7 +77,8 @@ const Login = () => {
     <div   
       className='w-full md:w-4/5 lg:w-2/4 xl:h-full flex text-center justify-center sm:bg-gradient-to-r from-sky-400 from-10% via-sky-500 via-30% to-blue-500 to-90% rounded-xl mb-5 sm:mb-0 md:mb-5'
     >
-      <img src={logo} alt="logo-webpage" className='w-full '/>
+      <img src={logo} alt="background-logo" className='absolute top-48 w-40 md:top-[15vh] xl:top-40 object-cover md:w-48 xl:w-fit' />
+      <video src={videoBG} autoPlay loop muted className='w-full h-full object-cover'></video>
     </div>
     <div 
       className='w-full lg:w-[50%] flex flex-col items-center justify-start'
